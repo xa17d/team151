@@ -9,7 +9,7 @@ public class Test {
 	 * fuehrt eine Testroutine durch
 	 */
 	public static void main(String[] args) {
-		// Test
+		// Test 2
 		Date d = new Date();
 		Calendar c = Calendar.getInstance();
 		
