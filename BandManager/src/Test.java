@@ -2,8 +2,6 @@ import java.util.*;
 
 //HALLO WELT!!!!
 
-//Hallo welt 2
-
 /**
  * Testprogramm
  */
