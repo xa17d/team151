@@ -5,7 +5,6 @@
  *
  * @version 1.0
  */
-import java.util.*;
 import java.text.*;
 
 public abstract class Appointment {
