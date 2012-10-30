@@ -82,6 +82,11 @@ public abstract class Appointment {
 		this.memberList = memberList;
 	}
 	
+	/**
+	 * Gibt eine Liste mit allen Songs die die aktuellen Teilnehmer dieses Treffens zu einem bestimmten Zeitpunkt spielen konnten
+	 * @param time Zeitpunkt, darf nich null sein
+	 * @return Liste, ist niemals null, kann aber leer sein
+	 */
 	public ArrayList<Song> getRepertoire(Date time)
 	{
 		ArrayList<Member> members = getMemberList();
@@ -92,20 +97,15 @@ public abstract class Appointment {
 			ArrayList<Song> memberSongs = member.listSongs(time);
 			if (first)
 			{
-				// Repertoire des ersten Members in die Liste aufnehmen
 				repertoire.addAll(memberSongs);
 				first = false;
 			}
 			else
 			{
-				// fuer jeden Song im noch uebrigen Repertoire pruefen ob
-				// dieses Member ihn spielen kann
 				for (int i = 0; i < repertoire.size(); i++) {
 					Song song = repertoire.get(i);
 					if (!memberSongs.contains(song))
 					{
-						// falls das Mitglied diesen Song nicht Spielen kann:
-						// aus dem Repertoire entfernen
 						repertoire.remove(i);
 						i--;
 					}
