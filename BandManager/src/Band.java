@@ -146,6 +146,8 @@ public class Band {
 	 * @param duration Dauer
 	 * @param money Gage
 	 */
+	//Gig = gueltiger Gig laut Konstruktor (precondition)
+	//appList.add (history-constraint: Server)
 	public void addGig(Gig gig) {
 		appList.add(gig);
 	}
@@ -157,6 +159,8 @@ public class Band {
 	 * @param duration Dauer
 	 * @param money Miete
 	 */
+	//rehearsal = gueltige Rehearsal laut Konstruktor (precondition)
+	//appList.add (history-constraint: Server)
 	public void addRehearsal(Rehearsal rehearsal) {
 		appList.add(rehearsal);
 	}
@@ -167,6 +171,7 @@ public class Band {
 	 * @param dateTo Enddatum des Zeitraums
 	 * @return Auflistung der Auftritte und Proben
 	 */
+	//dateFrom & dateTo = gueltiges Datum (precondition)
 	public ArrayList<Appointment> listAppointment(Date dateFrom, Date dateTo) {
 		ArrayList<Appointment> ret = new ArrayList<Appointment>();
 		
@@ -184,6 +189,7 @@ public class Band {
 	 * @param dateTo Enddatum des Zeitraums
 	 * @return Auflistung der Auftritte
 	 */
+	//dateFrom & dateTo = gueltiges Datum (precondition)
 	public ArrayList<Appointment> listGig(Date dateFrom, Date dateTo) {
 		ArrayList<Appointment> ret = new ArrayList<Appointment>();
 		
@@ -201,6 +207,7 @@ public class Band {
 	 * @param dateTo Enddatum des Zeitraums
 	 * @return Auflistung der Proben
 	 */
+	//dateFrom & dateTo = gueltiges Datum (precondition)
 	public ArrayList<Appointment> listRehearsal(Date dateFrom, Date dateTo) {
 		ArrayList<Appointment> ret = new ArrayList<Appointment>();
 		
@@ -224,14 +231,17 @@ public class Band {
 	 * @param duration
 	 * @param money
 	 */
+	//app muss ein gueltiger Gig bzw. Rehearsal sein, location = gueltige Location, dBegin = gueltiges Datum, duration >= 0, cash >= 0 (precondition)
 	public void changeAppointment(Appointment app, Location location, Date dBegin, long duration, long cash){
 		appList.get(appList.indexOf(app)).addChange(location, dBegin, duration, cash, app.isCanceled());
 	}
 	
 	/**
-	 * Absagen eines Appointments durch aufrufen der Appointment Methode
+	 * Absagen eines Appointments durch aufrufen der changeAppointment Methode mit dem akutellen Appointment
+	 * danach wird es gecaneled. Somit kann ein canceln ebenfalls wieder rueckgaengig gemacht werden.
 	 * @param app
 	 */
+	//Bei app muss es sich um ein existierendes Appointment in der List appList handeln (precondition)
 	public void cancelAppointment(Appointment app){
 		appList.get(appList.indexOf(app)).addChange(app.getLocation(), app.getdBegin(), app.getDuration(), app.getCash(), app.isCanceled());
 		appList.get(appList.indexOf(app)).setCanceled(true);
@@ -244,6 +254,7 @@ public class Band {
 	 * @param id zu suchende Id
 	 * @return Appointment, wenn nicht gefunden -1
 	 */
+	// SCHLECHT: unused
 	public int getAppointmentIndex(int id){
 		for(int i = 0; i < appList.size(); i++){
 			if(appList.get(i).getId() == id)
@@ -259,6 +270,7 @@ public class Band {
 	 * @param id
 	 * @return Appointment, wenn nicht gefunden null
 	 */
+	// SCHLECHT: unused
 	public Appointment getAppointment(int id){
 		for(Appointment app : appList){
 			if(app.getId() == id)
@@ -271,6 +283,8 @@ public class Band {
 	 * Stellt den Status vor der letzten Veraenderung wieder her
 	 * @param app
 	 */
+	// es muss sich um ein existierendes Appointment in der List appList handeln (precondition)
+	// Wenn ein Element noch nie veraendert wurde tritt eine ArrayIndexOutOfBoundsException auf. (postcondition)
 	public void undoAppointmentChange(Appointment app){
 		try{
 			appList.get(appList.indexOf(app)).undo();

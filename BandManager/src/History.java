@@ -3,6 +3,9 @@ import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * GUT: Generische Klasse fuer History so kann diese Klasse fuer Songs und Mitglieder verwendet werden, ohne doppelten Code zu verursachen
+ */
 public class History<T> {
 	
 	/**
