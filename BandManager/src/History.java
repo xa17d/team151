@@ -3,21 +3,17 @@ import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- * Kann mehrere Elemente speichern und die Elemente fuer jeden Zeitpunkt wieder zurueckgeben
- * @param <T> Typ der Elemente
- */
 public class History<T> {
 	
+	/**
+	 * Erzeugt eine neue History und gibt das neue Objekt zurueck
+	 */
 	public History()
 	{
 		historyMap = new TreeMap<Date, ArrayList<T>>();
 	}
 	
-	/**
-	 * in dieser TreeMap werden fuer jede Aenderung der Zeitpunkt und die enthaltenen Elemente gespeichert
-	 */
-	private TreeMap<Date, ArrayList<T>> historyMap;
+	private TreeMap<Date, ArrayList<T>> historyMap; // historyMap != null
 	
 	/**
 	 * Gibt den aktuellen Timestamp zurueck
@@ -78,7 +74,7 @@ public class History<T> {
 	/**
 	 * Gibt eine Liste mit den Elementen zurueck, die sich zum Zeitpunkt time in der History befunden haben.
 	 * @param time Zeitpunkt
-	 * @return Liste mit den Elementen zum Zeitpunkt time
+	 * @return Liste mit den Elementen zum Zeitpunkt time (ist niemals null, kann aber leer sein)
 	 */
 	public ArrayList<T> list(Date time)
 	{
@@ -89,10 +85,13 @@ public class History<T> {
 		}
 		else
 		{
-			return new ArrayList<T>(); // leere Liste
+			return new ArrayList<T>();
 		}
 	}
 
+	/**
+	 * Gibt alle in dieser History vorhandenen Elemente fuer jeden Zeitpunkt als String zurueck.
+	 */
 	@Override
 	public String toString() {
 		StringBuilder s = new StringBuilder();
