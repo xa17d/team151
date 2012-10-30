@@ -6,6 +6,8 @@
  * @version 1.0
  */
 import java.text.*;
+import java.util.ArrayList;
+import java.util.Date;
 
 public abstract class Appointment {
 	private Location location;
