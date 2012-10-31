@@ -5,6 +5,7 @@ import java.util.TreeMap;
 
 /**
  * GUT: Generische Klasse fuer History, damit kann diese Klasse fuer Songs und Mitglieder verwendet werden, ohne doppelten Code zu verursachen
+ * -> Objektkopplung schwach
  */
 public class History<T> {
 	

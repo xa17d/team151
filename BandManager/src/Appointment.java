@@ -106,11 +106,9 @@ public abstract class Appointment {
 		this.memberList = memberList;
 	}
 	
-	/**
-	 * Gibt eine Liste mit allen Songs die die aktuellen Teilnehmer dieses Treffens zu einem bestimmten Zeitpunkt spielen konnten
-	 * @param time Zeitpunkt, darf nich null sein
-	 * @return Liste, ist niemals null, kann aber leer sein
-	 */
+	
+	// Gibt eine Liste mit allen Songs die die aktuellen Teilnehmer dieses Treffens zu einem bestimmten Zeitpunkt spielen konnten (ist niemals null, kann aber leer sein) (postcondition)
+	// time: Zeitpunkt, darf nich null sein (precondition)
 	public ArrayList<Song> getRepertoire(Date time)
 	{
 		ArrayList<Member> members = getMemberList();
@@ -140,12 +138,6 @@ public abstract class Appointment {
 		return repertoire;
 	}
 
-	/**
-	 * Wird von den erweiternden Klassen ueberschrieben.
-	 * um die Geldbetraege hinzuzufuegen
-	 * 
-	 * @return Ort, Beginn-Datum, Dauer 
-	 */
 	@Override
 	public String toString(){
 		return getLocation() + " (" + dateFormat.format(getdBegin()) + 
