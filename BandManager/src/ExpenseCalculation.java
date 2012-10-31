@@ -1,8 +1,5 @@
 import java.util.*;
 
-/**
- * implementiert den Filter fuer sonstige Ausgaben
- */
 public class ExpenseCalculation extends Calculation {
 	private TreeMap<Date,OtherFinance> expenseMap = new TreeMap<Date,OtherFinance>();
 	private Date dateFrom;
@@ -11,22 +8,18 @@ public class ExpenseCalculation extends Calculation {
 	public ExpenseCalculation(TreeMap<Date,OtherFinance> expenseMap) {
 		setExpenseMap(expenseMap);
 	}
-	
-	/**
-	 * speichert Zeitraum und laesst Finanzen von Oberklasse berechnen
-	 */
+
+	//VB: dateFrom < dateTo;
 	public long getFinance(Date dateFrom, Date dateTo) {
 		this.dateFrom = dateFrom;
 		this.dateTo = dateTo;
 		
 		return super.getFinance(dateFrom, dateTo);
+		//NB: return >= 0;
 	}
-	
-	/**
-	 * filtert alle sonstigen Ausgaben
-	 * @return Liste alle Kostenpunkte
-	 */
+
 	public ArrayList<Long> filter() {
+		//IV: result !< 0;
 		ArrayList<Long> result = new ArrayList<Long>();
 		Collection<OtherFinance> finList = new ArrayList<OtherFinance>();
 		
@@ -37,8 +30,8 @@ public class ExpenseCalculation extends Calculation {
 		}
 		
 		return result;
+		//NB: result > 0;
 	}
 	
-	//SET
 	public void setExpenseMap(TreeMap<Date,OtherFinance> expenseMap) { this.expenseMap = expenseMap; }
 }

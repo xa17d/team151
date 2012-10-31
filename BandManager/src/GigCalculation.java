@@ -1,8 +1,5 @@
 import java.util.*;
 
-/**
- * implementiert den Filter fuer Konzerteinnahmen
- */
 public class GigCalculation extends Calculation {
 	private ArrayList<Appointment> appList = new ArrayList<Appointment>();
 	private Date dateFrom;
@@ -11,22 +8,18 @@ public class GigCalculation extends Calculation {
 	public GigCalculation(ArrayList<Appointment> appList) {
 		setAppList(appList);
 	}
-	
-	/**
-	 * speichert Zeitraum und laesst Finanzen von Oberklasse berechnen
-	 */
+
+	//VB: dateFrom < dateTo;
 	public long getFinance(Date dateFrom, Date dateTo) {
 		this.dateFrom = dateFrom;
 		this.dateTo = dateTo;
 		
 		return super.getFinance(dateFrom, dateTo);
+		//NB: return >= 0;
 	}
-	
-	/**
-	 * filtert alle Konzerteinnahmen
-	 * @return Liste alle Kostenpunkte
-	 */
+
 	public ArrayList<Long> filter() {
+		//IV: result !< 0;
 		ArrayList<Long> result = new ArrayList<Long>();
 		
 		for(Appointment app : appList){
@@ -37,8 +30,8 @@ public class GigCalculation extends Calculation {
 		}
 		
 		return result;
+		//NB: result > 0;
 	}
 	
-	//SET
 	private void setAppList(ArrayList<Appointment> appList) { this.appList = appList; }
 }

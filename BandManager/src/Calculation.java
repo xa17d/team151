@@ -1,16 +1,9 @@
 import java.util.*;
 
-/**
- * berechnet einen bestimmten Typ von Einnahmen oder Ausgaben
- */
 public abstract class Calculation {
-	/**
-	 * summiert alle Kostenpunkte die das Filter aufgelistet hat
-	 * @param dateFrom Anfangsdatum
-	 * @param dateTo Enddatum
-	 * @return Summe aller Kostanpunkte
-	 */
+	//VB: dateFrom < dateTo;
 	public long getFinance(Date dateFrom, Date dateTo) {
+		//IV: sum !< 0;
 		ArrayList<Long> amountList = new ArrayList<Long>();
 		long sum = 0;
 		
@@ -19,12 +12,10 @@ public abstract class Calculation {
 		for(Long i : amountList)
 			sum += i;
 		
-		return sum;		
+		return sum;
+		//NB: sum >= 0;
 	}
 	
-	/**
-	 * filtert alle gewuenschten Kostenpunkte
-	 * @return Liste alle Kostenpunkte
-	 */
+	//GUT: Vererbung
 	public abstract ArrayList<Long> filter();
 }
