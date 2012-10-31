@@ -4,13 +4,11 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * GUT: Generische Klasse fuer History so kann diese Klasse fuer Songs und Mitglieder verwendet werden, ohne doppelten Code zu verursachen
+ * GUT: Generische Klasse fuer History, damit kann diese Klasse fuer Songs und Mitglieder verwendet werden, ohne doppelten Code zu verursachen
  */
 public class History<T> {
 	
-	/**
-	 * Erzeugt eine neue History und gibt das neue Objekt zurueck
-	 */
+	// Erzeugt eine neue History und gibt das neue Objekt zurueck (postcondition)
 	public History()
 	{
 		historyMap = new TreeMap<Date, ArrayList<T>>();
@@ -18,19 +16,13 @@ public class History<T> {
 	
 	private TreeMap<Date, ArrayList<T>> historyMap; // historyMap != null
 	
-	/**
-	 * Gibt den aktuellen Timestamp zurueck
-	 * @return aktueller Timestamp
-	 */
+	// Gibt den aktuellen Timestamp zurueck (postcondition)
 	private Date now()
 	{
 		return new Date();
 	}
 	
-	/**
-	 * Fuegt ein neues Element ein
-	 * @param item neues Element (darf nicht null sein)
-	 */
+	// Fuegt ein neues Element ein (history-constraint); item: neues Element (darf nicht null sein) (precondition)
 	public void add(T item)
 	{
 		if (item == null) { throw new IllegalArgumentException("item darf nicht null sein"); }
@@ -43,11 +35,9 @@ public class History<T> {
 		historyMap.put(now(), elementsNew);
 	}
 	
-	/**
-	 * Loescht ein Element
-	 * @param item zu loeschendes Element
-	 * @return true wenn das Element entfernt wurde, false falls die momentane Auflistung dieses Element nicht enthaelt.
-	 */
+	// Loescht ein Element (history-constraint)
+	// item: zu loeschendes Element (precondition)
+	// Ergebnis: true wenn das Element entfernt wurde, false falls die momentane Auflistung dieses Element nicht enthaelt. (postcondition)
 	public boolean delete(T item)
 	{
 		if (item == null) { return false; }
@@ -65,20 +55,14 @@ public class History<T> {
 		{ return false; }
 	}
 	
-	/**
-	 * Gibt eine Liste mit den momentan enthaltenen Elementen zurueck
-	 * @return Liste mit momentan enthaltenen Elementen
-	 */
+	// Gibt eine Liste mit den momentan enthaltenen Elementen zurueck (postcondition)
 	public ArrayList<T> list()
 	{
 		return list(now());
 	}
 	
-	/**
-	 * Gibt eine Liste mit den Elementen zurueck, die sich zum Zeitpunkt time in der History befunden haben.
-	 * @param time Zeitpunkt
-	 * @return Liste mit den Elementen zum Zeitpunkt time (ist niemals null, kann aber leer sein)
-	 */
+	// Gibt eine Liste mit den Elementen zurueck, die sich zum Zeitpunkt time in der History befunden haben (ist niemals null, kann aber leer sein) (postcondition)
+	// time: Zeitpunkt, darf nicht null sein (precondition)
 	public ArrayList<T> list(Date time)
 	{
 		Map.Entry<Date, ArrayList<T>> entry = historyMap.floorEntry(time);
@@ -92,9 +76,7 @@ public class History<T> {
 		}
 	}
 
-	/**
-	 * Gibt alle in dieser History vorhandenen Elemente fuer jeden Zeitpunkt als String zurueck.
-	 */
+	// Gibt alle in dieser History vorhandenen Elemente fuer jeden Zeitpunkt als String zurueck. (postcondition)
 	@Override
 	public String toString() {
 		StringBuilder s = new StringBuilder();

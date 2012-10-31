@@ -1,16 +1,12 @@
 
 public class InfrastructureItem {
 	
-	/**
-	 * Erzeugt ein neues InfrastructureItem und gibt es zurueck
-	 * FEHLER: es sollte sichgestellt werden dass name != null ist
-	 */
+	// Erzeugt ein neues InfrastructureItem und gibt es zurueck
+	// FEHLER: es sollte sichgestellt werden dass name != null ist
 	public InfrastructureItem() {}
 	
-	/**
-	 * Erzeugt ein neues InfrastructureItem und gibt es zurueck
-	 * @param name name setzen, darf nicht null sein
-	 */
+	// Erzeugt ein neues InfrastructureItem und gibt es zurueck (postcondition)
+	// name setzen, darf nicht null sein (precondition)
 	public InfrastructureItem(String name)
 	{
 		setName(name);
@@ -18,20 +14,13 @@ public class InfrastructureItem {
 	
 	private String name; // Bezeichnung des Infrastruktur-Elements, name != null
 	
-	/**
-	 * Gibt den Namen zurueck
-	 * @return name
-	 */
+	// Gibt den Namen zurueck (postcondition)
 	public String getName() { return name; }
-	/**
-	 * Setzt den Namen
-	 * @param name neuer Name, darf nicht null sein
-	 */
+	// Setzt den Namen
+	// name: neuer Name, darf nicht null sein (precondition)
 	public void setName(String name) { this.name = name; }
 	
-	/**
-	 * Gibt true zurueck, wenn obj inhaltlich gleich ist wie dieses Objekt
-	 */
+	// Gibt true zurueck, wenn obj inhaltlich gleich ist wie dieses Objekt (postcondition)
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) { return true; }
@@ -43,17 +32,13 @@ public class InfrastructureItem {
 			((name == other.name) || (name != null && name.equals(other.name)));
 	}
 	
-	/**
-	 * Gibt einen HashCode fuer dieses Objekt zurueck
-	 */
+	// Gibt einen HashCode fuer dieses Objekt zurueck (postcondition)
 	@Override
 	public int hashCode() {
         return (name == null ? 0 : name.hashCode());
 	}
 	
-	/**
-	 * Gibt dieses Objekt als String zurueck
-	 */
+	// Gibt dieses Objekt als String zurueck (postcondition)
 	@Override
 	public String toString() {
 		return getName();

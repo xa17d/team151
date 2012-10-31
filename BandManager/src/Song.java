@@ -49,9 +49,7 @@ public class Song {
 		this.duration = duration;
 	}
 	
-	/**
-	 * Gibt true zurueck, wenn obj inhaltlich gleich ist wie dieses Objekt
-	 */
+	// Gibt true zurueck, wenn obj inhaltlich gleich ist wie dieses Objekt (postcondition)
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) { return true; }
@@ -64,9 +62,7 @@ public class Song {
 			(duration == other.duration);
 	}
 	
-	/**
-	 * Gibt einen HashCode fuer dieses Objekt zurueck
-	 */
+	// Gibt einen HashCode fuer dieses Objekt zurueck (postcondition)
 	@Override
 	public int hashCode() {
 		int hash = 1;
@@ -75,9 +71,7 @@ public class Song {
         return hash;
 	}
 	
-	/**
-	 * Gibt dieses Objekt als String zurueck
-	 */
+	// Gibt dieses Objekt als String zurueck (postcondition)
 	@Override
 	public String toString() {
 		return getName() + " ("+getDuration()+"s)";
