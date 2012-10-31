@@ -1,18 +1,8 @@
 import java.util.*;
 
-//HALLO WELT!!!!
-// HALLO GITHUB!!!
-
-/**
- * Testprogramm
- */
 public class Test {
-	/**
-	 * Main-Methode
-	 * fuehrt eine Testroutine durch
-	 */
+
 	public static void main(String[] args) {
-		// Test 2
 		Date d = new Date();
 		Calendar c = Calendar.getInstance();
 		
@@ -21,12 +11,9 @@ public class Test {
 		String s = "";
 		long m = 0;
 		
-		//neue Band gruenden
 		System.out.println("** 'The Beatles' im Genre 'Rock' wird gegruendet");
 		Band b1 = new Band("The Beatles",Genre.Rock);
 		
-		
-		//Mitglieder hinzufuegen
 		System.out.println("** 4 neue Mitglieder werden zu hinzugefuegt");
 		Member m1 = new Member("John Lennon", "0664/1234567", Instrument.AcousticGuitar);
 		Member m2 = new Member("Paul McCartney", "0699/1234567", Instrument.BassGuitar);
@@ -41,7 +28,6 @@ public class Test {
 		Date dSave = new Date();
 		try { Thread.sleep(50); } catch(InterruptedException e) { }
 		
-		//aktuelle Mitglieder auflisten
 		s = b1.listMember().toString();
 		i++;
 		if(s.equals("[John Lennon (AcousticGuitar; Tel: 0664/1234567), Paul McCartney (BassGuitar; Tel: 0699/1234567), George Harrison (Guitar; Tel: 0660/1234567), Ringo Starr (Drums; Tel: 0680/1234567)]"))
@@ -49,11 +35,9 @@ public class Test {
 		
 		System.out.println("Die aktuellen Mitglieder sind: " + s);
 		
-		//Ein Mitglied verlaesst die Band
 		System.out.println("** John Lennon verlaesst die Band");
 		b1.deleteMember(m1);
 		
-		//aktuelle Mitglieder auflisten
 		s = b1.listMember().toString();
 		i++;
 		if(s.equals("[Paul McCartney (BassGuitar; Tel: 0699/1234567), George Harrison (Guitar; Tel: 0660/1234567), Ringo Starr (Drums; Tel: 0680/1234567)]"))
@@ -61,7 +45,6 @@ public class Test {
 		
 		System.out.println("Die aktuellen Mitglieder sind :" + s);
 		
-		//ehemalige Mitglieder auflisten
 		s = b1.listMember(dSave).toString();
 		i++;
 		if(s.equals("[John Lennon (AcousticGuitar; Tel: 0664/1234567), Paul McCartney (BassGuitar; Tel: 0699/1234567), George Harrison (Guitar; Tel: 0660/1234567), Ringo Starr (Drums; Tel: 0680/1234567)]"))
@@ -69,8 +52,6 @@ public class Test {
 		
 		System.out.println("Die ehemaligen Mitglieder waren: " + s);
 		
-		
-		//neue Lieder ins Repertoire aufnehmen
 		System.out.println("** Band lernt 2 neue Lieder");
 		Song s1 = new Song("Love Me Do", 212);
 		Song s2 = new Song("A Hard Day's Night", 168);
@@ -81,21 +62,18 @@ public class Test {
 		dSave = new Date();
 		try { Thread.sleep(50); } catch(InterruptedException e) { }
 		
-		//aktuelles Repertoire aufzaehlen
 		s = b1.listSongs().toString();
 		i++;
 		if(s.equals("[Love Me Do (212s), A Hard Day's Night (168s)]"))
 			correct++;
 		
 		System.out.println("Folgende Lieder kann die Band derzeit spielen: " + s);
-		
-		//neues Lied lernen und altes Lied verlernen
+
 		System.out.println("** Band lernt ein neues Lied, verlernt dafuer ihr erstes Lied");
 		Song s3 = new Song("Yesterday", 182);
 		b1.deleteSong(s1);
 		b1.addSong(s3);
-		
-		//aktuelles Repertoire aufzaehlen
+	
 		s = b1.listSongs().toString();
 		i++;
 		if(s.equals("[A Hard Day's Night (168s), Yesterday (182s)]"))
@@ -103,7 +81,6 @@ public class Test {
 		
 		System.out.println("Folgende Lieder kann die Band derzeit spielen: " + s);
 		
-		//ehemaliges Repertoire aufzaehlen
 		s = b1.listSongs(dSave).toString();
 		i++;
 		if(s.equals("[Love Me Do (212s), A Hard Day's Night (168s)]"))
@@ -111,7 +88,6 @@ public class Test {
 		
 		System.out.println("Folgende Lieder konnte die Band frueher spielen: " + s);
 		
-		// Locations
 		Location abbeyRoad = new Location("Abbey Road", "Abbey Road, London");
 		Location hollywoodBowl = new Location("Hollywood Bowl", "2301 North Highland Avenue, Los Angeles");
 		Location wembley = new Location("Wembley", "Wembley Stadium, Wembley, London");
@@ -119,7 +95,6 @@ public class Test {
 		Location irgendwo = new Location("Irgendwo", "Somestreet 1, Somewhere");
 		Location nirgendwo = new Location("Nirgendwo", "Nostreet 99, Nowhere");
 		
-		// Infrastruktur Elemente erzeugen und zu den Locations zuweisen
 		InfrastructureItem mikrofon = new InfrastructureItem("Mikrofon");
 		InfrastructureItem verstaerker = new InfrastructureItem("Verstaerker");
 		InfrastructureItem scheinwerfer = new InfrastructureItem("Scheinwerfer");
@@ -135,7 +110,6 @@ public class Test {
 		puchberg.addInfrastructureItem(mikrofon);
 		puchberg.addInfrastructureItem(verstaerker);
 		
-		// Locations zur Band hinzufuegen
 		b1.addLocation(abbeyRoad);
 		b1.addLocation(hollywoodBowl);
 		b1.addLocation(wembley);
@@ -157,7 +131,6 @@ public class Test {
 		if(s.equals("[Hollywood Bowl, Wembley]"))
 			correct++;
 		
-		//Probe veranstalten
 		System.out.println("** Band fuehrt 3 Proben durch");
 		
 		c.set(2011,8,12,18,0);
@@ -173,7 +146,6 @@ public class Test {
 		Rehearsal r3 = new Rehearsal(hollywoodBowl, d, 240, 100);
 		b1.addRehearsal(r3);
 		
-		//Konzerte spielen
 		System.out.println("** Band spielt 2 Konzerte");
 		c.set(2011,11,20,22,10);
 		d = c.getTime();
@@ -184,7 +156,6 @@ public class Test {
 		Gig g2 = new Gig(hollywoodBowl, d, 60, 500);
 		b1.addGig(g2);
 		
-		//alle Termine aufzaehlen
 		c.set(2011,1,1);
 		Date df = c.getTime();
 		c.set(2012,12,31);
@@ -197,7 +168,6 @@ public class Test {
 		
 		System.out.println("alle Termine der Band: " + s);
 		
-		//nur Proben vom August 2011 aufzaehlen
 		c.set(2011,8,1);
 		df = c.getTime();
 		c.set(2011,8,30);
@@ -210,7 +180,6 @@ public class Test {
 		
 		System.out.println("im August 2012 hatte die Band folgende Proben: " + s);
 		
-		//nur Konzerte von 2012 aufzaehlen
 		c.set(2012,1,1);
 		df = c.getTime();
 		dt = new Date();
@@ -222,12 +191,9 @@ public class Test {
 		
 		System.out.println("seit Jannuar 2012 hatte die Band folgende Konzerte: " + s);
 		
-		//sonstige Einnahmen und Ausgaben
 		b1.addIncome("CD", dt, "Einnahmen aus CD verkaufen", 300);
 		b1.addExpense("Gitarre", dt, "Gitarrist kauf neue Gitarre", 200);
 		
-		
-		//Einnahmen berechnen
 		c.set(2012,1,1);
 		df = c.getTime();
 		c.set(2012,12,31);
@@ -239,8 +205,7 @@ public class Test {
 			correct++;
 		
 		System.out.println("Einnahmen aus Konzerten in 2012: " + m);
-		
-		//Ausgaben berechnen
+
 		c.set(2011,1,1);
 		df = c.getTime();
 		c.set(2011,12,31);
@@ -252,8 +217,6 @@ public class Test {
 			correct++;
 		System.out.println("Ausgaben fuer Proberaeume in 2011: " + m);
 		
-		
-		//Gewinn berechnen
 		c.set(2011,1,1);
 		df = c.getTime();
 		c.set(2012,12,31);
@@ -267,35 +230,26 @@ public class Test {
 		if(m == 610)
 			correct++;
 		System.out.println("gesamter Gewinn der Beatles: " + m);
-		
-		//Appointment Changes		
+			
 		b1.changeAppointment(r1, puchberg, r1.getdBegin(), r1.getDuration(), r1.getCash());
 		b1.changeAppointment(r1, wembley, r1.getdBegin(), r1.getDuration(), r1.getCash());
 		b1.changeAppointment(r1, irgendwo, r1.getdBegin(), r1.getDuration(), r1.getCash());
 		b1.changeAppointment(r1, nirgendwo, r1.getdBegin(), r1.getDuration(), r1.getCash());
 		
-		//Ausgabe nach Veraenderungen
 		System.out.println(r1.toString());
 		
-		//Undo Appointment 1
 		b1.undoAppointmentChange(r1);
 		
-		//Undo Appointment 1
 		b1.undoAppointmentChange(r1);
 		
-		//Ausgabe nach 2 x Undo
 		System.out.println(r1.toString());
 		
-		//undo Appointment 2 --> Existiert nicht --> Fehlertest
 		b1.undoAppointmentChange(r2);
 		
 		System.out.println(r1.isCanceled());
 		
-		//Cancel Appointment 1
 		b1.cancelAppointment(r1);
 		
-		
-		//AUSWERTUNG
 		String out = "";
 		
 		if(correct == i)
