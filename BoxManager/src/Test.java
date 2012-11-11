@@ -31,7 +31,36 @@ public class Test {
 		System.out.println(db.toString());
 		db.scale(0.5);
 		System.out.println(db.toString());
+
+		// Repeated
+		Repeated<String> repeated1 = new Repeated<String>(
+
+				new String[][] {
+						new String[] { "1", "22\n22" },
+						new String[] { "333\n333\n333", "4444\n4444\n4444\n4444" }
+				}
+				
+			);
 		
+		System.out.println("*** Repeated 1 ***");
+		System.out.println(repeated1.toString());
+		
+		System.out.println("*** Repeated 1 Skaliert 0.5 ***");
+		repeated1.scale(0.5);
+		System.out.println(repeated1.toString());
+		
+		System.out.println("*** Repeated 1 Skaliert 0.5*2.5 = 1.25 ***");
+		repeated1.scale(2.5);
+		System.out.println(repeated1.toString());
+		
+		// FreeBox (Beispiel aus der Angabe)
+		FreeBox freeBox1 = new FreeBox("1234\n5678");
+		System.out.println("*** Freebox 1 ***");
+		System.out.println(freeBox1.toString());
+		
+		System.out.println("*** Freebox 1 Skaliert 1.5***");
+		freeBox1.scale(1.5);
+		System.out.println(freeBox1.toString());
 	}
 
 }
