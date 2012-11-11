@@ -62,8 +62,8 @@ public class Repeated<P> implements Pict {
 		
 		totalHeight = (int)Math.round(totalHeight * scaleFactor);
 		totalWidth = (int)Math.round(totalWidth * scaleFactor);
-		// Ausgabe
 		
+		// Ausgabe
 		StringBuilder out = new StringBuilder();
 		int y = 0;
 		int r = -1;
@@ -94,28 +94,6 @@ public class Repeated<P> implements Pict {
 			
 			out.append("\n");
 		}
-		
-		/*
-
-		for (int y = 0; y < rows; y++) {
-			for (int r = 0; r < rowHeight[y]; r++) {
-				for (int x = 0; x < columns; x++) {
-					String s;
-					if (contentText[y][x].length > r)
-					{ s = contentText[y][x][r]; }
-					else
-					{ s = ""; }
-					
-					out.append(s);
-					for (int c = s.length(); c < columnWidth[x]; c++) {
-						out.append(":"); // TODO: auf Leerzeichen aendern
-					}
-				}
-				
-				out.append("\n");
-			}
-		}
-		*/
 		
 		return out.toString();
 	}

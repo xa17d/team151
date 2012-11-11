@@ -53,12 +53,12 @@ public class Test {
 		repeated1.scale(2.5);
 		System.out.println(repeated1.toString());
 		
-		// FreeBox
+		// FreeBox (Beispiel aus der Angabe)
 		FreeBox freeBox1 = new FreeBox("1234\n5678");
 		System.out.println("*** Freebox 1 ***");
 		System.out.println(freeBox1.toString());
 		
-		System.out.println("*** Freebox 1 Skaliert 1.5***"); // (Beispiel aus der Angabe)
+		System.out.println("*** Freebox 1 Skaliert 1.5***");
 		freeBox1.scale(1.5);
 		System.out.println(freeBox1.toString());
 	}
