@@ -9,6 +9,7 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		/*
 		//BOX
 		Box b = new Box(3.4, 2.4, 'o', '-');
 		System.out.println(b.toString());
@@ -31,7 +32,28 @@ public class Test {
 		System.out.println(db.toString());
 		db.scale(0.5);
 		System.out.println(db.toString());
+		*/
 		
+		// Repeated
+		Repeated<String> repeated1 = new Repeated<String>(
+
+				new String[][] {
+						new String[] { "1", "22\n22" },
+						new String[] { "333\n333\n333", "4444\n4444\n4444\n4444" }
+				}
+				
+			);
+		
+		System.out.println("*** Repeated 1 ***");
+		System.out.println(repeated1.toString());
+		
+		System.out.println("*** Repeated 1 Skaliert 0.5 ***");
+		repeated1.scale(0.5);
+		System.out.println(repeated1.toString());
+		
+		System.out.println("*** Repeated 1 Skaliert 0.5*2.5 = 1.25 ***");
+		repeated1.scale(2.5);
+		System.out.println(repeated1.toString());
 	}
 
 }
