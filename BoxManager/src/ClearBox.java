@@ -1,5 +1,5 @@
 /**
- * als Zeichen für die Raender wird immer * verwendet und fuer den 
+ * als Zeichen fuer die Raender wird immer * verwendet und fuer den 
  * Inhalt das Leerzeichen. Zusaetzlich gibt es eine Moeglichkeit,
  * das Seitenverhaeltnis abzufragen (Breite dividiert durch Hoehe).
  * @author Raphael Kamper

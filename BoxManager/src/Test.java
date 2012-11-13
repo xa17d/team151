@@ -4,7 +4,6 @@
  *
  */
 public class Test {
-
 	/**
 	 * @param args
 	 */
@@ -32,15 +31,13 @@ public class Test {
 		db.scale(0.5);
 		System.out.println(db.toString());
 
-		// Repeated
-		Repeated<String> repeated1 = new Repeated<String>(
-
-				new String[][] {
-						new String[] { "1", "22\n22" },
-						new String[] { "333\n333\n333", "4444\n4444\n4444\n4444" }
-				}
-				
-			);
+		//Repeated
+		String[][] repeatedString = new String[][] {
+				new String[] { "1", "22\n22" },
+				new String[] { "333\n333\n333", "4444\n4444\n4444\n4444" }
+		};
+		
+		Repeated<String> repeated1 = new Repeated<String>(repeatedString);
 		
 		System.out.println("*** Repeated 1 ***");
 		System.out.println(repeated1.toString());
@@ -61,6 +58,43 @@ public class Test {
 		System.out.println("*** Freebox 1 Skaliert 1.5***");
 		freeBox1.scale(1.5);
 		System.out.println(freeBox1.toString());
+		
+		
+		//Scaled (mit Boxen)
+		System.out.println("*** Scaled 1 ***");
+		Box[][] boxArray = new Box[2][2];
+		boxArray[0][0] = cb;
+		boxArray[1][0] = db;
+		boxArray[0][1] = b;
+		boxArray[1][1] = new ClearBox(1,5);
+		Scaled<Box> scaledBox = new Scaled<Box>(boxArray);
+		
+		scaledBox.scale(2);
+		System.out.println(scaledBox.toString());
+		
+		//Scaled (mit Pict)
+		System.out.println("*** Scaled 2 ***");
+		Pict[][] pictArray = new Pict[2][3];
+		pictArray[0][0] = freeBox1;
+		pictArray[1][0] = db;
+		pictArray[0][1] = b;
+		pictArray[1][1] = cb;
+		pictArray[0][2] = new Box(6, 4, '=', ':');
+		pictArray[1][2] = repeated1;
+		
+		Scaled<Pict> scaledPict = new Scaled<Pict>(pictArray);
+		System.out.println(scaledPict.toString());
+		
+		System.out.println("*** Scaled 2 Skaliert 0.6***");
+		scaledPict.scale(0.6);
+		System.out.println(scaledPict.toString());
+		
+		System.out.println("*** Scaled 2 Skaliert 0.6*3 = 1.8***");
+		scaledPict.scale(3);
+		System.out.println(scaledPict.toString());
+		
+		//ACHTUNG: Scaled<String> kann nicht instanziert werden, da String KEIN Untertyp von Pict ist!!!
+		//Scaled<String> stringBox = new Scaled<String>(repeatedString);
 	}
 
 }
