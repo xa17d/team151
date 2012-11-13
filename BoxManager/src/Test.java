@@ -85,11 +85,11 @@ public class Test {
 		Scaled<Pict> scaledPict = new Scaled<Pict>(pictArray);
 		System.out.println(scaledPict.toString());
 		
-		System.out.println("*** Scaled 2 Skaliert 0.5***");
-		scaledPict.scale(0.5);
+		System.out.println("*** Scaled 2 Skaliert 0.6***");
+		scaledPict.scale(0.6);
 		System.out.println(scaledPict.toString());
 		
-		System.out.println("*** Scaled 2 Skaliert 0.5*3 = 1.5***");
+		System.out.println("*** Scaled 2 Skaliert 0.6*3 = 1.8***");
 		scaledPict.scale(3);
 		System.out.println(scaledPict.toString());
 		
