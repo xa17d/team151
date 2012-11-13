@@ -42,7 +42,7 @@ public class Repeated<P> implements Pict {
 	 * Haben die Elemente unterschiedliche Hoehe bzw. Breite, werden die kleineren Elemente unterhalb bzw. rechts
      * mit Leerzeichen aufgefuellt.
      * Ist der durch (wiederholte) Aufrufe von scale gesetzte Skalierungsfaktor kleiner 1.0, so liefert toString
-     * nur die entsprechend groﬂe linke obere Ecke. Ist der Skalierungsfaktor groesser als 1.0, so wird der Text
+     * nur die entsprechend grosse linke obere Ecke. Ist der Skalierungsfaktor groesser als 1.0, so wird der Text
      * entsprechend oft neben- bzw. uebereinander wiederholt.
 	 */
 	@Override
