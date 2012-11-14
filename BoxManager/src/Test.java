@@ -8,6 +8,13 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		//
+		//  Programmtests
+		//
+		System.out.println("*********************");
+		System.out.println("*** Programmtests ***");
+		System.out.println("*********************");
+		
 		//BOX
 		Box b = new Box(3.4, 2.4, 'o', '-');
 		System.out.println("*** Ausgabe Box ***\n" + b.toString());
@@ -93,6 +100,51 @@ public class Test {
 		
 		//ACHTUNG: Scaled<String> kann nicht instanziert werden, da String KEIN Untertyp von Pict ist!!!
 		//Scaled<String> stringBox = new Scaled<String>(repeatedString);
+		
+		//
+		//  Untersuchung von Typ-Beziehungen
+		//
+		System.out.println("****************************************");
+		System.out.println("*** Untersuchung von Typ-Beziehungen ***");
+		System.out.println("****************************************");
+		
+		// Box - ClearBox / Box - DarkBox
+		
+		// Ueberall wo Box gefordert ist, kann auch ClearBox und DarkBox
+		// angegeben werden. ClearBox und DarkBox haben (bis auf den Konstruktor)
+		// alle Methoden, die Box auch hat (sind somit Untertypen von Box)
+		
+		Box box1 = new ClearBox(5,5);
+		System.out.println("*** ClearBox als Box ***");
+		System.out.println(box1.toString());
+		
+		Box box2 = new DarkBox(5,5,'X');
+		System.out.println("*** DarkBox als Box ***");
+		System.out.println(box1.toString());
+		
+		// Mit Box ist es zwar moeglich den selben Output wie ClearBox oder
+		// DarkBox zu erzeugen, Box bietet aber nicht alle Methoden die
+		// ClearBox und DarkBox anbieten.
+		
+		// Box - FreeBox
+		// haben keine Untertypsbezieheung, da sie bis auf das Pict Interface
+		// keine Gemeinsamkeiten haben
+		
+		// Box - Repeated<P> fuer alle P
+		// keine Beziehung
+		
+		// FreeBox - Repeated<P> fuer P ist unbekannt
+		// keine Beziehung
+		
+		// FreeBox - Repeated<Char>
+		// In diesem Fall sind FreeBox und Repeated<Char> ersetzbar.
+		// Beide bieten die selben Methoden und haben die selben Zusicherungen
+
+		// Scaled<P extends Pict> - Repeated<P> fuer P ist Untertyp von Pict
+		// Bieten zwar die selben Methoden, allerdings unterscheiden
+		// sich die exakten Zusicherungen der Methode scaled. Somit keine
+		// Ersetzbarkeit.
+		
 	}
 
 }
