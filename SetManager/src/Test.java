@@ -4,10 +4,15 @@ public class Test {
 	public static void main(String[] args) {
 	
 	Set<String> set1 = new Set<String>();
+	String s1 = "hallo";
+	String s2 = "welt";
+	String s3 = "!";
 	
-	set1.insert("hallo");
-	set1.insert("welt");
-	set1.insert("!");
+	set1.insert(s1);
+	set1.insert(s1);
+	set1.insert(s2);
+	set1.insert(s1);
+	set1.insert(s3);
 	
 	Iterator<String> iter1 = set1.iterator();
 	

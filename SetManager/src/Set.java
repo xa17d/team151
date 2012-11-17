@@ -18,37 +18,24 @@ public class Set<T> implements Iterable<T> {
 	public boolean insert(T t) {
 		SetNode current = first;
 		
-		//erstes Element einfuegen ohne Ueberpruefung auf Gleichheit
-		if(current.getItem() == null)
-		{
-			current.setNext(new SetNode(t));
-			return true;
-		}
-		
-		//alle anderen Elemente durchgehen, bis zum Letzten
+		//alle Elemente durchgehen, bis zum Letzten
 		while(current.getNext() != null)
 		{
+			current = current.getNext();
 			if(current.getItem().equals(t))
 				return false;
-			
-			current = current.getNext();
 		}
 		
-		//wenn nich Gleich, als neues Element einfuegen
-		if(current.getItem().equals(t))
-			return false;
-		else
-		{
-			current.setNext(new SetNode(t));
-			return true;
-		}
+		//wenn nich Identisch, als neues Element einfuegen
+		current.setNext(new SetNode(t));
+		return true;
 	}
 	
 	/**
-	 * ruft neuen Iterator auf
+	 * liefert neuen Iterator
 	 */
 	public Iterator<T> iterator() {
-		return new SetIterator<T>();
+		return new SetIterator();
 	}
 	
 	/**
@@ -57,21 +44,22 @@ public class Set<T> implements Iterable<T> {
 	 * @author Lucas
 	 * @param <E>
 	 */
-	private class SetIterator<E> implements Iterator<E> {
-		private SetNode current;
+	private class SetIterator implements Iterator<T> {
+		private SetNode pointer;
 		
 		/**
 		 * Konstruktor
 		 */
 		public SetIterator() {
-			current = first;
+			pointer = first;
 		}
 		
 		/**
 		 * abfrage ob es ein naechstes Element gibt
+		 * @return true: es gibt ein weiteres Element - false: letztes Element in Liste
 		 */
 		public boolean hasNext() {
-			if(current.getNext() != null)
+			if(pointer.getNext() != null)
 				return true;
 			else
 				return false;
@@ -79,25 +67,25 @@ public class Set<T> implements Iterable<T> {
 		
 		/**
 		 * liefert naechstes Element
+		 * @return Element vom Typ E
 		 */
-		public E next() {
+		public T next() {
 			T temp;
-			if(current.getNext() != null)
+			if(pointer.getNext() != null)
 			{
-				temp = current.getNext().getItem();
+				temp = pointer.getNext().getItem();
 				remove();
-				//TODO typecast umgehen
-				return (E) temp;
+				return temp;
 			}
 			else
 				throw new NoSuchElementException();
 		}
 		
 		/**
-		 * "loescht" letztes Element von der Liste
+		 * streicht aktuelles Element von der Iterator-Liste
 		 */
 		public void remove() {
-			current = current.getNext();
+			pointer = pointer.getNext();
 		}
 	}
 	
