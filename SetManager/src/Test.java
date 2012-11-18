@@ -1,5 +1,9 @@
 import java.util.Iterator;
 
+/**
+ * Test-Methode
+ * @author OOP151
+ */
 public class Test {
 	public static void main(String[] args) {
 	
@@ -11,10 +15,11 @@ public class Test {
 	String s3 = "!";
 	
 	set1.insert(s1);
-	set1.insert(s1);
+	set1.insert(s1);	//identisches Element
 	set1.insert(s2);
-	set1.insert(s1);
+	set1.insert(s1);	//identisches Element
 	set1.insert(s3);
+	set1.insert(s3);	//identisches Element
 	
 	Iterator<String> iter1 = set1.iterator();
 	
@@ -44,7 +49,7 @@ public class Test {
 	System.out.println("MET1 shorter MET2: " + met1.shorter(met2));
 	System.out.println("MET2 shorter MET1: " + met2.shorter(met1));
 	
-	//TEST1 - MeanElapsedTime
+	//TEST3 - MeanElapsedTime
 	System.out.println("\n*** CompositeTime ***");
 	double[] time1 = {16.9, 31.3, 22.8, 4.6};
 	CompositeTime ct1 = new CompositeTime(time1);

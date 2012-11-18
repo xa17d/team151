@@ -1,6 +1,21 @@
-public abstract class ElapsedTime<T extends ElapsedTime<? super T>> /*implements Shorter*/{
+/**
+ * stellt die gemessene Zeit eines Vorgangs dar
+ * @author Lucas
+ * @param <T> Typ T ist Untertyp von ElapsedTime
+ */
+public abstract class ElapsedTime<T extends ElapsedTime<? super T>> implements Shorter<T> {
 	
-	public abstract boolean shorter(T that);	
+	/**
+	 * vergleicht die laenge des Objekts mit einem anderen Objekt
+	 * @param that zu vergleichendes Objekt
+	 * @return ob Objekt kuerzer ist als zu vergleichendes Objekt
+	 */
+	public abstract boolean shorter(T that);
+	
+	/**
+	 * liefert Anzahl der Elemente
+	 * @return Anzahl der Elemente
+	 */
 	public abstract int count();
 	
 }
