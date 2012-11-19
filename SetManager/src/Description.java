@@ -16,7 +16,7 @@ public class Description implements Shorter<Description> {
 	
 	private String text;
 	
-	/*
+	/**
 	 * Ein Vergleich mit shorter vergleicht die Texte anhand ihrer Laengen in Zeichen. Es gibt eine Methode um die Anzahl der Zeilen zu ermitteln.
 	 * @see Shorter#shorter(java.lang.Object)
 	 */
@@ -25,7 +25,7 @@ public class Description implements Shorter<Description> {
 		return (text.length() < other.text.length());
 	}
 
-	/*
+	/**
 	 * Gibt den beschreibenden Text zurueck
 	 * @see java.lang.Object#toString()
 	 */
