@@ -1,4 +1,6 @@
+import java.awt.List;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 /**
  * Test-Methode
@@ -65,5 +67,63 @@ public class Test {
 	
 	System.out.println("CT1 shorter CT2: " + ct1.shorter(ct2));
 	System.out.println("CT2 shorter CT1: " + ct2.shorter(ct1));
+	
+	//TEST4 - OrderedMap
+	System.out.println("\n*** OrderedMap ***");
+	OrderedMap<MeanElapsedTime, CompositeTime> map1 = new OrderedMap<MeanElapsedTime, CompositeTime>();
+	map1.insert(met1);
+	map1.insert(met2);
+	
+	OrderedMap<MeanElapsedTime, CompositeTime>.MapIterator mapIterator1 = map1.iterator();
+	int i = 0;
+	while (mapIterator1.hasNext()) {
+		
+		MeanElapsedTime element = mapIterator1.next();
+		
+		ListIterator<CompositeTime> subIterator1 = mapIterator1.iterator();
+		subIterator1.add(new CompositeTime(new double[] { i, i+1, element.max() }));
+		subIterator1.add(new CompositeTime(new double[] { i+2, i+3 }));
+		subIterator1.add(new CompositeTime(new double[] { i+4, i+5 }));
+		
+		i++;
+	}
+	
+	OrderedMap<MeanElapsedTime, CompositeTime>.MapIterator mapIterator2 = map1.iterator();
+	int deleteIndex = 0;
+	while (mapIterator2.hasNext()) {
+		
+		MeanElapsedTime element = mapIterator2.next();
+		System.out.println(element.mean());
+		
+		ListIterator<CompositeTime> subIterator1 = mapIterator2.iterator();
+		int index = 0;
+		while (subIterator1.hasNext()) {
+			
+			CompositeTime object = subIterator1.next();
+			System.out.println("\t"+object.min());
+			
+			if (deleteIndex == index) { subIterator1.remove(); }
+			
+			index++;
+		}
+
+		deleteIndex++;
+	}
+	
+	System.out.println("\nnach dem einige Objekt 0.0 und 3.0  geloescht wurden:");
+	
+	OrderedMap<MeanElapsedTime, CompositeTime>.MapIterator mapIterator3 = map1.iterator();
+	while (mapIterator3.hasNext()) {
+		
+		MeanElapsedTime element = mapIterator3.next();
+		System.out.println(element.mean());
+		
+		ListIterator<CompositeTime> subIterator1 = mapIterator3.iterator();
+		while (subIterator1.hasNext()) {
+			
+			CompositeTime object = subIterator1.next();
+			System.out.println("\t"+object.min());
+		}
+	}
 	}
 }
