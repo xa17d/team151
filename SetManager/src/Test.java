@@ -73,8 +73,13 @@ public class Test {
 		// OrderedMap erstellen
 		OrderedMap<MeanElapsedTime, CompositeTime> map1 = new OrderedMap<MeanElapsedTime, CompositeTime>();
 		// Beispielwerte einfuegen
+		MeanElapsedTime met3 = new MeanElapsedTime();
+		met3.addValue(0);
+		met3.addValue(0.5);
+		
 		map1.insert(met1);
 		map1.insert(met2);
+		map1.insert(met3);
 		
 		// Objekte einfuegen auf die verwiesen wird
 		OrderedMap<MeanElapsedTime, CompositeTime>.MapIterator mapIterator1 = map1.iterator();
