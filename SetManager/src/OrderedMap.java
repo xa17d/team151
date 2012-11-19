@@ -1,5 +1,6 @@
 import java.util.Iterator;
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 public class OrderedMap<T extends Shorter<T> ,U> extends Set<T> { // TODO: Set<T> muss auf OrderedSet<T> geaendert werden
 
@@ -7,9 +8,11 @@ public class OrderedMap<T extends Shorter<T> ,U> extends Set<T> { // TODO: Set<T
 
 		public MappedItems(T mapKey) {
 			this.mapKey = mapKey;
+			first = new MappedNode(null);
 		}
 		
 		private T mapKey;
+		private MappedNode first;
 		
 		@Override
 		public boolean shorter(T other) {
@@ -18,64 +21,98 @@ public class OrderedMap<T extends Shorter<T> ,U> extends Set<T> { // TODO: Set<T
 
 		@Override
 		public ListIterator<U> iterator() {
-			return new MappedItemsIterator();
+			return new MappedItemsIterator(this);
+		}
+		
+		private class MappedNode {
+			private MappedNode next;
+			private U item;
+			
+			public MappedNode(U item) {
+				next = null;
+				setItem(item);
+			}
+			
+			public MappedNode getNext() { 
+				return next;
+			}
+			
+			public void setNext(MappedNode next) {
+				this.next = next; 
+			}
+			
+			public U getItem() {
+				return item;
+			}
+			
+			private void setItem(U item) {
+				this.item = item; 
+			}
 		}
 		
 		private class MappedItemsIterator implements ListIterator<U> {
 
+			private MappedNode pointer;
+			private MappedNode lastPointer;
+			private boolean removed;
+			
+			public MappedItemsIterator(MappedItems owner)
+			{
+				pointer = owner.first;
+				lastPointer = null;
+				removed = true;
+			}
+			
 			@Override
 			public void add(U e) {
-				// TODO Auto-generated method stub
-				
+				MappedNode newNode = new MappedNode(e);
+				newNode.setNext(pointer.getNext());
+				pointer.setNext(newNode);
+				pointer = newNode;
 			}
 
 			@Override
 			public boolean hasNext() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			public boolean hasPrevious() {
-				// TODO Auto-generated method stub
-				return false;
+				return (pointer.getNext() != null);
 			}
 
 			@Override
 			public U next() {
-				// TODO Auto-generated method stub
-				return null;
+				if (hasNext()) {
+					lastPointer = pointer;
+					pointer = pointer.getNext();
+					removed = false;
+					return pointer.getItem();
+				}
+				else
+				{ throw new NoSuchElementException(); }
 			}
-
-			@Override
-			public int nextIndex() {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-
-			@Override
-			public U previous() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public int previousIndex() {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-
+			
 			@Override
 			public void remove() {
-				// TODO Auto-generated method stub
-				
+				if ((lastPointer != null) && (!removed)) {
+					removed = true;
+					lastPointer.setNext(pointer.getNext());
+				}
+				else {
+					throw new IllegalStateException();
+				}
 			}
+			
+			@Override
+			public boolean hasPrevious() { throw new UnsupportedOperationException("not implemented"); }
 
 			@Override
-			public void set(U e) {
-				// TODO Auto-generated method stub
-				
-			}
+			public int nextIndex() { throw new UnsupportedOperationException("not implemented"); }
+
+			@Override
+			public U previous() { throw new UnsupportedOperationException("not implemented"); }
+
+			@Override
+			public int previousIndex() { throw new UnsupportedOperationException("not implemented"); }
+
+			@Override
+			public void set(U e) { throw new UnsupportedOperationException("not implemented"); }
 			
 		}
 	}
