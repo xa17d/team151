@@ -7,7 +7,31 @@ import java.util.ListIterator;
  */
 public class Test {
 	public static void main(String[] args) {
-	
+		//TEST 0 OrderedSet
+		System.out.println("*** OrderedSet ***");
+		OrderedSet<Description> os = new OrderedSet<Description>();
+		
+		Description d1 = new Description("a");
+		Description d2 = new Description("bb");
+		Description d3 = new Description("ccc");
+		Description d4 = new Description("dddd");
+		Description d5 = new Description("eeeee");
+		Description d6 = new Description("ffffff");
+		Description d7 = new Description("ggggggg");
+		
+		os.insert(d1);
+		os.insert(d2);
+		os.insert(d3);
+		os.insert(d4);
+		os.insert(d7);
+		os.insert(d6);
+		os.insert(d5);
+		
+		Iterator<Description> osIter = os.iterator();
+		
+		while(osIter.hasNext())
+			System.out.println(osIter.next().toString());
+		
 		//TEST1 - Strings
 		System.out.println("*** Set ***");
 		Set<String> set1 = new Set<String>();
