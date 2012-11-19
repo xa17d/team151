@@ -1,4 +1,3 @@
-import java.awt.List;
 import java.util.Iterator;
 import java.util.ListIterator;
 
@@ -102,7 +101,6 @@ public class Test {
 			System.out.println(element.max());
 			
 			ListIterator<CompositeTime> subIterator1 = mapIterator2.iterator();
-			int index = 0;
 			while (subIterator1.hasNext()) {
 				
 				CompositeTime object = subIterator1.next();
