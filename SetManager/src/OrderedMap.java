@@ -4,6 +4,11 @@ import java.util.NoSuchElementException;
 
 public class OrderedMap<T extends Shorter<T> ,U> extends Set<T> { // TODO: Set<T> muss auf OrderedSet<T> geaendert werden
 
+	public OrderedMap()
+	{
+		mappedItems = new Set<MappedItems>();
+	}
+	
 	private class MappedItems implements Shorter<T>, Iterable<U> {
 
 		public MappedItems(T mapKey) {
