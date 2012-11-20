@@ -10,14 +10,14 @@ import java.util.NoSuchElementException;
  * @param <T> Typ der Elemente (muss Untertyp von Shorter<T> sein)
  * @param <U> Typ der Objekte auf die verwiesen wird
  */
-public class OrderedMap<T extends Shorter<T> ,U> extends Set<T> { // TODO: Set<T> muss auf OrderedSet<T> geaendert werden
+public class OrderedMap<T extends Shorter<T> ,U> extends OrderedSet<T> {
 
 	/**
 	 * Erzeugt ein neues OrderedMap
 	 */
 	public OrderedMap()
 	{
-		mappedItems = new Set<MappedItems>();
+		mappedItems = new OrderedSet<MappedItems>();
 	}
 	
 	/**
@@ -27,7 +27,7 @@ public class OrderedMap<T extends Shorter<T> ,U> extends Set<T> { // TODO: Set<T
      * Elements auf. Dadurch ist die Reihenfolge in diesem Set exakt die
      * selbe wie im Set der Elemente.
 	 */
-	private Set<MappedItems> mappedItems; // TODO: Set<T> muss auf OrderedSet<T> geaendert werden
+	private OrderedSet<MappedItems> mappedItems;
 	
 	/**
 	 * Klasse die die Objekte, die zu einem Element gehoeren abspeichert.
@@ -39,7 +39,7 @@ public class OrderedMap<T extends Shorter<T> ,U> extends Set<T> { // TODO: Set<T
 	 * Somit lassen sich MappedItems und das zugehoerige Element einfach
 	 * ermitteln.
 	 */
-	private class MappedItems implements Shorter<T>, Iterable<U> {
+	private class MappedItems implements Shorter<MappedItems>, Iterable<U> {
 
 		/**
 		 * Erzeugt ein MappedItems-Objekt fuer ein Element
@@ -64,8 +64,8 @@ public class OrderedMap<T extends Shorter<T> ,U> extends Set<T> { // TODO: Set<T
 		 * Fuert die shorter-Methode des Elements aus.
 		 */
 		@Override
-		public boolean shorter(T other) {
-			return element.shorter(other);
+		public boolean shorter(MappedItems other) {
+			return element.shorter(other.element);
 		}
 
 		/**
