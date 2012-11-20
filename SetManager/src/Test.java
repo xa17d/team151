@@ -90,6 +90,14 @@ public class Test {
 		while(iter1.hasNext())
 			System.out.println(iter1.next());
 		
+		//2. Element loeschen
+		Iterator<String> iter2 = set1.iterator();
+		if(iter2.hasNext())
+			System.out.println(iter2.next());
+		iter2.remove();
+		while(iter2.hasNext())
+			System.out.println(iter2.next());
+		
 		//TEST2 - MeanElapsedTime
 		System.out.println("\n*** MeanElapsedTime ***");
 		MeanElapsedTime met1 = new MeanElapsedTime();

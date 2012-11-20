@@ -36,7 +36,6 @@ public class CompositeTime extends ElapsedTime<CompositeTime>{
 		return singleTime.length + 1;
 	}
 	
-	//TODO public oder private Methode (laut Angabe)????
 	/**
 	 * berechnet die Summe aller Werte des Arrays
 	 * @return Summe
