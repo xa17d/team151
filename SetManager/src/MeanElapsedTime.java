@@ -55,7 +55,6 @@ public class MeanElapsedTime extends ElapsedTime<MeanElapsedTime> {
 		elapsedTimeSet.insert(time);
 	}
 	
-	//TODO public oder private Methode (laut Angabe)????
 	/**
 	 * berechnet den Mittelwert aller Werte des Sets
 	 * @return Mittelwert

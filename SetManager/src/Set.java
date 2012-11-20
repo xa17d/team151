@@ -29,8 +29,8 @@ public class Set<T> implements Iterable<T> {
 		{
 			current = current.getNext();
 			
-			//auf identitaet ueberpruefen
-			if(current.getItem().equals(t))
+			//auf Identitaet ueberpruefen
+			if(current.getItem() == t)
 				return false;
 		}
 		
@@ -81,7 +81,7 @@ public class Set<T> implements Iterable<T> {
 			if(pointer.getNext() != null)
 			{
 				temp = pointer.getNext().getItem();
-				remove();
+				pointer = pointer.getNext();
 				return temp;
 			}
 			else
@@ -92,7 +92,7 @@ public class Set<T> implements Iterable<T> {
 		 * streicht aktuelles Element von der Iterator-Liste
 		 */
 		public void remove() {
-			pointer = pointer.getNext();
+			pointer.setNext(pointer.getNext().getNext());
 		}
 	}
 	
