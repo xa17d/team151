@@ -4,10 +4,10 @@ import java.util.NoSuchElementException;
 
 /**
  * Ein Typparameter bestimmt den Typ der Elemente. 
- * Die Elemente müssen eine Methode shorter mit einem Parameter
- * unterstützen, die genau dann true zurückgibt, wenn this
- * (auf nicht näher bestimmte Weise) kürzer als das 
- * übergebene Argument ist
+ * Die Elemente muessen eine Methode shorter mit einem Parameter
+ * unterstuetzen, die genau dann true zurueckgibt, wenn this
+ * (auf nicht naeher bestimmte Weise) kuerzer als das 
+ * Uebergebene Argument ist
  * 
  * @author Raphael Kamper, Lucas Dobler
  * @param <T> Typparameter
