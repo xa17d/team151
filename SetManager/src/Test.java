@@ -7,7 +7,70 @@ import java.util.ListIterator;
  */
 public class Test {
 	public static void main(String[] args) {
-	
+		//TEST 0 OrderedSet
+		System.out.println("*** OrderedSet ***");
+		Set<Description> os = new OrderedSet<Description>();
+		
+		Description d1 = new Description("a");
+		Description d2 = new Description("bb");
+		Description d3 = new Description("ccc");
+		Description d4 = new Description("dddd");
+		Description d5 = new Description("eeeee");
+		Description d6 = new Description("ffffff");
+		Description d7 = new Description("ggggggg");
+		
+		os.insert(d1);
+		os.insert(d2);
+		os.insert(d3);
+		os.insert(d4);
+		os.insert(d7);
+		
+		
+		Iterator<Description> osIter = os.iterator();
+		
+		while(osIter.hasNext())
+			System.out.println(osIter.next().toString());
+		
+		
+		System.out.println("Aenderungen durchfuehren und erneut ausgeben:");
+		//Aenderungen durchfuehren
+		os.insert(d6);
+		os.insert(d5);
+		
+		//Bereits identisches Element einfuegen
+		os.insert(d7);
+		os.insert(d7);
+		os.insert(d6);
+		
+		osIter = os.iterator();
+		
+		while(osIter.hasNext())
+			System.out.println(osIter.next().toString());
+		
+		//erneutes Ausgeben
+		
+		//Test leeres OrderedSet
+		//Neues OrderedSet anlegen und sofort durchgehen ohne Elemente
+		Set<Description> ostwo = new OrderedSet<Description>();
+		
+		Iterator<Description> ostwoIter = ostwo.iterator();
+		
+		while(ostwoIter.hasNext())
+			System.out.println(ostwoIter.next().toString());
+		
+		Description desOne = new Description("1");
+		Description desTwo = new Description("2");
+		
+		System.out.println("Gleich lange Descriptions einfuegen + ausgeben");
+		
+		ostwo.insert(desOne);
+		ostwo.insert(desTwo);
+		
+		while(ostwoIter.hasNext())
+			System.out.println(ostwoIter.next().toString());
+		
+		
+		
 		//TEST1 - Strings
 		System.out.println("*** Set ***");
 		Set<String> set1 = new Set<String>();
