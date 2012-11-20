@@ -24,6 +24,16 @@ public class Test {
 		os.insert(d3);
 		os.insert(d4);
 		os.insert(d7);
+		
+		
+		Iterator<Description> osIter = os.iterator();
+		
+		while(osIter.hasNext())
+			System.out.println(osIter.next().toString());
+		
+		
+		System.out.println("Aenderungen durchfuehren und erneut ausgeben:");
+		//Aenderungen durchfuehren
 		os.insert(d6);
 		os.insert(d5);
 		
@@ -32,10 +42,12 @@ public class Test {
 		os.insert(d7);
 		os.insert(d6);
 		
-		Iterator<Description> osIter = os.iterator();
+		osIter = os.iterator();
 		
 		while(osIter.hasNext())
 			System.out.println(osIter.next().toString());
+		
+		//erneutes Ausgeben
 		
 		//Test leeres OrderedSet
 		//Neues OrderedSet anlegen und sofort durchgehen ohne Elemente
@@ -53,7 +65,6 @@ public class Test {
 		
 		ostwo.insert(desOne);
 		ostwo.insert(desTwo);
-		ostwo.insert(null);
 		
 		while(ostwoIter.hasNext())
 			System.out.println(ostwoIter.next().toString());
