@@ -186,6 +186,33 @@ public class Test {
 		
 		// Geaenderte Map ausgeben
 		printMap(map1);
+		
+		//
+		// Test 3 - OrderedMap als OrderedSet
+		//
+		
+		System.out.println("\n*** OrderedMap als OrderedSet ***");
+		
+		OrderedSet<MeanElapsedTime> orderedSet2 = map1;
+		
+		// Werte ins OrderedSet einfuegen
+		MeanElapsedTime met4 = new MeanElapsedTime();
+		met4.addValue(31);
+		met4.addValue(34);
+		
+		MeanElapsedTime met5 = new MeanElapsedTime();
+		met5.addValue(99);
+		met5.addValue(100);
+		
+		orderedSet2.insert(met4);
+		orderedSet2.insert(met5);
+		
+		// Map als OrderedSet ausgeben
+		Iterator<MeanElapsedTime> setIterator1 = orderedSet2.iterator();
+		while (setIterator1.hasNext()) {
+			MeanElapsedTime element = setIterator1.next();
+			System.out.println(element.max());
+		}
 	}
 	
 	private static void printMap(OrderedMap<MeanElapsedTime, CompositeTime> map)
