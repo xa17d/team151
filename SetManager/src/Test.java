@@ -68,7 +68,31 @@ public class Test {
 		
 		while(ostwoIter.hasNext())
 			System.out.println(ostwoIter.next().toString());
-				
+		
+		//TEST2 - MeanElapsedTime
+		System.out.println("\n*** MeanElapsedTime ***");
+		MeanElapsedTime met1 = new MeanElapsedTime();
+		met1.addValue(15.2);
+		met1.addValue(12.3);
+		met1.addValue(34.2);
+		met1.addValue(2.5);
+		
+		System.out.println("MET1-Durchschnitt: " + met1.mean());
+		System.out.println("MET1-Maximum: " + met1.max());
+		
+		MeanElapsedTime met2 = new MeanElapsedTime();
+		met2.addValue(16.9);
+		met2.addValue(31.3);
+		met2.addValue(22.8);
+		met2.addValue(4.6);
+		
+		System.out.println("MET2-Durchschnitt: " + met2.mean());
+		System.out.println("MET2-Maximum: " + met2.max());
+		
+		System.out.println("MET1 shorter MET2: " + met1.shorter(met2));
+		System.out.println("MET2 shorter MET1: " + met2.shorter(met1));
+
+		
 		//
 		// Test 2 - OrderedMap<MeanElapsedTime, CompositeTime>
 		//
