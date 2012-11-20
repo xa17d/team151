@@ -4,7 +4,7 @@ import java.util.Iterator;
  * stellt die durchschnittliche Zeit einer Messreihe dar
  * @author Lucas Dobler
  */
-public class MeanElapsedTime extends ElapsedTime<MeanElapsedTime> {
+public class MeanElapsedTime extends ElapsedTime {
 	private Set<Double> elapsedTimeSet;
 	
 	/**
@@ -15,18 +15,12 @@ public class MeanElapsedTime extends ElapsedTime<MeanElapsedTime> {
 		elapsedTimeSet = new Set<Double>();
 	}
 	
-
-	@Override
 	/**
-	 * vergleicht den Mittelwert aller Zeitmessungen eines Sets mit dem eines anderen Sets
-	 * @param that zu vergleichendes Set
-	 * @return ob Mittelwert eines Sets kuerzer ist als der des zu vergleichenden Sets
+	 * @see ElapsedTime#time()
 	 */
-	public boolean shorter(MeanElapsedTime that) {
-		if(this.mean() < that.mean())
-			return true;
-		else
-			return false;
+	@Override
+	protected double time() {
+		return mean();
 	}
 	
 	@Override

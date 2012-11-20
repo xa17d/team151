@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
  * @author Raphael Kamper, Lucas Dobler
  * @param <T> Typparameter
  */
-public class OrderedSet <T extends Shorter<T>> extends Set<T>{
+public class OrderedSet<T extends Shorter<? super T>> extends Set<T> {
 	private OrderedSetNode first;
 	
 	public OrderedSet(){

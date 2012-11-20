@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
  * @param <T> Typ der Elemente (muss Untertyp von Shorter<T> sein)
  * @param <U> Typ der Objekte auf die verwiesen wird
  */
-public class OrderedMap<T extends Shorter<T> ,U> extends OrderedSet<T> {
+public class OrderedMap<T extends Shorter<? super T> ,U> extends OrderedSet<T> {
 
 	/**
 	 * Erzeugt ein neues OrderedMap

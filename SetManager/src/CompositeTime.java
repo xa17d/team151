@@ -2,7 +2,7 @@
  * stellt die Gesamtzeit eines aus mehreren Einzelzeiten zusammengesetzten Vorgangs dar
  * @author Lucas Dobler
  */
-public class CompositeTime extends ElapsedTime<CompositeTime>{
+public class CompositeTime extends ElapsedTime {
 	private double[] singleTime;
 	
 	/**
@@ -14,17 +14,12 @@ public class CompositeTime extends ElapsedTime<CompositeTime>{
 		this.singleTime = singleTime;
 	}
 	
-	@Override
 	/**
-	 * vergleicht die Summe aller Zeitmessungen eines Sets mit der eines anderen Sets
-	 * @param that zu vergleichendes Set
-	 * @return ob Summe eines Sets kuerzer ist als die des zu vergleichenden Sets
+	 * @see ElapsedTime#time()
 	 */
-	public boolean shorter(CompositeTime that) {
-		if(this.sum() < that.sum())
-			return true;
-		else
-			return false;
+	@Override
+	protected double time() {
+		return sum();
 	}
 
 	@Override
