@@ -186,9 +186,9 @@ public class Test {
 		OrderedSet<ElapsedTime> osET = new OrderedSet<ElapsedTime>();
 		
 		/* Erzeugen Sie eine Instanz von OrderedSet, deren Elemente vom Typ ElapsedTime 
-		 * sind. Lesen Sie alle Elemente der in Punkt 2 erzeugten (und möglicherweise in 
+		 * sind. Lesen Sie alle Elemente der in Punkt 2 erzeugten (und moeglicherweise in 
 		 * Punkt 3 erweiterten) Menge und alle Objekte, auf welche die Elemente verweisen, 
-		 * aus und fügen Sie diese (Instanzen von MeanElapsedTime ebenso wie von CompositeTime) 
+		 * aus und fuegen Sie diese (Instanzen von MeanElapsedTime ebenso wie von CompositeTime) 
 		 * in die neue Menge ein. Lesen Sie alle Elemente der neuen Menge aus, und schreiben 
 		 * Sie die durch count ermittelten Werte in die Standard-Ausgabe.
 		 **/
