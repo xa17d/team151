@@ -130,7 +130,9 @@ public class Test {
 		System.out.println("CT1 shorter CT2: " + ct1.shorter(ct2));
 		System.out.println("CT2 shorter CT1: " + ct2.shorter(ct1));
 		
-		//TEST4 - OrderedMap
+		//
+		// Test 2 - OrderedMap<MeanElapsedTime, CompositeTime>
+		//
 		System.out.println("\n*** OrderedMap ***");
 		
 		// OrderedMap erstellen
@@ -153,25 +155,52 @@ public class Test {
 			
 			// Objekte mittels Iterator des Map-Iterators einfuegen
 			ListIterator<CompositeTime> subIterator1 = mapIterator1.iterator();
-			subIterator1.add(new CompositeTime(new double[] { i, i+0.1, }));
-			subIterator1.add(new CompositeTime(new double[] { i+0.2, i+0.3 }));
-			subIterator1.add(new CompositeTime(new double[] { i+0.4, i+0.5 }));
+			subIterator1.add(new CompositeTime(new double[] { i+0.1, i+0.01, }));
+			subIterator1.add(new CompositeTime(new double[] { i+0.2, i+0.02 }));
+			subIterator1.add(new CompositeTime(new double[] { i+0.3, i+0.03 }));
 			
 			i++;
 		}
 		
 		// Elemente mit den verwiesenen Objekten ausgeben
+		printMap(map1);
+		
+		// Elemente veraendern
+		System.out.println("\n*** veraenderte OrderedMap ***");
+		
+		// zweites CompositeTime Objekt entfernen auf das das erste Element verweist:
 		OrderedMap<MeanElapsedTime, CompositeTime>.MapIterator mapIterator2 = map1.iterator();
-		while (mapIterator2.hasNext()) {
+		mapIterator2.next();
+		ListIterator<CompositeTime> subIterator1 = mapIterator2.iterator();
+		subIterator1.next();
+		subIterator1.next();
+		subIterator1.remove();
+		
+		// zweites Element: erstes Objekt entfernen, nach dem zweiten ein neues einfuegen
+		mapIterator2.next();
+		ListIterator<CompositeTime> subIterator2 = mapIterator2.iterator();
+		subIterator2.next();
+		subIterator2.remove();
+		subIterator2.next();
+		subIterator2.add(new CompositeTime(new double[] { 999 }));
+		
+		// Geaenderte Map ausgeben
+		printMap(map1);
+	}
+	
+	private static void printMap(OrderedMap<MeanElapsedTime, CompositeTime> map)
+	{
+		OrderedMap<MeanElapsedTime, CompositeTime>.MapIterator mapIterator = map.iterator();
+		while (mapIterator.hasNext()) {
 			
-			MeanElapsedTime element = mapIterator2.next();
+			MeanElapsedTime element = mapIterator.next();
 			// Groesster Messwert ausgeben
 			System.out.println(element.max());
 			
-			ListIterator<CompositeTime> subIterator1 = mapIterator2.iterator();
-			while (subIterator1.hasNext()) {
+			ListIterator<CompositeTime> subIterator = mapIterator.iterator();
+			while (subIterator.hasNext()) {
 				
-				CompositeTime object = subIterator1.next();
+				CompositeTime object = subIterator.next();
 				// Kuerzeste Einzelzeit der Objekte ausgeben
 				System.out.println("\t"+object.min());
 			}
