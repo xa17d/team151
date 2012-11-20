@@ -3,7 +3,7 @@
  * @author Lucas
  * @param <T> Typ T ist Untertyp von ElapsedTime
  */
-public abstract class ElapsedTime<T extends ElapsedTime<? super T>> implements Shorter<T> {
+public abstract class ElapsedTime<T> implements Shorter<T> {
 	
 	/**
 	 * vergleicht die laenge des Objekts mit einem anderen Objekt

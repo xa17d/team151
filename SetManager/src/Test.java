@@ -213,6 +213,7 @@ public class Test {
 			MeanElapsedTime element = setIterator1.next();
 			System.out.println(element.max());
 		}
+		
 	}
 	
 	private static void printMap(OrderedMap<MeanElapsedTime, CompositeTime> map)
