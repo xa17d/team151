@@ -9,7 +9,7 @@ public class Test {
 	public static void main(String[] args) {
 		//TEST 0 OrderedSet
 		System.out.println("*** OrderedSet ***");
-		OrderedSet<Description> os = new OrderedSet<Description>();
+		Set<Description> os = new OrderedSet<Description>();
 		
 		Description d1 = new Description("a");
 		Description d2 = new Description("bb");
@@ -27,10 +27,38 @@ public class Test {
 		os.insert(d6);
 		os.insert(d5);
 		
+		//Bereits identisches Element einfuegen
+		os.insert(d7);
+		os.insert(d7);
+		os.insert(d6);
+		
 		Iterator<Description> osIter = os.iterator();
 		
 		while(osIter.hasNext())
 			System.out.println(osIter.next().toString());
+		
+		//Test leeres OrderedSet
+		//Neues OrderedSet anlegen und sofort durchgehen ohne Elemente
+		Set<Description> ostwo = new OrderedSet<Description>();
+		
+		Iterator<Description> ostwoIter = ostwo.iterator();
+		
+		while(ostwoIter.hasNext())
+			System.out.println(ostwoIter.next().toString());
+		
+		Description desOne = new Description("1");
+		Description desTwo = new Description("2");
+		
+		System.out.println("Gleich lange Descriptions einfuegen + ausgeben");
+		
+		ostwo.insert(desOne);
+		ostwo.insert(desTwo);
+		ostwo.insert(null);
+		
+		while(ostwoIter.hasNext())
+			System.out.println(ostwoIter.next().toString());
+		
+		
 		
 		//TEST1 - Strings
 		System.out.println("*** Set ***");

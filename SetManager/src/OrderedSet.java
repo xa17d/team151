@@ -3,9 +3,13 @@ import java.util.NoSuchElementException;
 
 
 /**
+ * Ein Typparameter bestimmt den Typ der Elemente. 
+ * Die Elemente müssen eine Methode shorter mit einem Parameter
+ * unterstützen, die genau dann true zurückgibt, wenn this
+ * (auf nicht näher bestimmte Weise) kürzer als das 
+ * übergebene Argument ist
  * 
- * @author Raphael Kamper
- *
+ * @author Raphael Kamper, Lucas Dobler
  * @param <T> Typparameter
  */
 public class OrderedSet <T extends Shorter<T>> extends Set<T>{
@@ -24,8 +28,12 @@ public class OrderedSet <T extends Shorter<T>> extends Set<T>{
 	}
 	
 	/**
-	 * fuegt ein Element vom Typ T in das Set ein
-	 * @param t einzufuegendes Element
+	 * fuegt ein Element vom Typ T in das sortierte Set ein
+	 * Das eingefuegte Element wird dort eingefuegt wo
+	 * die Methode shorter des Elements true liefert.
+	 * Somit sind alle folgenden Elemente groesser
+	 * und alle vorigen Elemente kleiner als das Element.
+	 * @param t einzufuegendes Element darf nicht null sein (precondition)
 	 * @return Einfuegen erfolgreich
 	 */
 	@Override
@@ -33,9 +41,8 @@ public class OrderedSet <T extends Shorter<T>> extends Set<T>{
 		OrderedSetNode current = first;
 		
 		
-		if(first.getNext() == null){ //Keine Element vorhanden
+		if(first.getNext() == null){ //Keine Element vorhanden erstes Element einfuegen
 			first.setNext(new OrderedSetNode(t));
-			System.out.println("First");
 			return true;
 		}
 		while(current.getNext() != null)
@@ -45,10 +52,10 @@ public class OrderedSet <T extends Shorter<T>> extends Set<T>{
 				n.setNext(current.getNext());
 				current.setNext(n);
 				return true;
-			}else
+			}else //OrderedSet weiter durchgehen
 				current = current.getNext();
 			
-			//auf identitaet ueberpruefen
+			//auf Identitaet ueberpruefen
 			if(current.getItem().equals(t))
 				return false;
 		}
