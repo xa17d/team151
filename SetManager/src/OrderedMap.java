@@ -85,7 +85,7 @@ public class OrderedMap<T extends Shorter<T> ,U> extends OrderedSet<T> {
 			
 			/**
 			 * Erzeugt ein neues MappedNode
-			 * @param item zu speicherndes Objekt
+			 * @param item zu speicherndes Objekt (!=null)
 			 */
 			public MappedNode(U item) {
 				next = null;
@@ -93,7 +93,7 @@ public class OrderedMap<T extends Shorter<T> ,U> extends OrderedSet<T> {
 			}
 			
 			/**
-			 * naechstes MappedNode
+			 * naechstes MappedNode (null falls es kein naechstes Objekt gibt)
 			 */
 			private MappedNode next;
 			/**
