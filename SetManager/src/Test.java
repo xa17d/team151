@@ -102,18 +102,6 @@ public class Test {
 		OrderedMap<MeanElapsedTime, CompositeTime> map1 = new OrderedMap<MeanElapsedTime, CompositeTime>();
 		// Beispielwerte einfuegen
 		
-		MeanElapsedTime met1 = new MeanElapsedTime();
-		met1.addValue(15.2);
-		met1.addValue(12.3);
-		met1.addValue(34.2);
-		met1.addValue(2.5);
-		
-		MeanElapsedTime met2 = new MeanElapsedTime();
-		met2.addValue(16.9);
-		met2.addValue(31.3);
-		met2.addValue(22.8);
-		met2.addValue(4.6);
-		
 		MeanElapsedTime met3 = new MeanElapsedTime();
 		met3.addValue(0);
 		met3.addValue(0.5);
