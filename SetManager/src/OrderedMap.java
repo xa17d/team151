@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 /**
  * OrderedMap unterscheidet sich von OrderedSet nur dadurch, dass jedes Element der Menge auf weitere Objekte verweisen kann.
  * Der Typ dieser Objekte wird durch einen weiteren Typparameter bestimmt.
- * @author daniel
+ * @author Daniel Gehrer
  *
  * @param <T> Typ der Elemente (muss Untertyp von Shorter<T> sein)
  * @param <U> Typ der Objekte auf die verwiesen wird

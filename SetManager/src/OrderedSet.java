@@ -56,7 +56,7 @@ public class OrderedSet<T extends Shorter<? super T>> extends Set<T> {
 				current = current.getNext();
 			
 			//auf Identitaet ueberpruefen
-			if(current.getItem().equals(t))
+			if(current.getItem() == t)
 				return false;
 		}
 		//Kein Element kleiner -> Am Ende einfuegen

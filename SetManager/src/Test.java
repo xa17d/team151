@@ -7,8 +7,10 @@ import java.util.ListIterator;
  */
 public class Test {
 	public static void main(String[] args) {
-		//TEST 0 OrderedSet
-		System.out.println("*** OrderedSet ***");
+		//
+		// Test 1
+		//
+		System.out.println("*** Test1: OrderedSet ***");
 		Set<Description> os = new OrderedSet<Description>();
 		
 		Description d1 = new Description("a");
@@ -22,6 +24,7 @@ public class Test {
 		os.insert(d1);
 		os.insert(d2);
 		os.insert(d3);
+		os.insert(d2); // identisches einfuegen
 		os.insert(d4);
 		os.insert(d7);
 		
@@ -69,38 +72,26 @@ public class Test {
 		while(ostwoIter.hasNext())
 			System.out.println(ostwoIter.next().toString());
 		
-		//TEST2 - MeanElapsedTime
-		System.out.println("\n*** MeanElapsedTime ***");
+		//
+		// Test 2 - OrderedMap<MeanElapsedTime, CompositeTime>
+		//
+		System.out.println("\n*** Test2: OrderedMap ***");
+		
+		// OrderedMap erstellen
+		OrderedMap<MeanElapsedTime, CompositeTime> map1 = new OrderedMap<MeanElapsedTime, CompositeTime>();
+
+		// Beispielwerte einfuegen
 		MeanElapsedTime met1 = new MeanElapsedTime();
 		met1.addValue(15.2);
 		met1.addValue(12.3);
 		met1.addValue(34.2);
 		met1.addValue(2.5);
-		
-		System.out.println("MET1-Durchschnitt: " + met1.mean());
-		System.out.println("MET1-Maximum: " + met1.max());
-		
+
 		MeanElapsedTime met2 = new MeanElapsedTime();
 		met2.addValue(16.9);
 		met2.addValue(31.3);
 		met2.addValue(22.8);
 		met2.addValue(4.6);
-		
-		System.out.println("MET2-Durchschnitt: " + met2.mean());
-		System.out.println("MET2-Maximum: " + met2.max());
-		
-		System.out.println("MET1 shorter MET2: " + met1.shorter(met2));
-		System.out.println("MET2 shorter MET1: " + met2.shorter(met1));
-
-		
-		//
-		// Test 2 - OrderedMap<MeanElapsedTime, CompositeTime>
-		//
-		System.out.println("\n*** OrderedMap ***");
-		
-		// OrderedMap erstellen
-		OrderedMap<MeanElapsedTime, CompositeTime> map1 = new OrderedMap<MeanElapsedTime, CompositeTime>();
-		// Beispielwerte einfuegen
 		
 		MeanElapsedTime met3 = new MeanElapsedTime();
 		met3.addValue(0);
@@ -155,7 +146,7 @@ public class Test {
 		// Test 3 - OrderedMap als OrderedSet
 		//
 		
-		System.out.println("\n*** OrderedMap als OrderedSet ***");
+		System.out.println("\n*** Test 3: OrderedMap als OrderedSet ***");
 		
 		OrderedSet<MeanElapsedTime> orderedSet2 = map1;
 		
@@ -180,7 +171,7 @@ public class Test {
 		
 		
 		//
-		//Test 4
+		// Test 4
 		//
 		System.out.println("*** Test 4 ***");
 		OrderedSet<ElapsedTime> osET = new OrderedSet<ElapsedTime>();
@@ -206,7 +197,10 @@ public class Test {
 			System.out.println("Time: " + et.time() + " count: " + et.count());
 		}
 		
-		
+		//
+		// Test 5: Unserer Meinung nach sind mit den obigen Beispielen
+		//         alle noetigen Tests durchgefuehrt worden
+		//
 	}
 	
 	private static void printMap(OrderedMap<MeanElapsedTime, CompositeTime> map)
