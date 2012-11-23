@@ -1,3 +1,4 @@
+import java.security.KeyStore.Entry;
 import java.util.*;
 
 public class RoboShop {
@@ -27,16 +28,11 @@ public class RoboShop {
 	}
 	
 	public String find(int seriennummer) {
-		Iterator<AusgelieferterAndroide> iter = this.iterator();
-		
-		while(iter.hasNext()) {
-			AusgelieferterAndroide next = iter.next();
-			//TODO If-Abfrage irgendwie ersetzen
-			if(next.getSeriennummer() == seriennummer)
-				return next.toString();
+		Map.Entry<Integer, AusgelieferterAndroide> entry = androideMap.floorEntry(seriennummer);
+		if (entry != null) {
+			return entry.getValue().toString();
 		}
-
-		return null;
+		else { return null; }
 	}
 	
 	public AndroidIterator iterator() {
