@@ -6,17 +6,17 @@ public class RoboShop {
 		String existingAndroide = this.find(seriennummer);
 		
 		if(existingAndroide==null) {
-			//TODO INSERT
-			String check;
+			String error;
 			
-			check = androide.checkSkin(skin);
+			error = androide.checkSkin(skin);
+			//TODO noch auf Software und SensorenAktoren pruefen
 			
-			if(check==null) {
-				androide.setSkin(skin);
+			if(error==null) {
+				//TODO neuen Androiden erstellen und Attribute setzen
 				return "";
 			}
 			else
-				return check;
+				return error;
 		}
 		else {
 			//TODO UPDATE
