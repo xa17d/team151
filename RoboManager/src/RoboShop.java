@@ -2,20 +2,21 @@ import java.util.*;
 
 public class RoboShop {
 	
-	public String insert(int seriennummer, Androide androide, Skin skin, Software software, ArrayList<SensorenAktoren> sensorenAktoren) {
+	public String insert(int seriennummer, Androide androide, Skin skin/*, Software software, ArrayList<SensorenAktoren> sensorenAktoren*/) {
 		String existingAndroide = this.find(seriennummer);
 		
 		if(existingAndroide==null) {
 			//TODO INSERT
-			String check = null;
+			String check;
 			
-			check += androide.checkSkin(skin);
+			check = androide.checkSkin(skin);
 			
 			if(check==null) {
 				androide.setSkin(skin);
+				return "";
 			}
-			
-			return null;
+			else
+				return check;
 		}
 		else {
 			//TODO UPDATE

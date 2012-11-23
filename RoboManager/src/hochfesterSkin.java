@@ -1,9 +1,9 @@
 
-public class beruehrungssensitiverSkin extends Skin {
+public class hochfesterSkin extends Skin{
 
 	@Override
 	public String vonBedienerGetragen(Bediener bediener) {
-		return null;
+		return "Bediener darf keinen hochfesten Skin tragen";
 	}
 
 	@Override
@@ -13,7 +13,7 @@ public class beruehrungssensitiverSkin extends Skin {
 
 	@Override
 	public String vonBeschuetzerGetragen(Beschuetzer beschuetzer) {
-		return "Beschuetzer darf keinen beruehrungssensitiven Skin tragen";
+		return null;
 	}
 
 }
