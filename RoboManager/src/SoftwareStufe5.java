@@ -25,4 +25,9 @@ public class SoftwareStufe5 extends Software {
 	public String vonKaempferVerwendet(Kaempfer kaempfer) {
 		return null;
 	}
+
+	@Override
+	public String toString() {
+		return "Software Stufe 5";
+	}
 }

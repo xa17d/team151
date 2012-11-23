@@ -25,4 +25,9 @@ public class SoftwareStufe4 extends Software {
 	public String vonKaempferVerwendet(Kaempfer kaempfer) {
 		return "Kaempfer darf Software der Stufe 4 nicht verwenden";
 	}
+
+	@Override
+	public String toString() {
+		return "Software Stufe 4";
+	}
 }

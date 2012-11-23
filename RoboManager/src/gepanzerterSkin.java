@@ -15,4 +15,9 @@ public class gepanzerterSkin extends Skin {
 	public String vonBeschuetzerGetragen(Beschuetzer beschuetzer) {
 		return null;
 	}
+
+	@Override
+	public String toString() {
+		return "gepanzerter Skin";
+	}
 }

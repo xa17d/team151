@@ -13,7 +13,11 @@ public class beruehrungssensitiverSkin extends Skin {
 
 	@Override
 	public String vonBeschuetzerGetragen(Beschuetzer beschuetzer) {
-		return "Beschuetzer darf keinen beruehrungssensitiven Skin tragen";
+		return null;
 	}
 
+	@Override
+	public String toString() {
+		return "beruehrungssensitiver Skin";
+	}
 }

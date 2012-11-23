@@ -16,4 +16,8 @@ public class hochfesterSkin extends Skin{
 		return null;
 	}
 
+	@Override
+	public String toString() {
+		return "hochfester Skin";
+	}
 }

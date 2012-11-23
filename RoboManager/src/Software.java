@@ -6,4 +6,6 @@ public abstract class Software {
 	public abstract String vonSchwerarbeiterVerwendet(Schwerarbeiter schwerarbeiter);
 	public abstract String vonBeschuetzerVerwendet(Beschuetzer beschuetzer);
 	public abstract String vonKaempferVerwendet(Kaempfer kaempfer);
+	
+	public abstract String toString();
 }
