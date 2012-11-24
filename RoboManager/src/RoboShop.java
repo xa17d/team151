@@ -34,12 +34,6 @@ public class RoboShop {
 		else if(errorSoftwareStufe!=null)
 			return errorSoftwareStufe;
 		
-		//TODO NoSuchElementException im Iterator irgendwie anders vermeiden
-		//zu Testzwecken um NoSuchElementException zu verhindern
-		AusgelieferterAndroide a = new AusgelieferterAndroide(0, new Bauarbeiter(), new GepanzerterSkin(), new SoftwareStufe1());
-		androideMap.put(0, a);
-		//------------------------------------------------------
-		
 		AusgelieferterAndroide neuerAndroide = new AusgelieferterAndroide(seriennummer, androide, skin, softwareStufe);
 		androideMap.put(seriennummer, neuerAndroide);
 		
@@ -75,7 +69,7 @@ public class RoboShop {
 	 */
 	private class AndroidIterator implements Iterator<AusgelieferterAndroide> {
 
-		int key = androideMap.firstKey();
+		int key = androideMap.firstKey()-1;
 		
 		/**
 		 * liefert boolschen Wert ob es noch ein naechstes Element in der Liste gibt
@@ -91,11 +85,14 @@ public class RoboShop {
 
 		/**
 		 * liefert naechsten Androiden in der Liste
+		 * @return neachster Androide
 		 */
 		@Override
 		public AusgelieferterAndroide next() {
 			key = androideMap.higherKey(key);
-			return androideMap.get(key);
+			AusgelieferterAndroide result = androideMap.get(key);
+			return result;
+			
 		}
 
 		@Override
