@@ -1,9 +1,12 @@
-
+/**
+ * stellen alle Androide des Typs Kaempfer dar
+ * @author Lucas
+ */
 public class Kaempfer extends Beschuetzer{
 
 	@Override
-	public String checkSoftware(Software software) {
-		return software.vonKaempferVerwendet(this);
+	public String checkSoftwareStufe(SoftwareStufe softwareStufe) {
+		return softwareStufe.vonKaempferVerwendet(this);
 	}
 
 	@Override

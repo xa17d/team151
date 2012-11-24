@@ -1,5 +1,8 @@
-
-public class SoftwareStufe4 extends Software {
+/**
+ * stellt die Software der Stufe 4 dar
+ * @author Lucas
+ */
+public class SoftwareStufe4 extends SoftwareStufe {
 
 	@Override
 	public String vonBedienerVerwendet(Bediener bediener) {
@@ -28,6 +31,6 @@ public class SoftwareStufe4 extends Software {
 
 	@Override
 	public String toString() {
-		return "Software Stufe 4";
+		return "Software-Stufe 4";
 	}
 }

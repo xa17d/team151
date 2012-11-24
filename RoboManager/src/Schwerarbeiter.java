@@ -1,4 +1,7 @@
-
+/**
+ * Obertyp saemtlicher Schwerarbeiter
+ * @author Lucas
+ */
 public abstract class Schwerarbeiter extends Androide{
 	
 	@Override
@@ -7,7 +10,7 @@ public abstract class Schwerarbeiter extends Androide{
 	}
 	
 	@Override
-	public String checkSoftware(Software software) {
-		return software.vonSchwerarbeiterVerwendet(this);
+	public String checkSoftwareStufe(SoftwareStufe softwareStufe) {
+		return softwareStufe.vonSchwerarbeiterVerwendet(this);
 	}
 }

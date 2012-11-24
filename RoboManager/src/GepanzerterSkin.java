@@ -1,14 +1,17 @@
-
-public class hochfesterSkin extends Skin{
+/**
+ * stellt einen gepanzerten Skin dar
+ * @author Lucas
+ */
+public class GepanzerterSkin extends Skin {
 
 	@Override
 	public String vonBedienerGetragen(Bediener bediener) {
-		return "Bediener darf keinen hochfesten Skin tragen";
+		return "Bediener darf keinen gepanzerten Skin tragen";
 	}
 
 	@Override
 	public String vonSchwerarbeiterGetragen(Schwerarbeiter schwerarbeiter) {
-		return null;
+		return "Schwerarbeiter darf keinen gepanzerten Skin tragen";
 	}
 
 	@Override
@@ -18,6 +21,6 @@ public class hochfesterSkin extends Skin{
 
 	@Override
 	public String toString() {
-		return "hochfester Skin";
+		return "gepanzerter Skin";
 	}
 }

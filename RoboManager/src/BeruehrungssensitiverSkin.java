@@ -1,5 +1,8 @@
-
-public class beruehrungssensitiverSkin extends Skin {
+/**
+ * stellt einen beruehrungssensitiven Skin dar
+ * @author Lucas
+ */
+public class BeruehrungssensitiverSkin extends Skin {
 
 	@Override
 	public String vonBedienerGetragen(Bediener bediener) {

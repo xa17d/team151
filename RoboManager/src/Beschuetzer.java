@@ -1,4 +1,7 @@
-
+/**
+ * Obertyp saemtlicher Beschuetzer
+ * @author Lucas
+ */
 public abstract class Beschuetzer extends Androide{
 	
 	@Override
@@ -7,7 +10,7 @@ public abstract class Beschuetzer extends Androide{
 	}
 	
 	@Override
-	public String checkSoftware(Software software) {
-		return software.vonBeschuetzerVerwendet(this);
+	public String checkSoftwareStufe(SoftwareStufe softwareStufe) {
+		return softwareStufe.vonBeschuetzerVerwendet(this);
 	}
 }
