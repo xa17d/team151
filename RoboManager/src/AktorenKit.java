@@ -10,16 +10,17 @@ public abstract class AktorenKit {
 	 * @return Fehlercode: falls Skin von Bediener nicht getragen werden darf
 	 * 		   null: falls Skin fuer einen Bediener zugelassen ist
 	 */
-	public abstract String vonAndroidSoftwareStufe1(SoftwareStufe1 softwareStufe1);
-		
-	public abstract String vonAndroidSoftwareStufe2(SoftwareStufe2 softwareStufe2);
+	public abstract String vonBedienerBenutzt(Bediener bediener);
 	
-	public abstract String vonAndroidSoftwareStufe3(SoftwareStufe3 softwareStufe3);
+	public abstract String vonSchwerarbeiterBenutzt(Schwerarbeiter schwerarbeiter, SoftwareStufe3 softwareStufe3);
 	
-	public abstract String vonAndroidSoftwareStufe4(SoftwareStufe4 softwareStufe4);
+	public abstract String vonSchwerarbeiterBenutzt(Schwerarbeiter schwerarbeiter, SoftwareStufe4 softwareStufe4);
 	
-	public abstract String vonAndroidSoftwareStufe5(SoftwareStufe5 softwareStufe5);
+	public abstract String vonLeibwaechterBenutzt(Leibwaechter leibwaechter);
 	
+	public abstract String vonObjektbewacherBenutzt(Objektbewacher objektbewacher);
+	
+	public abstract String vonKaempferBenutzt(Kaempfer kaempfer);
 	
 	/**
 	 * erzeut einen String mit dem Namen des Skins

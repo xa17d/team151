@@ -13,4 +13,9 @@ public class Kaempfer extends Beschuetzer{
 	public String toString() {
 		return "Kaempfer";
 	}
+
+	@Override
+	public String checkAktorenKit(AktorenKit aktorenKit, SoftwareStufe softwareStufe) {
+		return aktorenKit.vonKaempferBenutzt(this);
+	}
 }

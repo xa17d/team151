@@ -19,6 +19,9 @@ public abstract class Androide {
 	 * 		   null: falls Androide mit dieser Software ausgeliefert werden kann
 	 */
 	public abstract String checkSoftwareStufe(SoftwareStufe softwareStufe);
+
+	
+	public abstract String checkAktorenKit(AktorenKit aktorenKit, SoftwareStufe softwareStufe);
 	
 	/**
 	 * erzeut einen String mit dem Typ-Namen des Androiden

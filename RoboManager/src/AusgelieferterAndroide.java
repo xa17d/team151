@@ -7,6 +7,7 @@ public class AusgelieferterAndroide {
 	private Androide androide;
 	private Skin skin;
 	private SoftwareStufe softwareStufe;
+	private AktorenKit aktorenKit;
 	
 	//TODO weitere Parameter speichern
 	/**
@@ -16,11 +17,12 @@ public class AusgelieferterAndroide {
 	 * @param skin Skin-Typ
 	 * @param softwareStufe Stufe der Software
 	 */
-	public AusgelieferterAndroide(int seriennummer, Androide androide, Skin skin, SoftwareStufe softwareStufe) {
+	public AusgelieferterAndroide(int seriennummer, Androide androide, Skin skin, SoftwareStufe softwareStufe, AktorenKit aktorenKit) {
 		this.seriennummer = seriennummer;
 		this.androide = androide;
 		this.skin = skin;
 		this.softwareStufe = softwareStufe;
+		this.aktorenKit = aktorenKit;
 	}
 	
 	/**
@@ -37,6 +39,6 @@ public class AusgelieferterAndroide {
 	 */
 	@Override
 	public String toString() {
-		return "(" + seriennummer + ", " + androide.toString() + ", " + skin.toString() + ", " + softwareStufe.toString() + ")"; 
+		return "(" + seriennummer + ", " + androide.toString() + ", " + skin.toString() + ", " + softwareStufe.toString() + "," + aktorenKit.toString() + ")"; 
 	}
 }

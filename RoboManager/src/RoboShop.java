@@ -22,10 +22,11 @@ public class RoboShop {
 	 * @return falls Eingabe nicht korrekt: Fehlercode
 	 * 		   falls Androide ausgeliefert werden kann: null
 	 */
-	public String insert(int seriennummer, Androide androide, Skin skin, /*SoftwareTyp softwareTyp,*/ SoftwareStufe softwareStufe/*, ArrayList<SensorenAktoren> sensorenAktoren*/) {
+	public String insert(int seriennummer, Androide androide, Skin skin, /*SoftwareTyp softwareTyp,*/ SoftwareStufe softwareStufe, AktorenKit aktorenKit) {
 		//Ueberpruefung auf zugelassene Eingabeparameter
 		String errorSkin = androide.checkSkin(skin);
 		String errorSoftwareStufe = androide.checkSoftwareStufe(softwareStufe);
+		String errorAktorenKit = androide.checkAktorenKit(aktorenKit, softwareStufe);
 		
 		//TODO SoftwareTyp und SensorenAktoren
 		
@@ -33,8 +34,9 @@ public class RoboShop {
 			return errorSkin;
 		else if(errorSoftwareStufe!=null)
 			return errorSoftwareStufe;
-		
-		AusgelieferterAndroide neuerAndroide = new AusgelieferterAndroide(seriennummer, androide, skin, softwareStufe);
+		else if(errorAktorenKit != null)
+			return errorAktorenKit;
+		AusgelieferterAndroide neuerAndroide = new AusgelieferterAndroide(seriennummer, androide, skin, softwareStufe, aktorenKit);
 		androideMap.put(seriennummer, neuerAndroide);
 		
 		return null;

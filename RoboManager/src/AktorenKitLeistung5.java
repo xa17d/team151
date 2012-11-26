@@ -2,33 +2,42 @@
 public class AktorenKitLeistung5 extends AktorenKit{
 
 	@Override
-	public String vonAndroidSoftwareStufe1(SoftwareStufe1 softwareStufe1) {
-		return "Ein Android mit Software 1 darf kein AktorenKit Leistung: 5KW benutzen";
+	public String vonBedienerBenutzt(Bediener bediener) {
+		return "Ein Bediener darf kein AktorenKit Leistung: > 5KW benutzen";
 	}
 
 	@Override
-	public String vonAndroidSoftwareStufe2(SoftwareStufe2 softwareStufe2) {
-		return "Ein Android mit Software 2 darf kein AktorenKit Leistung: 5KW benutzen";
-	}
-
-	@Override
-	public String vonAndroidSoftwareStufe3(SoftwareStufe3 softwareStufe3) {
+	public String vonSchwerarbeiterBenutzt(
+			Schwerarbeiter schwerarbeiter, SoftwareStufe3 softwareStufe3) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String vonAndroidSoftwareStufe4(SoftwareStufe4 softwareStufe4) {
+	public String vonSchwerarbeiterBenutzt(
+			Schwerarbeiter schwerarbeiter, SoftwareStufe4 softwareStufe4) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public String vonLeibwaechterBenutzt(Leibwaechter leibwaechter) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String vonAndroidSoftwareStufe5(SoftwareStufe5 softwareStufe5) {
+	public String vonObjektbewacherBenutzt(Objektbewacher objektbewacher) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
+	public String vonKaempferBenutzt(Kaempfer kaempfer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	@Override
 	public String toString() {
 		return "AkotrenKit Leistung: 5KW";
