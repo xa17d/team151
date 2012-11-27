@@ -7,7 +7,7 @@ public class Test {
 	public static void main(String[] args) {
 		RoboShop shop = new RoboShop();
 		int seriennummer = 1;
-		String fehlercode = "";
+		String fehlercode;
 		
 		//Androiden-Typen
 		Androide h = new Hilfskraft();
@@ -41,68 +41,59 @@ public class Test {
 		//TEST
 		//insert Hilfskraft mit falschem Skin
 		fehlercode = shop.insert(seriennummer++, h, gS, new SoftwareHilfskraft(s1), ak1);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Gesellschafter mit falschem AktorenKit
 		fehlercode = shop.insert(seriennummer++, g, bS, new SoftwareGesellschafter(s1), ak10);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Schwerarbeiter(ServiceTechniker) mit falschem AktorenKit (wegen zu geringer SoftwareStufe)
 		fehlercode = shop.insert(seriennummer++, s, bS, new SoftwareServiceTechniker(s3), ak10);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Schwerarbeiter(ServiceTechniker) mit korrektem AktorenKit (wegen passender SoftwareStufe im Vergleich zu vorigem Bsp.)
 		fehlercode = shop.insert(seriennummer++, s, bS, new SoftwareServiceTechniker(s4), ak10);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Transportarbeiter mit falschem AktorenKit
 		fehlercode = shop.insert(seriennummer++, t, bS, new SoftwareTransportarbeiter(s3), aku);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Schwerarbeiter mit falscher Software
 		fehlercode = shop.insert(seriennummer++, b, bS, new SoftwareBauarbeiter(s2), ak1);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Kaempfer mit zugelassenen Parametern
 		fehlercode = shop.insert(seriennummer++, k, gS, new SoftwareKaempfer(s5), aku);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Kaempfer mit falscher Software
 		fehlercode = shop.insert(seriennummer++, k, gS, new SoftwareKaempfer(s4), aku);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Transportarbeiter mit zugelassenen Parametern
 		fehlercode = shop.insert(seriennummer++, t, hS, new SoftwareTransportarbeiter(s3), ak5);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Objektbewacher mit zugelassenen Parametern
 		fehlercode = shop.insert(seriennummer++, o, bS, new SoftwareObjektbewacher(s4), ak10);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Leibwaechter mit falschem Skin und falscher Software
 		fehlercode = shop.insert(seriennummer++, l, gS, new SoftwareLeibwaechter(s2), ak1);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Gesellschafter mit zugelassenen Parametern
 		fehlercode = shop.insert(seriennummer++, g, bS, new SoftwareGesellschafter(s1), ak1);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//insert Service-Techniker mit falscher Software
 		fehlercode = shop.insert(seriennummer++, s, gS, new SoftwareServiceTechniker(s5), ak10);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
+		
+		//insert Objektbewacher mit falschem Software-Typ
+		fehlercode = shop.insert(seriennummer++, o, bS, new SoftwareKaempfer(s4), ak10);
+		printFehlercode(fehlercode);
 		
 		//einen Androiden suchen
 		System.out.println("\nAndroide mit der Seriennummer 4: " + shop.find(4));
@@ -116,14 +107,11 @@ public class Test {
 		System.out.println("\nVeraenderungen vornehmen:");
 		//Androide veraendern
 		fehlercode = shop.insert(7, o, gS, new SoftwareObjektbewacher(s4), ak5);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		fehlercode = shop.insert(9, k, bS, new SoftwareKaempfer(s5), aku);
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		fehlercode = shop.insert(4, s, bS, new SoftwareServiceTechniker(s4), aku); //Ungueltiges AktorenKit
-		if(fehlercode!=null)
-			System.out.println("FEHLER: "+ fehlercode);
+		printFehlercode(fehlercode);
 		
 		//alle Androiden ausgeben
 		System.out.println("\nalle ausgelieferten Androide nach Veraenderung:");
@@ -131,5 +119,14 @@ public class Test {
 		while(iter1.hasNext())
 			System.out.println(iter1.next().toString());
 		
+	}
+	
+	private static void printFehlercode(String fehlercode) {
+		if(fehlercode!=null) {
+			System.out.println("FEHLER: "+ fehlercode);
+		}
+		else {
+			System.out.println("OK");
+		}
 	}
 }
