@@ -27,7 +27,7 @@ public abstract class Software {
 		return "Transportarbeiter darf diesen Software-Typ nicht verwenden";
 	}
 	public String vonObjektbewacherVerwendet(Objektbewacher objektbewacher) {
-		return "ServiceTechniker darf diesen Software-Typ nicht verwenden";
+		return "Objektbewacher darf diesen Software-Typ nicht verwenden";
 	}
 	public String vonLeibwaechterVerwendet(Leibwaechter leibwaechter) {
 		return "Leibwaechter darf diesen Software-Typ nicht verwenden";
