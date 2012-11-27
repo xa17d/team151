@@ -12,4 +12,9 @@ public class SoftwareObjektbewacher extends Software {
 	public String vonObjektbewacherVerwendet(Objektbewacher objektbewacher) {
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		return "Objektbewacher Software ("+getStufe()+")";
+	}
 }

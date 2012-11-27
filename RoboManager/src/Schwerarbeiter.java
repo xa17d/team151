@@ -18,4 +18,9 @@ public abstract class Schwerarbeiter extends Androide{
 	public String checkAktorenKitSoftware(AktorenKit aktorenKit, SoftwareStufe softwareStufe){
 		return aktorenKit.vonSchwerarbeiterBenutzt(this, softwareStufe);
 	}
+	
+	@Override
+	protected String aenderungZuSchwerarbeiter() {
+		return null;
+	}
 }

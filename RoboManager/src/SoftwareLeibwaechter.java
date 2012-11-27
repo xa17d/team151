@@ -12,4 +12,9 @@ public class SoftwareLeibwaechter extends Software {
 	public String vonLeibwaechterVerwendet(Leibwaechter leibwaechter) {
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		return "Leibwaechter Software ("+getStufe()+")";
+	}
 }

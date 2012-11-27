@@ -12,4 +12,9 @@ public class SoftwareHilfskraft extends Software {
 	public String vonHilfskraftVerwendet(Hilfskraft hilfskraft) {
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		return "Hilfskraft Software ("+getStufe()+")";
+	}
 }

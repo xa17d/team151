@@ -12,4 +12,9 @@ public class SoftwareKaempfer extends Software {
 	public String vonKaempferVerwendet(Kaempfer kaempfer) {
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		return "Kaempfer Software ("+getStufe()+")";
+	}
 }

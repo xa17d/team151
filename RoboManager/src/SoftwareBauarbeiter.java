@@ -12,4 +12,9 @@ public class SoftwareBauarbeiter extends Software {
 	public String vonBauarbeiterVerwendet(Bauarbeiter bauarbeiter) {
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		return "Bauarbeiter Software ("+getStufe()+")";
+	}
 }

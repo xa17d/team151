@@ -96,6 +96,6 @@ public class SoftwareStufe1 extends SoftwareStufe {
 
 	@Override
 	public String toString() {
-		return "Software-Stufe 1";
+		return "Stufe 1";
 	}
 }

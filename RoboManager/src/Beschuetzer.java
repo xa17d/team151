@@ -18,4 +18,9 @@ public abstract class Beschuetzer extends Androide{
 	public String checkAktorenKitSoftware(AktorenKit aktorenKit, SoftwareStufe softwareStufe){
 		return aktorenKit.vonBeschuetzerBenutzt(this, softwareStufe);
 	}
+	
+	@Override
+	protected String aenderungZuBeschuetzer() {
+		return null;
+	}
 }

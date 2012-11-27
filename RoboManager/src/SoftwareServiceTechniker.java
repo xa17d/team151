@@ -12,4 +12,9 @@ public class SoftwareServiceTechniker extends Software {
 	public String vonServiceTechnikerVerwendet(ServiceTechniker serviceTechniker) {
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		return "ServiceTechniker Software ("+getStufe()+")";
+	}
 }

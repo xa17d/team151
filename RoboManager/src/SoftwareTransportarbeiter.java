@@ -12,4 +12,9 @@ public class SoftwareTransportarbeiter extends Software {
 	public String vonTransportarbeiterVerwendet(Transportarbeiter transportarbeiter) {
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+		return "Transportarbeiter Software ("+getStufe()+")";
+	}
 }

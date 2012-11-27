@@ -95,6 +95,10 @@ public class Test {
 		fehlercode = shop.insert(seriennummer++, o, bS, new SoftwareKaempfer(s4), ak10);
 		printFehlercode(fehlercode);
 		
+		//insert Hilfskraft mit zugelassenen Parametern
+		fehlercode = shop.insert(seriennummer++, h, bS, new SoftwareHilfskraft(s2), ak1);
+		printFehlercode(fehlercode);
+		
 		//einen Androiden suchen
 		System.out.println("\nAndroide mit der Seriennummer 4: " + shop.find(4));
 		
@@ -106,11 +110,13 @@ public class Test {
 		
 		System.out.println("\nVeraenderungen vornehmen:");
 		//Androide veraendern
-		fehlercode = shop.insert(7, o, gS, new SoftwareObjektbewacher(s4), ak5);
+		fehlercode = shop.insert(7, k, bS, new SoftwareKaempfer(s5), ak5); // aenderung des Skins (erlaubt)
 		printFehlercode(fehlercode);
-		fehlercode = shop.insert(9, k, bS, new SoftwareKaempfer(s5), aku);
+		fehlercode = shop.insert(9, k, bS, new SoftwareKaempfer(s5), aku); // unerlaupte Typaenderung
 		printFehlercode(fehlercode);
 		fehlercode = shop.insert(4, s, bS, new SoftwareServiceTechniker(s4), aku); //Ungueltiges AktorenKit
+		printFehlercode(fehlercode);
+		fehlercode = shop.insert(15, h, bS, new SoftwareHilfskraft(s1), ak1); // aenderung der Software-Stufe (verboten)
 		printFehlercode(fehlercode);
 		
 		//alle Androiden ausgeben
@@ -118,6 +124,12 @@ public class Test {
 		iter1 = shop.iterator();
 		while(iter1.hasNext())
 			System.out.println(iter1.next().toString());
+		
+		//alle Seriennummern ausgeben
+		System.out.println("\nalle ausgelieferten anhand der Seriennummer (RoboShop.find):");
+		for (int i = 1; i < seriennummer; i++) {
+			System.out.println(i+":\t"+shop.find(i));
+		}
 		
 	}
 	

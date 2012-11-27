@@ -55,6 +55,6 @@ public class AusgelieferterAndroide {
 	 */
 	@Override
 	public String toString() {
-		return "(" + seriennummer + ", " + androide.toString() + ", " + skin.toString() + ", " + software.toString() + "," + aktorenKit.toString() + ")"; 
+		return "(" + seriennummer + ", " + androide.toString() + ", " + skin.toString() + ", " + software.toString() + ", " + aktorenKit.toString() + ")"; 
 	}
 }

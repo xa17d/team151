@@ -18,4 +18,9 @@ public abstract class Bediener extends Androide {
 	public String checkAktorenKitSoftware(AktorenKit aktorenKit, SoftwareStufe softwareStufe){
 		return aktorenKit.vonBedienerBenutzt(this, softwareStufe);
 	}
+	
+	@Override
+	protected String aenderungZuBediener() {
+		return null;
+	}
 }

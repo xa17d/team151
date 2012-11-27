@@ -61,11 +61,9 @@ public class RoboShop {
 	 *	   seriennummer existiert nicht: null
 	 */
 	public String find(int seriennummer) {
-		AusgelieferterAndroide entry = androideMap.get(seriennummer);
-		if (entry != null) {
-			return entry.toString();
-		}
-		else { return null; }
+		AusgelieferterAndroide a = androideMap.get(seriennummer);
+		if (a==null) { return null; }
+		else { return a.toString(); }
 	}
 	
 	/**
