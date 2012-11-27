@@ -1,4 +1,5 @@
 /**
+ * Sensoren-Aktoren-Kit
  * stellt Obertyp aller AktorenKits dar.
  * @author raphael, lucas
  */
