@@ -84,7 +84,16 @@ public class SoftwareStufe5 extends SoftwareStufe {
 	public String vonKaempferVerwendet(Kaempfer kaempfer, AktorenKitLeistungUnlimitiert kit) {
 		return null;
 	}
+	@Override
+	public String aenderungZuStufe5() {
+		return null;
+	}
 
+	@Override
+	public String checkAenderungStufe(SoftwareStufe vorgaengerStufe) {
+		return vorgaengerStufe.aenderungZuStufe5();
+	}
+	
 	@Override
 	public String toString() {
 		return "Software-Stufe 5";

@@ -36,7 +36,19 @@ public class RoboShop {
 			return errorSoftware;
 		else if(errorAktorenKitSoftware != null)
 			return errorAktorenKitSoftware;
+		
 		AusgelieferterAndroide neuerAndroide = new AusgelieferterAndroide(seriennummer, androide, skin, software, aktorenKit);
+		AusgelieferterAndroide alterAndroide = androideMap.get(seriennummer);
+		if (alterAndroide != null) {
+			String errorTypAenderung = androide.checkAenderungTyp(alterAndroide.getAndroide());
+			String errorSoftwareAenderung = software.getStufe().checkAenderungStufe(alterAndroide.getSoftware().getStufe());
+			
+			if(errorTypAenderung!=null)
+				return errorTypAenderung;
+			else if (errorSoftwareAenderung!=null)
+				return errorSoftwareAenderung; 
+		}
+		
 		androideMap.put(seriennummer, neuerAndroide);
 		
 		return null;
@@ -49,9 +61,9 @@ public class RoboShop {
 	 *	   seriennummer existiert nicht: null
 	 */
 	public String find(int seriennummer) {
-		Map.Entry<Integer, AusgelieferterAndroide> entry = androideMap.floorEntry(seriennummer);
+		AusgelieferterAndroide entry = androideMap.get(seriennummer);
 		if (entry != null) {
-			return entry.getValue().toString();
+			return entry.toString();
 		}
 		else { return null; }
 	}

@@ -32,10 +32,10 @@ public class Test {
 		SoftwareStufe s5 = new SoftwareStufe5();
 		
 		//AktorenKits
-		AktorenKitLeistung1 ak1 = new AktorenKitLeistung1();
-		AktorenKitLeistung5 ak5 = new AktorenKitLeistung5();
-		AktorenKitLeistung10 ak10 = new AktorenKitLeistung10();
-		AktorenKitLeistungUnlimitiert aku = new AktorenKitLeistungUnlimitiert();
+		AktorenKit ak1 = new AktorenKitLeistung1();
+		AktorenKit ak5 = new AktorenKitLeistung5();
+		AktorenKit ak10 = new AktorenKitLeistung10();
+		AktorenKit aku = new AktorenKitLeistungUnlimitiert();
 		
 		
 		//TEST

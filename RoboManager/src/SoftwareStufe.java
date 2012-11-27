@@ -164,6 +164,60 @@ public abstract class SoftwareStufe {
 	 */
 	public abstract String vonKaempferVerwendet(Kaempfer kaempfer, AktorenKitLeistungUnlimitiert kit);
 	
+	
+	/**
+	 * Prueft ob die Stufe des Vorgaengers dieser Stufe zu dieser Stufe gaendert werden kann
+	 * @param vorgaengerStufe Vorgaenger Stufe (!=null)
+	 * @return Fehlercode: falls Stufe nicht veraendert werden darf
+	 * 		   null: falls Stufen-Aenderung zugelassen ist
+	 */
+	public abstract String checkAenderungStufe(SoftwareStufe vorgaengerStufe);
+	
+	/**
+	 * Prueft ob diese Software-Stufe zu Stufe 1 veraendert werden kann
+	 * @return Fehlercode: falls Software-Stufe nicht veraendert werden darf
+	 * 		   null: falls Software-Stufen Aenderung zugelassen ist
+	 */
+	public String aenderungZuStufe1() {
+		return "Stufe kann nicht veraendert werden";
+	}
+	
+	/**
+	 * Prueft ob diese Software-Stufe zu Stufe 2 veraendert werden kann
+	 * @return Fehlercode: falls Software-Stufe nicht veraendert werden darf
+	 * 		   null: falls Software-Stufen Aenderung zugelassen ist
+	 */
+	public String aenderungZuStufe2() {
+		return "Stufe kann nicht veraendert werden";
+	}
+	
+	/**
+	 * Prueft ob diese Software-Stufe zu Stufe 3 veraendert werden kann
+	 * @return Fehlercode: falls Software-Stufe nicht veraendert werden darf
+	 * 		   null: falls Software-Stufen Aenderung zugelassen ist
+	 */
+	public String aenderungZuStufe3() {
+		return "Stufe kann nicht veraendert werden";
+	}
+	
+	/**
+	 * Prueft ob diese Software-Stufe zu Stufe 4 veraendert werden kann
+	 * @return Fehlercode: falls Software-Stufe nicht veraendert werden darf
+	 * 		   null: falls Software-Stufen Aenderung zugelassen ist
+	 */
+	public String aenderungZuStufe4() {
+		return "Stufe kann nicht veraendert werden";
+	}
+	
+	/**
+	 * Prueft ob diese Software-Stufe zu Stufe 5 veraendert werden kann
+	 * @return Fehlercode: falls Software-Stufe nicht veraendert werden darf
+	 * 		   null: falls Software-Stufen Aenderung zugelassen ist
+	 */
+	public String aenderungZuStufe5() {
+		return "Stufe kann nicht veraendert werden";
+	}
+	
 	/**
 	 * erzeut einen String mit der Stufe der Software
 	 * @return Stufe der Software

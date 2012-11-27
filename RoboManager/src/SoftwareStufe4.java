@@ -84,6 +84,15 @@ public class SoftwareStufe4 extends SoftwareStufe {
 	public String vonKaempferVerwendet(Kaempfer kaempfer, AktorenKitLeistungUnlimitiert kit) {
 		return "Kaempfer darf Software der Stufe 4 nicht verwenden";
 	}
+	@Override
+	public String aenderungZuStufe4() {
+		return null;
+	}
+	
+	@Override
+	public String checkAenderungStufe(SoftwareStufe vorgaengerStufe) {
+		return vorgaengerStufe.aenderungZuStufe4();
+	}
 
 	@Override
 	public String toString() {

@@ -13,9 +13,9 @@ public class AusgelieferterAndroide {
 	/**
 	 * Konstruktor
 	 * @param seriennummer Seriennummer
-	 * @param androide Androiden-Typ
-	 * @param skin Skin-Typ
-	 * @param softwareStufe Stufe der Software
+	 * @param androide Androide (!=null)
+	 * @param skin Skin-Typ (!=null)
+	 * @param software Software (!=null)
 	 */
 	public AusgelieferterAndroide(int seriennummer, Androide androide, Skin skin, Software software, AktorenKit aktorenKit) {
 		this.seriennummer = seriennummer;
@@ -31,6 +31,22 @@ public class AusgelieferterAndroide {
 	 */
 	public int getSeriennummer() {
 		return seriennummer;
+	}
+	
+	/**
+	 * liefert den Androiden
+	 * @return Androide (!=null)
+	 */
+	public Androide getAndroide() {
+		return androide;
+	}
+	
+	/**
+	 * liefert die Software
+	 * @return Software (!=null)
+	 */
+	public Software getSoftware() {
+		return software;
 	}
 	
 	/**
