@@ -44,6 +44,26 @@ public class Test {
 		if(fehlercode!=null)
 			System.out.println("FEHLER: "+ fehlercode);
 		
+		//insert Gesellschafter mit falschem AktorenKit
+		fehlercode = shop.insert(seriennummer++, g, bS, s1, ak10);
+		if(fehlercode!=null)
+			System.out.println("FEHLER: "+ fehlercode);
+		
+		//insert Schwerarbeiter(ServiceTechniker) mit falschem AktorenKit (wegen zu geringer SoftwareStufe)
+		fehlercode = shop.insert(seriennummer++, s, bS, s3, ak10);
+		if(fehlercode!=null)
+			System.out.println("FEHLER: "+ fehlercode);
+		
+		//insert Schwerarbeiter(ServiceTechniker) mit korrektem AktorenKit (wegen passender SoftwareStufe im Vergleich zu vorigem Bsp.)
+		fehlercode = shop.insert(seriennummer++, s, bS, s4, ak10);
+		if(fehlercode!=null)
+			System.out.println("FEHLER: "+ fehlercode);
+		
+		//insert Transportarbeiter mit falschem AktorenKit
+		fehlercode = shop.insert(seriennummer++, t, bS, s3, aku);
+		if(fehlercode!=null)
+			System.out.println("FEHLER: "+ fehlercode);
+		
 		//insert Schwerarbeiter mit falscher Software
 		fehlercode = shop.insert(seriennummer++, b, bS, s2, ak1);
 		if(fehlercode!=null)
@@ -85,7 +105,7 @@ public class Test {
 			System.out.println("FEHLER: "+ fehlercode);
 		
 		//einen Androiden suchen
-		System.out.println("\nAndroide mit der Seriennummer 3: " + shop.find(3));
+		System.out.println("\nAndroide mit der Seriennummer 4: " + shop.find(4));
 		
 		//alle Androiden ausgeben
 		System.out.println("\nalle ausgelieferten Androide:");
@@ -93,12 +113,20 @@ public class Test {
 		while(iter1.hasNext())
 			System.out.println(iter1.next().toString());
 		
+		System.out.println("\nVeraenderungen vornehmen:");
 		//Androide veraendern
-		shop.insert(6, o, gS, s4, ak5);
-		shop.insert(8, k, bS, s5, aku);
+		fehlercode = shop.insert(7, o, gS, s4, ak5);
+		if(fehlercode!=null)
+			System.out.println("FEHLER: "+ fehlercode);
+		fehlercode = shop.insert(9, k, bS, s5, aku);
+		if(fehlercode!=null)
+			System.out.println("FEHLER: "+ fehlercode);
+		fehlercode = shop.insert(4, s, bS, s4, aku); //Ungueltiges AktorenKit
+		if(fehlercode!=null)
+			System.out.println("FEHLER: "+ fehlercode);
 		
 		//alle Androiden ausgeben
-		System.out.println("\nalle ausgelieferten Androide:");
+		System.out.println("\nalle ausgelieferten Androide nach Veraenderung:");
 		iter1 = shop.iterator();
 		while(iter1.hasNext())
 			System.out.println(iter1.next().toString());
