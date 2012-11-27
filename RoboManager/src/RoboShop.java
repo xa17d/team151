@@ -37,8 +37,8 @@ public class RoboShop {
 		else if(errorAktorenKitSoftware != null)
 			return errorAktorenKitSoftware;
 		
-		AusgelieferterAndroide neuerAndroide = new AusgelieferterAndroide(seriennummer, androide, skin, software, aktorenKit);
 		AusgelieferterAndroide alterAndroide = androideMap.get(seriennummer);
+		AusgelieferterAndroide neuerAndroide = new AusgelieferterAndroide(seriennummer, androide, skin, software, aktorenKit, alterAndroide);
 		if (alterAndroide != null) {
 			String errorTypAenderung = androide.checkAenderungTyp(alterAndroide.getAndroide());
 			String errorSoftwareAenderung = software.getStufe().checkAenderungStufe(alterAndroide.getSoftware().getStufe());

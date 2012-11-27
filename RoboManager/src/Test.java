@@ -96,7 +96,7 @@ public class Test {
 		printFehlercode(fehlercode);
 		
 		//insert Hilfskraft mit zugelassenen Parametern
-		fehlercode = shop.insert(seriennummer++, h, bS, new SoftwareHilfskraft(s2), ak1);
+		fehlercode = shop.insert(seriennummer++, h, bS, new SoftwareHilfskraft(s1), ak1);
 		printFehlercode(fehlercode);
 		
 		//einen Androiden suchen
@@ -110,27 +110,38 @@ public class Test {
 		
 		System.out.println("\nVeraenderungen vornehmen:");
 		//Androide veraendern
-		fehlercode = shop.insert(7, k, bS, new SoftwareKaempfer(s5), ak5); // aenderung des Skins (erlaubt)
+		fehlercode = shop.insert(7, k, bS, new SoftwareKaempfer(s5), ak5); // aenderung des Skins und Sensor-Aktor-Kit (erlaubt)
+		printFehlercode(fehlercode);
+		fehlercode = shop.insert(7, k, bS, new SoftwareKaempfer(s5), ak1); // aenderung des Sensor-Aktor-Kit (erlaubt)
 		printFehlercode(fehlercode);
 		fehlercode = shop.insert(9, k, bS, new SoftwareKaempfer(s5), aku); // unerlaupte Typaenderung
 		printFehlercode(fehlercode);
 		fehlercode = shop.insert(4, s, bS, new SoftwareServiceTechniker(s4), aku); //Ungueltiges AktorenKit
 		printFehlercode(fehlercode);
-		fehlercode = shop.insert(15, h, bS, new SoftwareHilfskraft(s1), ak1); // aenderung der Software-Stufe (verboten)
+		fehlercode = shop.insert(15, h, bS, new SoftwareHilfskraft(s2), ak1); // aenderung der Software-Stufe (verboten)
+		printFehlercode(fehlercode);
+		fehlercode = shop.insert(15, g, bS, new SoftwareGesellschafter(s1), ak1); // aenderung der Untertyps (erlaubt)
 		printFehlercode(fehlercode);
 		
 		//alle Androiden ausgeben
-		System.out.println("\nalle ausgelieferten Androide nach Veraenderung:");
+		System.out.println("\nalle ausgelieferten Androide nach Veraenderung (inklusive Vorgaengerversionen):");
 		iter1 = shop.iterator();
-		while(iter1.hasNext())
-			System.out.println(iter1.next().toString());
+		while(iter1.hasNext()) {
+			AusgelieferterAndroide a = iter1.next();
+			System.out.println(a.toString());
+			
+			a = a.getVorgaenger();
+			while (a != null) {
+				System.out.println("\t"+a.toString());
+				a = a.getVorgaenger();
+			}
+		}
 		
 		//alle Seriennummern ausgeben
 		System.out.println("\nalle ausgelieferten anhand der Seriennummer (RoboShop.find):");
 		for (int i = 1; i < seriennummer; i++) {
 			System.out.println(i+":\t"+shop.find(i));
 		}
-		
 	}
 	
 	private static void printFehlercode(String fehlercode) {
