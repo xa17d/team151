@@ -5,17 +5,12 @@
 public class Kaempfer extends Beschuetzer{
 
 	@Override
-	public String checkSoftwareStufe(SoftwareStufe softwareStufe) {
-		return softwareStufe.vonKaempferVerwendet(this);
-	}
-
-	@Override
 	public String toString() {
 		return "Kaempfer";
 	}
 
 	@Override
-	public String checkAktorenKit(AktorenKit aktorenKit, SoftwareStufe softwareStufe) {
+	public String checkAktorenKitSoftware(AktorenKit aktorenKit, SoftwareStufe softwareStufe){
 		return aktorenKit.vonKaempferBenutzt(this);
 	}
 }

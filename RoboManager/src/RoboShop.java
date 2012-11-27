@@ -25,17 +25,14 @@ public class RoboShop {
 	public String insert(int seriennummer, Androide androide, Skin skin, /*SoftwareTyp softwareTyp,*/ SoftwareStufe softwareStufe, AktorenKit aktorenKit) {
 		//Ueberpruefung auf zugelassene Eingabeparameter
 		String errorSkin = androide.checkSkin(skin);
-		String errorSoftwareStufe = androide.checkSoftwareStufe(softwareStufe);
-		String errorAktorenKit = androide.checkAktorenKit(aktorenKit, softwareStufe);
+		String errorAktorenKitSoftware = androide.checkAktorenKitSoftware(aktorenKit, softwareStufe);
 		
 		//TODO SoftwareTyp und SensorenAktoren
 		
 		if(errorSkin!=null)
 			return errorSkin;
-		else if(errorSoftwareStufe!=null)
-			return errorSoftwareStufe;
-		else if(errorAktorenKit != null)
-			return errorAktorenKit;
+		else if(errorAktorenKitSoftware != null)
+			return errorAktorenKitSoftware;
 		AusgelieferterAndroide neuerAndroide = new AusgelieferterAndroide(seriennummer, androide, skin, softwareStufe, aktorenKit);
 		androideMap.put(seriennummer, neuerAndroide);
 		

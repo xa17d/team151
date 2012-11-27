@@ -13,15 +13,12 @@ public abstract class Androide {
 	public abstract String checkSkin(Skin skin);
 	
 	/**
-	 * ueberprueft ob die Software-Stufe kompatibel mit dem Typ des Androiden ist
+	 * ueberprueft ob die Software-Stufe und das Aktoren-Kit kompatibel mit dem Typ des Androiden ist
 	 * @param softwareStufe Stufe der Software
 	 * @return Fehlercode: falls Software-Stufe inkompatibel zum Androiden
 	 * 		   null: falls Androide mit dieser Software ausgeliefert werden kann
 	 */
-	public abstract String checkSoftwareStufe(SoftwareStufe softwareStufe);
-
-	
-	public abstract String checkAktorenKit(AktorenKit aktorenKit, SoftwareStufe softwareStufe);
+	public abstract String checkAktorenKitSoftware(AktorenKit aktorenKit, SoftwareStufe softwareStufe);
 	
 	/**
 	 * erzeut einen String mit dem Typ-Namen des Androiden

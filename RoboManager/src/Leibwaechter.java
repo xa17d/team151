@@ -10,7 +10,7 @@ public class Leibwaechter extends Beschuetzer{
 	}
 
 	@Override
-	public String checkAktorenKit(AktorenKit aktorenKit, SoftwareStufe softwareStufe) {
+	public String checkAktorenKitSoftware(AktorenKit aktorenKit, SoftwareStufe softwareStufe){
 		return aktorenKit.vonLeibwaechterBenutzt(this);
 	}
 }
