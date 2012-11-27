@@ -8,9 +8,4 @@ public class Leibwaechter extends Beschuetzer{
 	public String toString() {
 		return "Leibwaechter";
 	}
-
-	@Override
-	public String checkAktorenKitSoftware(AktorenKit aktorenKit, SoftwareStufe softwareStufe){
-		return aktorenKit.vonLeibwaechterBenutzt(this);
-	}
 }

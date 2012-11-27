@@ -2,40 +2,30 @@
 public class AktorenKitLeistung5 extends AktorenKit{
 
 	@Override
-	public String vonBedienerBenutzt(Bediener bediener) {
-		return "Ein Bediener darf kein AktorenKit Leistung: > 5KW benutzen";
-	}
-
-	@Override
-	public String vonSchwerarbeiterBenutzt(
-			Schwerarbeiter schwerarbeiter, SoftwareStufe3 softwareStufe3) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String vonSchwerarbeiterBenutzt(
-			Schwerarbeiter schwerarbeiter, SoftwareStufe4 softwareStufe4) {
-		// TODO Auto-generated method stub
-		return null;
+	public String vonBedienerBenutzt(Bediener bediener, SoftwareStufe softwareStufe) {
+		return softwareStufe.vonBedienerVerwendet(bediener, this);
 	}
 	
 	@Override
-	public String vonLeibwaechterBenutzt(Leibwaechter leibwaechter) {
-		// TODO Auto-generated method stub
-		return null;
+	public String vonGesellschafterBenutzt(Gesellschafter gesellschafter,
+			SoftwareStufe softwareStufe) {
+		return softwareStufe.vonGesellschafterVerwendet(gesellschafter, this);
+	}
+	
+	@Override
+	public String vonSchwerarbeiterBenutzt(
+			Schwerarbeiter schwerarbeiter, SoftwareStufe softwareStufe) {
+		return softwareStufe.vonSchwerarbeiterVerwendet(schwerarbeiter, this);
+	}
+	
+	@Override
+	public String vonBeschuetzerBenutzt(Beschuetzer beschuetzer, SoftwareStufe softwareStufe) {
+		return softwareStufe.vonBeschuetzerVerwendet(beschuetzer, this);
 	}
 
 	@Override
-	public String vonObjektbewacherBenutzt(Objektbewacher objektbewacher) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String vonKaempferBenutzt(Kaempfer kaempfer) {
-		// TODO Auto-generated method stub
-		return null;
+	public String vonKaempferBenutzt(Kaempfer kaempfer, SoftwareStufe softwareStufe) {
+		return softwareStufe.vonKaempferVerwendet(kaempfer,this);
 	}
 	
 	@Override

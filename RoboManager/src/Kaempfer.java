@@ -11,6 +11,6 @@ public class Kaempfer extends Beschuetzer{
 
 	@Override
 	public String checkAktorenKitSoftware(AktorenKit aktorenKit, SoftwareStufe softwareStufe){
-		return aktorenKit.vonKaempferBenutzt(this);
+		return aktorenKit.vonKaempferBenutzt(this, softwareStufe);
 	}
 }

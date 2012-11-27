@@ -14,6 +14,7 @@ public abstract class Androide {
 	
 	/**
 	 * ueberprueft ob die Software-Stufe und das Aktoren-Kit kompatibel mit dem Typ des Androiden ist
+	 * @param aktorenKit zu verwendendes AktorenKit
 	 * @param softwareStufe Stufe der Software
 	 * @return Fehlercode: falls Software-Stufe inkompatibel zum Androiden
 	 * 		   null: falls Androide mit dieser Software ausgeliefert werden kann

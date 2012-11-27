@@ -8,9 +8,4 @@ public class Objektbewacher extends Beschuetzer {
 	public String toString() {
 		return "Objektbewacher";
 	}
-
-	@Override
-	public String checkAktorenKitSoftware(AktorenKit aktorenKit, SoftwareStufe softwareStufe){
-		return aktorenKit.vonObjektbewacherBenutzt(this);
-	}
 }
