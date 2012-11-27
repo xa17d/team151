@@ -17,9 +17,17 @@ public abstract class Androide {
 	 * @param aktorenKit zu verwendendes AktorenKit
 	 * @param softwareStufe Stufe der Software
 	 * @return Fehlercode: falls Software-Stufe inkompatibel zum Androiden
-	 * 		   null: falls Androide mit dieser Software ausgeliefert werden kann
+	 * 		   null: falls Androide mit dieser Software und Aktoren-Kit ausgeliefert werden kann
 	 */
 	public abstract String checkAktorenKitSoftware(AktorenKit aktorenKit, SoftwareStufe softwareStufe);
+	
+	/**
+	 * ueberprueft ob der Software-Typ mit dem Androiden kompatibel ist.
+	 * @param software Software (!=null)
+	 * @return Fehlercode: falls Software-Stufe inkompatibel zum Androiden
+	 * 		   null: falls Androide mit dieser Software ausgeliefert werden kann
+	 */
+	public abstract String checkSoftware(Software software);
 	
 	/**
 	 * erzeut einen String mit dem Typ-Namen des Androiden
