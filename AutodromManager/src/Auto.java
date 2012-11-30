@@ -14,6 +14,8 @@ public abstract class Auto implements Runnable {
 		this.feld = feld;
 		this.intervall = intervall;
 		this.position = anfangsPosition;
+		this.punkte = 0;
+		this.bewegungen = 0;
 		thread = new Thread(this);
 	}
 	
@@ -21,13 +23,35 @@ public abstract class Auto implements Runnable {
 	private Thread thread;     // Thread der die Bewegungen des Autos durchfuert
 	private int intervall;     // Intervall in Millisekunden in dem sich das Auto um ein Feld weiterbewegt
 	private Feld feld;         // Spielfeld des Autodrom (immer != null)
+	private int punkte;        // Punkte die dieses Auto momentan hat
+	private int bewegungen;    // Anzahl Bewegungen
 	
 	/**
 	 * Setzt die aktuelle Position und Richtung des Autos
-	 * @param position neue Position
+	 * @param position neue Position (!=null)
 	 */
 	public synchronized void setPosition(Position position) {
-		this.position = position;
+		if (!this.position.equals(position)) {
+			this.position = position;
+			bewegungen++;
+			
+			if (bewegungen >= 1000000000) {
+				feld.stop();
+			}
+		}
+	}
+	
+	/**
+	 * Gibt dem Auto Punkte oder zieht ihm welche ab.
+	 * Erreicht das Auto 10 oder mehr Punkte, wird die Simulation beendet (durch feld.stop())
+	 * @param punkte Gibt dem Auto Punkte (bei positivem Wert), oder zieht im welche ab (bei negativem Wert)
+	 */
+	public synchronized void punkteVergeben(int punkte) {
+		this.punkte += punkte;
+		
+		if (punkte >= 10) {
+			feld.stop();
+		}
 	}
 	
 	/**
@@ -55,7 +79,6 @@ public abstract class Auto implements Runnable {
 				Position b = bewegen(position);
 				b = feld.checkPosition(b);
 				setPosition(b);
-				System.out.println(b);
 				
 				Thread.sleep(intervall);
 			}
@@ -71,4 +94,9 @@ public abstract class Auto implements Runnable {
 	 * @return Position und Richtung des Autos nach diesem Bewegungsschritt (niemals null)
 	 */
 	protected abstract Position bewegen(Position p);
+	
+	@Override
+	public String toString() {
+		return position+" Punkte: "+punkte;
+	}
 }

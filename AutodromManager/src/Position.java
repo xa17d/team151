@@ -54,28 +54,54 @@ public class Position {
 		return new Position(richtung, x + dx, y + dy);
 	}
 	
+	/**
+	 * @return neue Position mit einem Schritt in die Richtung dieses Objekts
+	 */
 	public Position vorwaerts() {
 		return bewegen(0);
 	}
 
+	/**
+	 * @return neue Position mit Richtungsaenderung um 45Grad und einen Schritt in diese Richtung
+	 */
 	public Position halbLinks() {
 		return bewegen(45);
 	}
 
+	/**
+	 * @return neue Position mit Richtungsaenderung um -45Grad und einen Schritt in diese Richtung
+	 */
 	public Position halbRechts() {
 		return bewegen(-45);
 	}
 
+	/**
+	 * @return neue Position mit Richtungsaenderung um 90Grad und einen Schritt in diese Richtung
+	 */
 	public Position links() {
 		return bewegen(90);
 	}
 
+	/**
+	 * @return neue Position mit Richtungsaenderung um -90Grad und einen Schritt in diese Richtung
+	 */
 	public Position rechts() {
 		return bewegen(-90);
 	}
 	
 	@Override
 	public String toString() {
-		return "("+richtung+"°; X: "+x+"; Y: "+y+")";
+		return "("+richtung+"°; "+x+"; "+y+")";
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) { return false; }
+		if (obj.getClass().equals(getClass()))
+		{
+			Position o = (Position)obj;
+			return ((richtung == o.richtung)&&(x == o.x)&&(y == o.y));
+		}
+		else { return false; }
 	}
 }
