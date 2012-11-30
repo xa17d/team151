@@ -36,7 +36,7 @@ public abstract class Auto implements Runnable {
 			bewegungen++;
 			
 			if (bewegungen >= 1000000000) {
-				feld.stop();
+				feld.stopRace();
 			}
 		}
 	}
@@ -50,7 +50,7 @@ public abstract class Auto implements Runnable {
 		this.punkte += punkte;
 		
 		if (punkte >= 10) {
-			feld.stop();
+			feld.stopRace();
 		}
 	}
 	
@@ -94,6 +94,27 @@ public abstract class Auto implements Runnable {
 	 * @return Position und Richtung des Autos nach diesem Bewegungsschritt (niemals null)
 	 */
 	protected abstract Position bewegen(Position p);
+	
+	/**
+	 * @return Breite des Feldes in dem sich das Auto befindet.
+	 */
+	protected int getFieldWidth(){
+		return feld.getWidth();
+	}
+	
+	/**
+	 * @return Hoehe des Feldes in dem sich das Auto befindet.
+	 */
+	protected int getFieldHeight(){
+		return feld.getHeight();
+	}
+	
+	/**
+	 * @return aktuelle Position des Autos.
+	 */
+	public Position getPosition(){
+		return this.position;
+	}
 	
 	@Override
 	public String toString() {
