@@ -6,7 +6,7 @@ import java.util.Random;
  */
 public class AutoSchnell extends Auto {
 	public AutoSchnell(Feld feld, Position anfangsPosition) {
-		super(feld, 100, anfangsPosition);
+		super(feld, /*100 TEST:*/ 100, anfangsPosition);
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import java.util.Random;
  */
 public class AutoBeweglich extends Auto {
 	public AutoBeweglich(Feld feld, Position anfangsPosition) {
-		super(feld, 200, anfangsPosition);
+		super(feld, /*200 TEST:*/ 200, anfangsPosition);
 	}
 
 	@Override
