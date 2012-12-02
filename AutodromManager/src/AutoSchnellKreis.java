@@ -3,7 +3,7 @@
  * @author Lucas
  *
  */
-public class AutoSchnellKreis extends AutoSchnell {
+public class AutoSchnellKreis extends AutoSchnellZufall {
 	int bewegungen;
 	
 	public AutoSchnellKreis(Feld feld, Position anfangsPosition) {

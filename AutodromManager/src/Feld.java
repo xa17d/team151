@@ -120,9 +120,9 @@ public class Feld {
 						punktA = -1;
 					}
 				} */
-				a.punkteVergeben(punktA);
-				auto.punkteVergeben(punktAuto);
 				System.out.println("Kollision von " + a.toString() + " und " + auto.toString());
+				a.punkteVergeben(punktA);
+				auto.punkteVergeben(punktAuto);			
 			}
 		}
 		return b;
