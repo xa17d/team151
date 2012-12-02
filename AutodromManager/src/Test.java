@@ -12,7 +12,7 @@ public class Test {
 		f.addCar(ask1);
 		f.addCar(abg1);
 		f.startRace();
-		while (true) {
+		while (f.isRace()) {
 			try {
 				System.out.println(f.toString());
 				Thread.sleep(100);

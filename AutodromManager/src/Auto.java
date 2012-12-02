@@ -49,8 +49,8 @@ public abstract class Auto implements Runnable {
 	public synchronized void punkteVergeben(int punkte) {
 		this.punkte += punkte;
 		
-		if (punkte >= 10) {
-			feld.stopRace();
+		if (this.punkte >= 10) {
+			feld.win(this);
 		}
 	}
 	
@@ -77,13 +77,13 @@ public abstract class Auto implements Runnable {
 		try {
 			while (true) {
 				Position b = bewegen(position);
-				b = feld.checkPosition(b);
+				b = feld.checkPosition(this, b);
 				setPosition(b);
 				
 				Thread.sleep(intervall);
 			}
 		} catch (InterruptedException e) {
-			
+			//System.out.println(e.getMessage());
 		}
 	}
 	
