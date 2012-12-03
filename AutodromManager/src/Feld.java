@@ -65,7 +65,7 @@ public class Feld {
 					punktA = -1;
 				}
 					
-				/* ERKL€RUNG
+				/* ERKLAERUNG
 				if(a.getPosition().getRichtung() == 90){ //Das erwischte Auto faehrt nach Norden
 					if(b.getRichtung() == 90){ //Hinten aufgefahren +1 Punkt fuer auto -1 Punkt fuer a
 						punktAuto = 1;
