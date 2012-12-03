@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 public class Feld {
@@ -7,6 +9,7 @@ public class Feld {
 	private int width;
 	private int height;
 	private boolean race = false;
+	final Lock lock = new ReentrantLock(true); //fair = true -> am laengsten wartende Thread bekommt den naechsten Lock
 	
 	/**
 	 * Konstruktor fuer ein rechteckiges Feld
@@ -140,7 +143,7 @@ public class Feld {
 	}
 	
 	public void win(Auto a){
-		System.out.println("*** " + a.toString() + " hat gewonnen!");
+		System.out.println("*** " + a.toString() + " hat gewonnen! ***");
 		stopRace();
 	}
 

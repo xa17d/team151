@@ -46,7 +46,7 @@ public abstract class Auto implements Runnable {
 	 * Erreicht das Auto 10 oder mehr Punkte, wird die Simulation beendet (durch feld.stop())
 	 * @param punkte Gibt dem Auto Punkte (bei positivem Wert), oder zieht im welche ab (bei negativem Wert)
 	 */
-	public synchronized void punkteVergeben(int punkte) {
+	public void punkteVergeben(int punkte) {
 		this.punkte += punkte;
 		
 		if (this.punkte >= 10) {
@@ -71,20 +71,24 @@ public abstract class Auto implements Runnable {
 
 	/**
 	 * Fuert die Bewegung des Autos durch.
+	 * sperrt den Bereich in dem die eigentliche Bewegung durchgefuehrt wird
+	 * mittels eine ReentrantLock aus dem Feld damit immer eine Bewegung nach der
+	 * anderen durchgefuehrt wird.
 	 */
 	@Override
 	public void run() {
-		try {
-			while (true) {
+		while(feld.isRace()){
+			try {
+				Thread.sleep(intervall);
 				Position b = bewegen(position);
+				feld.lock.lock();
 				b = feld.checkPosition(this, b);
 				setPosition(b);
-				
-				Thread.sleep(intervall);
+				feld.lock.unlock();
+			} catch (InterruptedException e) {
+				//e.printStackTrace();
 			}
-		} catch (InterruptedException e) {
-			//System.out.println(e.getMessage());
-		}
+		} 
 	}
 	
 	/**
