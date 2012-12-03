@@ -12,23 +12,22 @@ public class AutoSchnellZufall extends Auto {
 	@Override
 	protected Position bewegen(Position b) {
 		int i = new Random().nextInt(3);
-		if(i == 0){
-			if(b.halbRechts().getX() > 1 && b.halbRechts().getY() > 1 && b.halbRechts().getX() < getFieldWidth() - 1 && b.halbRechts().getY() < getFieldHeight() - 1)
-				return b.halbRechts();
-			else
-				return bewegen(b);
+		Position neu = null;
+		if(i == 0){ //Vorwaerts
+			neu = b.vorwaerts();
+			if(!(1 < neu.getX() && neu.getX()< getFieldWidth() - 1 && 1 < neu.getY() && neu.getY() < getFieldHeight() - 1))
+				neu = bewegen(b);
 		}
-		else if(i == 1){
-			if(b.halbRechts().getX() > 1 && b.halbRechts().getY() > 1 && b.halbRechts().getX() < getFieldWidth() - 1 && b.halbRechts().getY() < getFieldHeight() - 1)
-				return b.halbLinks();
-			else
-				return bewegen(b);
+		else if(i == 1){ //Rechts
+			neu = b.halbRechts();
+			if(!(1 < neu.getX() && neu.getX()< getFieldWidth() - 1 && 1 < neu.getY() && neu.getY() < getFieldHeight() - 1))
+				neu = bewegen(b);
 		}
-		else{
-			if(b.halbRechts().getX() > 1 && b.halbRechts().getY() > 1 && b.halbRechts().getX() < getFieldWidth() - 1 && b.halbRechts().getY() < getFieldHeight() - 1)
-				return b.vorwaerts();
-			else
-				return bewegen(b);
+		else{ //Links
+			neu = b.halbLinks();
+			if(!(1 < neu.getX() && neu.getX()< getFieldWidth() - 1 && 1 < neu.getY() && neu.getY() < getFieldHeight() - 1))
+				neu = bewegen(b);
 		}
+		return neu;
 	}
 }
