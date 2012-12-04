@@ -4,7 +4,7 @@
  * @author Lucas
  */
 public class AutoSchnellKreis extends AutoSchnell {
-	int bewegungen;
+	private int bewegungen;
 	
 	/**
 	 * Konstruktor des schnellen Autos, das im Kreis faehrt
