@@ -4,9 +4,9 @@ import java.util.Random;
  * Schnelles Auto. Bewegt sich zufaellig in einem Interval von 100ms
  * @author Daniel, Raphael
  */
-public class AutoSchnellZufall extends Auto {
+public class AutoSchnellZufall extends AutoSchnell {
 	public AutoSchnellZufall(Feld feld, Position anfangsPosition) {
-		super(feld, /*100 TEST:*/ 100, anfangsPosition);
+		super(feld, anfangsPosition);
 	}
 
 	@Override

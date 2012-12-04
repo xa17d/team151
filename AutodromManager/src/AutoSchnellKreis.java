@@ -3,7 +3,7 @@
  * hat die Geschwindigkeit eines schnellen Autos
  * @author Lucas
  */
-public class AutoSchnellKreis extends AutoSchnellZufall {
+public class AutoSchnellKreis extends AutoSchnell {
 	int bewegungen;
 	
 	/**
