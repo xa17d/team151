@@ -91,7 +91,7 @@ public class Position {
 	
 	@Override
 	public String toString() {
-		return "("+richtung+"°; "+x+"; "+y+")";
+		return "("+richtung+"Grad; "+x+"; "+y+")";
 	}
 	
 	@Override
