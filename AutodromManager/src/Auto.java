@@ -4,18 +4,23 @@
  *
  */
 public abstract class Auto implements Runnable {
+
 	/**
 	 * Erzeugt ein neues Auto
 	 * @param feld Spielfeld des Autodrom (!=null)
-	 * @param intervall Intervall in Millisekunden in dem sich das Auto um ein Feld weiterbewegt
 	 * @param anfangsPosition Anfangsposition und Richtung des Autos  (!=null) 
+	 * @param intervall Intervall in Millisekunden in dem sich das Auto um ein Feld weiterbewegt
+	 * @param maxBewegungen Anzahl der Bewegungen nach dem die Simulation auf jedenfall beendet wird 
+	 * @param name Bezeichnung des Autos
 	 */
-	public Auto(Feld feld, int intervall, Position anfangsPosition) {
+	public Auto(Feld feld, Position anfangsPosition, int intervall, int maxBewegungen, String name) {
 		this.feld = feld;
 		this.intervall = intervall;
 		this.position = anfangsPosition;
 		this.punkte = 0;
 		this.bewegungen = 0;
+		this.maxBewegungen = maxBewegungen;
+		this.name = name;
 		thread = new Thread(this);
 	}
 	
@@ -24,7 +29,9 @@ public abstract class Auto implements Runnable {
 	private int intervall;     // Intervall in Millisekunden in dem sich das Auto um ein Feld weiterbewegt
 	private Feld feld;         // Spielfeld des Autodrom (immer != null)
 	private int punkte;        // Punkte die dieses Auto momentan hat
-	private int bewegungen;    // Anzahl Bewegungen
+	private int bewegungen;    // Anzahl Bewegungen die das Auto bereits durchgefuehrt hat
+	private int maxBewegungen; // Anzahl der Bewegungen nach dem die Simulation auf jedenfall beendet wird
+	private String name;       // Bezeichnung des Autos
 	
 	/**
 	 * Setzt die aktuelle Position und Richtung des Autos
@@ -35,7 +42,7 @@ public abstract class Auto implements Runnable {
 			this.position = position;
 			bewegungen++;
 			
-			if (bewegungen >= 1000000000) {
+			if (bewegungen >= maxBewegungen) {
 				feld.stopRace();
 			}
 		}
@@ -46,11 +53,11 @@ public abstract class Auto implements Runnable {
 	 * Erreicht das Auto 10 oder mehr Punkte, wird die Simulation beendet (durch feld.stop())
 	 * @param punkte Gibt dem Auto Punkte (bei positivem Wert), oder zieht im welche ab (bei negativem Wert)
 	 */
-	public void punkteVergeben(int punkte) {
+	public synchronized void punkteVergeben(int punkte) {
 		this.punkte += punkte;
 		
 		if (this.punkte >= 10) {
-			feld.win(this);
+			feld.stopRace();
 		}
 	}
 	
@@ -77,18 +84,14 @@ public abstract class Auto implements Runnable {
 	 */
 	@Override
 	public void run() {
-		while(feld.isRace()){
-			try {
+		try {
+			while(true) {
 				Thread.sleep(intervall);
 				Position b = bewegen(position);
-				feld.lock.lock();
-				b = feld.checkPosition(this, b);
-				setPosition(b);
-				feld.lock.unlock();
-			} catch (InterruptedException e) {
-				//e.printStackTrace();
+				feld.checkPosition(this, b);
 			}
-		} 
+		}
+		catch (InterruptedException e) { }
 	}
 	
 	/**
@@ -122,6 +125,6 @@ public abstract class Auto implements Runnable {
 	
 	@Override
 	public String toString() {
-		return position+" Punkte: "+punkte;
+		return name+"\tPunkte: "+punkte;
 	}
 }

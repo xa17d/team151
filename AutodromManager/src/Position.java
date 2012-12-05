@@ -5,17 +5,17 @@
 public class Position {
 	/**
 	 * Erzeugt ein neues Objekt
-	 * @param richtung Richtung in Grad
+	 * @param richtung Richtung in Grad (Werte von 0 bis 359)
 	 * @param x X-Position
 	 * @param y Y-Position
 	 */
 	public Position(int richtung, int x, int y) {
-		this.richtung = richtung;
+		this.richtung = (richtung + 360) % 360;
 		this.x = x;
 		this.y = y;
 	}
 	
-	private int richtung; // Richtung in Grad
+	private int richtung; // Richtung in Grad (hat immer einen Wert von 0 bis 359)
 	private int x;        // X-Position
 	private int y;        // Y-Position
 	
@@ -46,12 +46,12 @@ public class Position {
 	 */
 	private Position bewegen(int relativeRichtung) {
 		
-		richtung = (richtung + relativeRichtung) % 360;
+		int r = (richtung + relativeRichtung + 360) % 360;
 		
-		int dy = -(int)Math.round(Math.sin(richtung * Math.PI / 180));
-		int dx = (int)Math.round(Math.cos(richtung * Math.PI / 180));
+		int dy = -(int)Math.round(Math.sin(r * Math.PI / 180));
+		int dx = (int)Math.round(Math.cos(r * Math.PI / 180));
 		
-		return new Position(richtung, x + dx, y + dy);
+		return new Position(r, x + dx, y + dy);
 	}
 	
 	/**

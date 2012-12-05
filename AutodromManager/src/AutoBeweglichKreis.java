@@ -11,8 +11,8 @@ public class AutoBeweglichKreis extends AutoBeweglich {
 	 * @param feld Feld auf dem es fahren soll
 	 * @param anfangsPosition Startposition (!null)
 	 */
-	public AutoBeweglichKreis(Feld feld, Position anfangsPosition) {
-		super(feld, anfangsPosition);
+	public AutoBeweglichKreis(Feld feld, Position anfangsPosition, int maxBewegungen, String name) {
+		super(feld, anfangsPosition, maxBewegungen, name);
 		
 		bewegungen = 0;
 	}

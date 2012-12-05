@@ -3,7 +3,7 @@
  * @author Daniel
  */
 public abstract class AutoBeweglich extends Auto {
-	public AutoBeweglich(Feld feld, Position anfangsPosition) {
-		super(feld, 200, anfangsPosition);
+	public AutoBeweglich(Feld feld, Position anfangsPosition, int maxBewegungen, String name) {
+		super(feld, anfangsPosition, 100, maxBewegungen, name);
 	}
 }

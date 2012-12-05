@@ -11,8 +11,8 @@ public class AutoSchnellKreis extends AutoSchnell {
 	 * @param feld Feld auf dem es fahren soll
 	 * @param anfangsPosition Startposition (!null)
 	 */
-	public AutoSchnellKreis(Feld feld, Position anfangsPosition) {
-		super(feld, anfangsPosition);
+	public AutoSchnellKreis(Feld feld, Position anfangsPosition, int maxBewegungen, String name) {
+		super(feld, anfangsPosition, maxBewegungen, name);
 
 		bewegungen = 0;
 	}

@@ -7,8 +7,8 @@ public class AutoBeweglichGerade extends AutoBeweglich {
 	int bewegungen;
 	Feld feld;
 	
-	public AutoBeweglichGerade(Feld feld) {		
-		super(feld, new Position(0,0,Math.round(feld.getHeight()/2)));
+	public AutoBeweglichGerade(Feld feld, Position anfangsPosition, int maxBewegungen, String name) {		
+		super(feld, anfangsPosition, maxBewegungen, name);
 		
 		this.feld = feld;
 		bewegungen = -1;
