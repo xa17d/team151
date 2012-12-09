@@ -36,6 +36,21 @@ public class TraktorSet implements Iterable<Traktor> {
 	public Iterator<Traktor> iterator() {
 		return new TraktorSetIterator(set.iterator());
 	}
+	
+	/**
+	 * Traktor anhand seiner Nummer finden
+	 * @param nummer Nummer des Traktors
+	 * @return Traktor gesuchter Nummer, null falls der Traktor sich nicht im Set befindet
+	 */
+	public Traktor get(int nummer) {
+		for (Traktor traktor : this) {
+			// TODO: richtig implementieren
+			//if (traktor.getNummer() == nummer) {
+				return traktor;
+			//}
+		}
+		return null;
+	}
 
 	/**
 	 * TraktorSet-Iterator. Wrapper fuer den Iterator des Sets.
