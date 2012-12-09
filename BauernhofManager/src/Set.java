@@ -21,9 +21,9 @@ public class Set implements Iterable<Object> {
 	private SetNode first;
 	
 	/**
-	 * Fuegt ein neues Element in das Set ein
-	 * @param item neues Element
-	 * @return true wenn das Element eingefuegt wurde, sonst false
+	 * Fuegt ein neues Element in das Set ein, falls es nicht bereits im Set ist
+	 * @param item neues Element (!=null)
+	 * @return true wenn das Element eingefuegt wurde, false wenn sich das Element bereits im Set befindet
 	 */
 	public boolean insert(Object item) {
 		SetNode current = first;
@@ -32,6 +32,8 @@ public class Set implements Iterable<Object> {
 		while(current.getNext() != null)
 		{
 			current = current.getNext();
+			
+			if (current.getItem().equals(item)) { return false; }
 		}
 		
 		//als neues Element einfuegen

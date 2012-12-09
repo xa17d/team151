@@ -10,7 +10,7 @@ public class TraktorSet implements Iterable<Traktor> {
 	 * Internes Set in dem die Traktoren abgespeichert werden.
 	 * Alle Elemente sind von Typ Traktor
 	 */
-	private Set set;
+	private Set set = new Set();
 	
 	/**
 	 * Fuegt einen neuen Traktor in das Set ein
@@ -39,15 +39,14 @@ public class TraktorSet implements Iterable<Traktor> {
 	
 	/**
 	 * Traktor anhand seiner Nummer finden
-	 * @param nummer Nummer des Traktors
+	 * @param id Nummer des Traktors
 	 * @return Traktor gesuchter Nummer, null falls der Traktor sich nicht im Set befindet
 	 */
-	public Traktor get(int nummer) {
+	public Traktor get(int id) {
 		for (Traktor traktor : this) {
-			// TODO: richtig implementieren
-			//if (traktor.getNummer() == nummer) {
+			if (traktor.getId() == id) {
 				return traktor;
-			//}
+			}
 		}
 		return null;
 	}

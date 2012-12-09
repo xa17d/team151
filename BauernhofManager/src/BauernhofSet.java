@@ -9,7 +9,7 @@ public class BauernhofSet implements Iterable<Bauernhof> {
 	 * Internes Set in dem die Bauernhoefe abgespeichert werden.
 	 * Alle Elemente sind von Typ Bauernhof
 	 */
-	private Set set;
+	private Set set = new Set();
 	
 	/**
 	 * Fuegt einen neuen Bauernhof in das Set ein
