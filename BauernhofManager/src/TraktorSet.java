@@ -34,14 +34,47 @@ public class TraktorSet {
 	 * @return Traktor gesuchter Nummer, null falls der Traktor sich nicht im Set befindet
 	 */
 	public Traktor get(int id) {
-		Set.Iterator iterator = set.iterator();
-		while (iterator.hasNext()) {
-			Traktor traktor = (Traktor)iterator.next();
-			if (traktor.getId() == id) {
-				return traktor;
-			}
+		TraktorFinderIteration i = new TraktorFinderIteration(id);
+		set.iterate(i);
+		return i.getTraktor();
+	}
+	
+	/**
+	 * Iteration Klasse die einen Traktor mit bestimmter ID sucht
+	 * @author Daniel
+	 */
+	private class TraktorFinderIteration extends Iteration {
+		/**
+		 * Konstruktor
+		 * @param id Traktor-ID nach der gesucht werden soll
+		 */
+		public TraktorFinderIteration(int id) {
+			this.id = id;
 		}
-
-		return null;
+		
+		/**
+		 * @see Iteration#iterationTraktor(Traktor)
+		 */
+		@Override
+		public boolean iterationTraktor(Traktor item) {
+			if (item.getId() == id) {
+				traktor = item;
+				return false;
+			}
+			else { return true; }
+		}
+		
+		/**
+		 * Id des gesuchten Traktors
+		 */
+		private int id;
+		/**
+		 * enthaelt den gefundenen Traktor, null falls der Traktor (noch) nicht gefunden wurde
+		 */
+		private Traktor traktor = null;
+		/**
+		 * @return gefundener Traktor, null falls der Traktor nicht gefunden wurde
+		 */
+		public Traktor getTraktor() { return traktor; }
 	}
 }

@@ -1,5 +1,8 @@
-
-public class Bauernhof {
+/**
+ * Repraesentier einen Bauernhof
+ * @author Daniel
+ */
+public class Bauernhof implements IteratableObject {
 
 	/**
 	 * Erstellt einen neuen Bauernhof mit bestimmten Namen
@@ -53,5 +56,10 @@ public class Bauernhof {
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	@Override
+	public boolean iteration(Iteration iteration) {
+		return iteration.iterationBauernhof(this);		
 	}
 }

@@ -1,5 +1,3 @@
-import java.util.NoSuchElementException;
-
 /**
  * Container in dem verschiedene Objects abgelegt werden koennen.
  * Als verkettete Liste implementiert.
@@ -23,7 +21,7 @@ public class Set {
 	 * @param item neues Element (!=null)
 	 * @return true wenn das Element eingefuegt wurde, false wenn sich das Element bereits im Set befindet
 	 */
-	public boolean insert(Object item) {
+	public boolean insert(IteratableObject item) {
 		SetNode current = first;
 		
 		//alle Elemente durchgehen, bis zum Letzten.
@@ -44,13 +42,17 @@ public class Set {
 	 * @param item zu entfernendes Element
 	 * @return true wenn das Element entfernt wurde, false wenn es nicht gefunden wurde
 	 */
-	public boolean remove(Object item) {
-		Iterator setIterator = iterator();
-		while (setIterator.hasNext()) {
-			Object i = setIterator.next();
+	public boolean remove(IteratableObject item) {
+		SetNode current = first;
+		SetNode previous;
+		
+		while(current.getNext() != null)
+		{
+			previous = current;
+			current = current.getNext();
 			
-			if (i.equals(item)) {
-				setIterator.remove();
+			if (current.getItem().equals(item)) {
+				previous.setNext(current.getNext());
 				return true;
 			}
 		}
@@ -59,61 +61,16 @@ public class Set {
 	}
 	
 	/**
-	 * liefert neuen Iterator
+	 * Ruft fuer jedes Element im Set die Methode iteration.iteration(...) auf.
+	 * @param iteration Iteration-Instanz dessen iteration(...) Methode aufgerufen werden soll.
 	 */
-	public Iterator iterator() {
-		return new Iterator(this);
-	}
-	
-	/**
-	 * innere Klasse SetIterator
-	 * implementiert den Iterator
-	 */
-	public class Iterator {
-		/**
-		 * Aktuelle Position des Iterators
-		 */
-		private SetNode pointer;
-		
-		/**
-		 * Konstruktor
-		 */
-		public Iterator(Set set) {
-			pointer = set.first;
-		}
-		
-		/**
-		 * abfrage ob es ein naechstes Element im Set gibt
-		 * @return true: es gibt ein weiteres Element - false: letztes Element in Set
-		 */
-		public boolean hasNext() {
-			if(pointer.getNext() != null)
-				return true;
-			else
-				return false;
-		}
-		
-		/**
-		 * liefert naechstes Element aus dem Set
-		 * @return Element
-		 */
-		public Object next() {
-			Object temp;
-			if(pointer.getNext() != null)
-			{
-				temp = pointer.getNext().getItem();
-				pointer = pointer.getNext();
-				return temp;
-			}
-			else
-				throw new NoSuchElementException();
-		}
-		
-		/**
-		 * Loescht aktuelles Element aus dem Set
-		 */
-		public void remove() {
-			pointer.setNext(pointer.getNext().getNext());
+	public void iterate(Iteration iteration)
+	{
+		SetNode current = first.getNext();
+
+		while((current != null)&&(iteration.iteration(current.getItem())))
+		{
+			current = current.getNext();
 		}
 	}
 	
@@ -122,13 +79,13 @@ public class Set {
 	 */
 	private class SetNode {
 		private SetNode next;
-		private Object item;
+		private IteratableObject item;
 		
 		/**
 		 * Erstellt ein neues Node
 		 * @param item Element
 		 */
-		public SetNode(Object item) {
+		public SetNode(IteratableObject item) {
 			next = null;
 			this.item = item;
 		}
@@ -153,7 +110,7 @@ public class Set {
 		 * leifert Element des Knotens
 		 * @return Element
 		 */
-		public Object getItem() {
+		public IteratableObject getItem() {
 			return item;
 		}
 	}

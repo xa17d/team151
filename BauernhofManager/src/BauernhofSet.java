@@ -33,14 +33,47 @@ public class BauernhofSet {
 	 * @return Bauernhof mit gesuchtem Namen, null falls der Bauernhof sich nicht im Set befindet
 	 */
 	public Bauernhof get(String name) {
-		Set.Iterator iterator = set.iterator();
-		while (iterator.hasNext()) {
-			Bauernhof bauernhof = (Bauernhof)iterator.next();
-			if (bauernhof.getName().equals(name)) {
-				return bauernhof;
-			}
+		BauernhofFinderIteration i = new BauernhofFinderIteration(name);
+		set.iterate(i);
+		return i.getBauernhof();
+	}
+	
+	/**
+	 * Iteration Klasse die einen Bauernhof mit bestimmtem Namen sucht
+	 * @author Daniel
+	 */
+	private class BauernhofFinderIteration extends Iteration {
+		/**
+		 * Konstruktor
+		 * @param id Bauernhof-Name nach dem gesucht werden soll
+		 */
+		public BauernhofFinderIteration(String name) {
+			this.name = name;
 		}
-
-		return null;
+		
+		/**
+		 * @see Iteration#iterationBauernhof(Bauernhof)
+		 */
+		@Override
+		public boolean iterationBauernhof(Bauernhof item) {
+			if (item.getName().equals(name)) {
+				bauernhof = item;
+				return false;
+			}
+			else { return true; }
+		}
+		
+		/**
+		 * Name des gesuchten Bauernhofs
+		 */
+		private String name;
+		/**
+		 * enthaelt den gefundenen Bauernhof, null falls der Bauernhof (noch) nicht gefunden wurde
+		 */
+		private Bauernhof bauernhof = null;
+		/**
+		 * @return gefundener Bauernhof, null falls der Bauernhof nicht gefunden wurde
+		 */
+		public Bauernhof getBauernhof() { return bauernhof; }
 	}
 }
