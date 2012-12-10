@@ -1,4 +1,4 @@
 
 public interface IteratableObject {
-	public boolean iteration(Iteration iteration);
+	public void iteration(Iteration iteration);
 }

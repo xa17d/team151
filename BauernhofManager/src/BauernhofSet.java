@@ -55,12 +55,10 @@ public class BauernhofSet {
 		 * @see Iteration#iterationBauernhof(Bauernhof)
 		 */
 		@Override
-		public boolean iterationBauernhof(Bauernhof item) {
+		public void iterationBauernhof(Bauernhof item) {
 			if (item.getName().equals(name)) {
 				bauernhof = item;
-				return false;
 			}
-			else { return true; }
 		}
 		
 		/**

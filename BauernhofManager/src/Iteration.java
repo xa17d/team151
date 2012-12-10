@@ -10,48 +10,48 @@ public abstract class Iteration {
 	 * Wird fuer jedes Element eines Sets aufgerufen.
 	 * Ist diese Methode nicht ueberschrieben worden, dann wird die iteratio-Methode des items aufgerufen
 	 * @param item Element (!=null)
-	 * @return true, wenn die Methode bereit fuer ein weiteres Element ist, false wenn die Iteration abgebrochen werden soll
 	 */
-	public boolean iteration(IteratableObject item) {
-		return item.iteration(this);
+	public void iteration(IteratableObject item) {
+		item.iteration(this);
 	}
 
 	/**
 	 * Wird fuer jeden Bauernhof des Sets aufgerufen, falls iteration nicht ueberschrieben worden ist.
 	 * @param item Bauernhof (!=null)
-	 * @return true, wenn die Methode bereit fuer ein weiteres Element ist, false wenn die Iteration abgebrochen werden soll
 	 */
-	public boolean iterationBauernhof(Bauernhof item) {
-		return true;
-	}
+	public void iterationBauernhof(Bauernhof item) { }
 	
 	/**
-	 * Wird fuer jeden Diesel-Traktor des Sets aufgerufen, falls iteration nicht ueberschrieben worden ist.
-	 * Ruft, falls nicht ueberschrieben, iterationTraktor auf.
+	 * Wird von Traktor.iterationTyp(...) aufgerufen, falls es sich um einen Diesel Traktor handelt
 	 * @param item Diesel-Traktor (!=null)
-	 * @return true, wenn die Methode bereit fuer ein weiteres Element ist, false wenn die Iteration abgebrochen werden soll
 	 */
-	public boolean iterationTraktorDiesel(TraktorDiesel item) {
-		return iterationTraktor(item);
-	}
+	public void iterationTraktorDiesel(TraktorDiesel item) { }
 
 	/**
-	 * Wird fuer jeden Biogas-Traktor des Sets aufgerufen, falls iteration nicht ueberschrieben worden ist.
-	 * Ruft, falls nicht ueberschrieben, iterationTraktor auf.
-	 * @param item Diesel-Traktor (!=null)
-	 * @return true, wenn die Methode bereit fuer ein weiteres Element ist, false wenn die Iteration abgebrochen werden soll
+	 * Wird von Traktor.iterationTyp(...) aufgerufen, falls es sich um einen Biogas Traktor handelt
+	 * @param item Biogas-Traktor (!=null)
 	 */
-	public boolean iterationTraktorBiogas(TraktorBiogas item) {
-		return iterationTraktor(item);
-	}
+	public void iterationTraktorBiogas(TraktorBiogas item) { }
 	
 	/**
-	 * Wird fuer jeden Traktor des Sets aufgerufen, falls iteration, iterationTraktorDiesel und iterationTraktorBiogas nicht ueberschrieben worden ist.
-	 * Ruft, falls nicht ueberschrieben, iterationTraktor auf.
+	 * Wird von Traktor.iteration(...) fuer jeden Traktor des Sets aufgerufen, falls iteration nicht ueberschrieben worden ist.
+	 * zur Typunterscheidung kann diese Methode ueberschrieben werden: item.interationTyp(this);
+	 * zur Modulunterscheidung kann diese Methode ueberschrieben werden: item.interationModul(this);
 	 * @param item Traktor (!=null)
-	 * @return true, wenn die Methode bereit fuer ein weiteres Element ist, false wenn die Iteration abgebrochen werden soll
 	 */
-	public boolean iterationTraktor(Traktor item) {
-		return true;
-	}
+	public void iterationTraktor(Traktor item) { }
+	
+	/**
+	 * Wird von der Methode Modul.iterationModul(...) aufgerufen, die von Traktor.interationModul(...) aufgerufen wird, falls der Traktor ein Dirllmaschinen-Modul montiert hat 
+	 * @param modul Modul
+	 * @param traktor Traktor auf dem das Modul montiert ist
+	 */
+	public void iterationModulDrillmaschine(Drillmaschine modul, Traktor traktor) { }
+	
+	/**
+	 * Wird von der Methode Modul.iterationModul(...) aufgerufen, die von Traktor.interationModul(...) aufgerufen wird, falls der Traktor ein Duengerstreuer-Modul montiert hat 
+	 * @param modul Modul
+	 * @param traktor Traktor auf dem das Modul montiert ist
+	 */
+	public void iterationModulDuengerstreuer(Duengerstreuer modul, Traktor traktor) { }
 }

@@ -7,7 +7,7 @@ public class Test {
 		hoefe.insert(new Bauernhof("Cow-Paradise"));
 		hoefe.insert(new Bauernhof("Frischheu"));
 		
-		hoefe.get("Goldweide").addTraktor(new Traktor(1));
+		hoefe.get("Goldweide").addTraktor(new TraktorBiogas(1));
 		//...
 	}
 }

@@ -29,6 +29,14 @@ public class TraktorSet {
 	}
 	
 	/**
+	 * Ruft fuer jedes Element im Set die Methode iteration.iteration(...) auf.
+	 * @param iteration Iteration-Instanz dessen iteration(...) Methode aufgerufen werden soll.
+	 */
+	public void iterate(Iteration iteration) {
+		set.iterate(iteration);
+	}
+	
+	/**
 	 * Traktor anhand seiner Nummer finden
 	 * @param id Nummer des Traktors
 	 * @return Traktor gesuchter Nummer, null falls der Traktor sich nicht im Set befindet
@@ -56,12 +64,10 @@ public class TraktorSet {
 		 * @see Iteration#iterationTraktor(Traktor)
 		 */
 		@Override
-		public boolean iterationTraktor(Traktor item) {
+		public void iterationTraktor(Traktor item) {
 			if (item.getId() == id) {
 				traktor = item;
-				return false;
 			}
-			else { return true; }
 		}
 		
 		/**

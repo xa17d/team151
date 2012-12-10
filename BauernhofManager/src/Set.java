@@ -68,8 +68,9 @@ public class Set {
 	{
 		SetNode current = first.getNext();
 
-		while((current != null)&&(iteration.iteration(current.getItem())))
+		while(current != null)
 		{
+			iteration.iteration(current.getItem());
 			current = current.getNext();
 		}
 	}

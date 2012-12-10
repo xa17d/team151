@@ -1,5 +1,5 @@
 /**
- * Repraesentier einen Bauernhof
+ * Repraesentiert einen Bauernhof
  * @author Daniel
  */
 public class Bauernhof implements IteratableObject {
@@ -59,7 +59,61 @@ public class Bauernhof implements IteratableObject {
 	}
 
 	@Override
-	public boolean iteration(Iteration iteration) {
-		return iteration.iterationBauernhof(this);		
+	public void iteration(Iteration iteration) {
+		iteration.iterationBauernhof(this);		
+	}
+	
+	private double berechneAvgBetiebsstunden(Iteration iteration, IterationAvgBetriebsstunden betriebsstunden) {
+		traktors.iterate(iteration);
+		return betriebsstunden.getAvg();
+	}
+	
+	public double berechneAvgBetiebsstunden()  {
+		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
+		return berechneAvgBetiebsstunden(i,i);
+	}
+	
+	public double berechneAvgBetiebsstundenSaeen() {
+		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
+		return berechneAvgBetiebsstunden(new Filters.ModulDrillmaschine(i),i);
+	}
+	public double berechneAvgBetiebsstundenDuengen() {
+		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
+		return berechneAvgBetiebsstunden(new Filters.ModulDuengerstreuer(i),i);
+	}
+	public double berechneAvgBetiebsstundenDiesel() {
+		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
+		return berechneAvgBetiebsstunden(new Filters.Diesel(i),i);
+	}
+	public double berechneAvgBetiebsstundenBiogas() {
+		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
+		return berechneAvgBetiebsstunden(new Filters.Biogas(i),i);
+	}
+	
+	private class IterationAvgCounter extends Iteration {
+		private double sum = 0;
+		private int item_count = 0;
+		
+		protected void count(double value) {
+			sum += value;
+			item_count++;
+		}
+		
+		public double getAvg() {
+			if (item_count == 0) {
+				return 0;
+			} else {
+				return sum/item_count;
+			}
+		}
+	}
+	
+	private class IterationAvgBetriebsstunden extends IterationAvgCounter {
+		@Override
+		public void iterationTraktor(Traktor item) {
+			// TODO:
+			//count(item.getBetriebsstunden());
+			count(1);
+		}
 	}
 }
