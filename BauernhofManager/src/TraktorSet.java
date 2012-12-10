@@ -1,10 +1,8 @@
-import java.util.Iterator;
-
 /**
  * Set das mehrere Traktoren speichern kann
  * @author Daniel
  */
-public class TraktorSet implements Iterable<Traktor> {
+public class TraktorSet {
 	
 	/**
 	 * Internes Set in dem die Traktoren abgespeichert werden.
@@ -31,68 +29,19 @@ public class TraktorSet implements Iterable<Traktor> {
 	}
 	
 	/**
-	 * Gibt einen Iterator fuer das TraktorSet zurueck
-	 */
-	public Iterator<Traktor> iterator() {
-		return new TraktorSetIterator(set.iterator());
-	}
-	
-	/**
 	 * Traktor anhand seiner Nummer finden
 	 * @param id Nummer des Traktors
 	 * @return Traktor gesuchter Nummer, null falls der Traktor sich nicht im Set befindet
 	 */
 	public Traktor get(int id) {
-		for (Traktor traktor : this) {
+		Set.Iterator iterator = set.iterator();
+		while (iterator.hasNext()) {
+			Traktor traktor = (Traktor)iterator.next();
 			if (traktor.getId() == id) {
 				return traktor;
 			}
 		}
+
 		return null;
-	}
-
-	/**
-	 * TraktorSet-Iterator. Wrapper fuer den Iterator des Sets.
-	 * @author Daniel
-	 */
-	private class TraktorSetIterator implements Iterator<Traktor> {
-
-		/**
-		 * Erzeugt einen neuen TraktorSetIterator
-		 * @param iterator Iterator der gewrapped werden soll (darf nicht null sein, alle Elemente muessen vom Typ Traktor sein)
-		 */
-		public TraktorSetIterator(Iterator<Object> iterator) {
-			this.iterator = iterator;
-		}
-		
-		/**
-		 * Iterator der gewrapped wird (niemals null)
-		 */
-		private Iterator<Object> iterator;
-
-		/**
-		 * @see Iterator.hasNext()
-		 */
-		@Override
-		public boolean hasNext() {
-			return iterator.hasNext();
-		}
-
-		/**
-		 * @see Iterator.next()
-		 */
-		@Override
-		public Traktor next() {
-			return (Traktor)iterator.next();
-		}
-
-		/**
-		 * @see Iterator.remove()
-		 */
-		@Override
-		public void remove() {
-			iterator.remove();
-		}
-		
 	}
 }

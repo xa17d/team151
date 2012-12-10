@@ -1,10 +1,8 @@
-import java.util.Iterator;
-
 /**
  * Set das mehrere Bauernhoefe speichern kann
  * @author Daniel
  */
-public class BauernhofSet implements Iterable<Bauernhof> {
+public class BauernhofSet {
 	/**
 	 * Internes Set in dem die Bauernhoefe abgespeichert werden.
 	 * Alle Elemente sind von Typ Bauernhof
@@ -30,68 +28,19 @@ public class BauernhofSet implements Iterable<Bauernhof> {
 	}
 	
 	/**
-	 * Gibt einen Iterator fuer das BaurnhofSet zurueck
-	 */
-	public Iterator<Bauernhof> iterator() {
-		return new BauernhofSetIterator(set.iterator());
-	}
-	
-	/**
 	 * Bauernhof anhand seines Namens finden
 	 * @param name Name des Bauernhofs
 	 * @return Bauernhof mit gesuchtem Namen, null falls der Bauernhof sich nicht im Set befindet
 	 */
 	public Bauernhof get(String name) {
-		for (Bauernhof bauernhof : this) {
+		Set.Iterator iterator = set.iterator();
+		while (iterator.hasNext()) {
+			Bauernhof bauernhof = (Bauernhof)iterator.next();
 			if (bauernhof.getName().equals(name)) {
 				return bauernhof;
 			}
 		}
+
 		return null;
-	}
-
-	/**
-	 * BauernhofSet-Iterator. Wrapper fuer den Iterator des Sets.
-	 * @author Daniel
-	 */
-	private class BauernhofSetIterator implements Iterator<Bauernhof> {
-
-		/**
-		 * Erzeugt einen neuen BauernhofSetIterator
-		 * @param iterator Iterator der gewrapped werden soll (darf nicht null sein, alle Elemente muessen vom Typ Bauernhof sein)
-		 */
-		public BauernhofSetIterator(Iterator<Object> iterator) {
-			this.iterator = iterator;
-		}
-		
-		/**
-		 * Iterator der gewrapped wird (niemals null)
-		 */
-		private Iterator<Object> iterator;
-
-		/**
-		 * @see Iterator.hasNext()
-		 */
-		@Override
-		public boolean hasNext() {
-			return iterator.hasNext();
-		}
-
-		/**
-		 * @see Iterator.next()
-		 */
-		@Override
-		public Bauernhof next() {
-			return (Bauernhof)iterator.next();
-		}
-
-		/**
-		 * @see Iterator.remove()
-		 */
-		@Override
-		public void remove() {
-			iterator.remove();
-		}
-		
 	}
 }

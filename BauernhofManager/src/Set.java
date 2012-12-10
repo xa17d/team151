@@ -1,5 +1,3 @@
-import java.lang.Iterable;
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
@@ -7,7 +5,7 @@ import java.util.NoSuchElementException;
  * Als verkettete Liste implementiert.
  * @author daniel
  */
-public class Set implements Iterable<Object> {
+public class Set {
 	/**
 	 * Konstruktor. Erstellt ein neues Set
 	 */
@@ -47,7 +45,7 @@ public class Set implements Iterable<Object> {
 	 * @return true wenn das Element entfernt wurde, false wenn es nicht gefunden wurde
 	 */
 	public boolean remove(Object item) {
-		Iterator<Object> setIterator = iterator();
+		Iterator setIterator = iterator();
 		while (setIterator.hasNext()) {
 			Object i = setIterator.next();
 			
@@ -63,15 +61,15 @@ public class Set implements Iterable<Object> {
 	/**
 	 * liefert neuen Iterator
 	 */
-	public Iterator<Object> iterator() {
-		return new SetIterator(this);
+	public Iterator iterator() {
+		return new Iterator(this);
 	}
 	
 	/**
 	 * innere Klasse SetIterator
 	 * implementiert den Iterator
 	 */
-	private class SetIterator implements Iterator<Object> {
+	public class Iterator {
 		/**
 		 * Aktuelle Position des Iterators
 		 */
@@ -80,7 +78,7 @@ public class Set implements Iterable<Object> {
 		/**
 		 * Konstruktor
 		 */
-		public SetIterator(Set set) {
+		public Iterator(Set set) {
 			pointer = set.first;
 		}
 		
