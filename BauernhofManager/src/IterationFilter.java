@@ -14,7 +14,7 @@ public abstract class IterationFilter extends Iteration {
 	
 	private Iteration output;
 	/**
-	 * Leitet ein bestimmtes Element an das output-Iteraion-Objekt weiter
+	 * Leitet ein bestimmtes Element an das output-Iteraion-Objekt weiter (ruft output.iteration auf)
 	 * @param item Element
 	 */
 	protected void Out(IteratableObject item) {
