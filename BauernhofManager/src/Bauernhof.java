@@ -69,6 +69,9 @@ public class Bauernhof implements IteratableObject {
 		
 		s.append("=== Bauernhof "+getName()+" ===\n");
 		s.append("Name: "+getName()+"\n");
+		s.append("Traktor-Liste:\n-----\n");
+		s.append(traktors.toString());
+		s.append("-----\n");
 		s.append("Statistik:\n");
 		s.append("  durchschnittliche Anzahl der Betriebsstunden\n");
 		s.append("    alle:    "+berechneAvgBetiebsstunden()+"\n");
