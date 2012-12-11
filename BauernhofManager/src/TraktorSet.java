@@ -2,6 +2,7 @@
  * Set das mehrere Traktoren speichern kann
  * @author Daniel
  */
+@AuthorAnnotation(author="Daniel")
 public class TraktorSet {
 	
 	/**
@@ -15,6 +16,7 @@ public class TraktorSet {
 	 * @param item neuer Traktor
 	 * @return true wenn der Traktor eingefuegt wurde, sonst false
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public boolean insert(Traktor item) {
 		return set.insert(item); 
 	}
@@ -24,6 +26,7 @@ public class TraktorSet {
 	 * @param item zu entfernender Traktor
 	 * @return true wenn der Traktor entfernt wurde, false wenn sich dieser Traktor nicht im Set befindet
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public boolean remove(Traktor item) {
 		return set.remove(item);
 	}
@@ -32,6 +35,7 @@ public class TraktorSet {
 	 * Ruft fuer jedes Element im Set die Methode iteration.iteration(...) auf.
 	 * @param iteration Iteration-Instanz dessen iteration(...) Methode aufgerufen werden soll.
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public void iterate(Iteration iteration) {
 		set.iterate(iteration);
 	}
@@ -41,6 +45,7 @@ public class TraktorSet {
 	 * @param id Nummer des Traktors
 	 * @return Traktor gesuchter Nummer, null falls der Traktor sich nicht im Set befindet
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public Traktor get(int id) {
 		TraktorFinderIteration i = new TraktorFinderIteration(id);
 		set.iterate(i);
@@ -51,11 +56,13 @@ public class TraktorSet {
 	 * Iteration Klasse die einen Traktor mit bestimmter ID sucht
 	 * @author Daniel
 	 */
+	@AuthorAnnotation(author="Daniel")
 	private class TraktorFinderIteration extends Iteration {
 		/**
 		 * Konstruktor
 		 * @param id Traktor-ID nach der gesucht werden soll
 		 */
+		@AuthorAnnotation(author="Daniel")
 		public TraktorFinderIteration(int id) {
 			this.id = id;
 		}
@@ -64,6 +71,7 @@ public class TraktorSet {
 		 * @see Iteration#iterationTraktor(Traktor)
 		 */
 		@Override
+		@AuthorAnnotation(author="Daniel")
 		public void iterationTraktor(Traktor item) {
 			if (item.getId() == id) {
 				traktor = item;
@@ -81,6 +89,7 @@ public class TraktorSet {
 		/**
 		 * @return gefundener Traktor, null falls der Traktor nicht gefunden wurde
 		 */
+		@AuthorAnnotation(author="Daniel")
 		public Traktor getTraktor() { return traktor; }
 	}
 	
@@ -88,6 +97,7 @@ public class TraktorSet {
 	 * Listet alle Elemente des Sets als String auf
 	 */
 	@Override
+	@AuthorAnnotation(author="Daniel")
 	public String toString() {
 		return set.toString();
 	}
