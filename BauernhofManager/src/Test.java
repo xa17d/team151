@@ -1,4 +1,7 @@
-import java.lang.reflect.*;		//fuer Reflections um Annotationen zur Laufzeit auszulesen
+/**
+ * fuer Reflections um Annotationen zur Laufzeit auszulesen
+ */
+import java.lang.reflect.*;
 
 @ClassAuthorAnnotation(className="Test-Klasse")
 public class Test {
