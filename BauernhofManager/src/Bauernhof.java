@@ -81,95 +81,199 @@ public class Bauernhof implements IteratableObject {
 		return avg.getAvg();
 	}
 	
+	/**
+	 * @return Die durchschnittliche Anzahl der Betriebsstunden aller Traktoren
+	 */
 	public double berechneAvgBetiebsstunden()  {
 		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
 		return berechneAvg(i,i);
 	}
 	
+	/**
+	 * @return Die durchschnittliche Anzahl der Betriebsstunden aller Traktoren mit Drillmaschinen-Modul
+	 */
 	public double berechneAvgBetiebsstundenSaeen() {
 		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
 		return berechneAvg(new Filters.ModulDrillmaschine(i),i);
 	}
+	
+	/**
+	 * @return Die durchschnittliche Anzahl der Betriebsstunden aller Traktoren mit Duengerstreuer-Modul
+	 */
 	public double berechneAvgBetiebsstundenDuengen() {
 		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
 		return berechneAvg(new Filters.ModulDuengerstreuer(i),i);
 	}
+	
+	/**
+	 * @return Die durchschnittliche Anzahl der Betriebsstunden aller Diesel-Traktoren
+	 */
 	public double berechneAvgBetiebsstundenDiesel() {
 		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
 		return berechneAvg(new Filters.Diesel(i),i);
 	}
+	
+	/**
+	 * @return Die durchschnittliche Anzahl der Betriebsstunden aller Biogas-Traktoren
+	 */
+	public double berechneAvgBetiebsstundenBiogas() {
+		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
+		return berechneAvg(new Filters.Biogas(i),i);
+	}
+	
+	/**
+	 * @return Der durchschnittliche Dieselverbrauch aller Diesetraktoren
+	 */
 	public double berechneAvgDieselverbrauch() {
 		IterationAvgDieselverbrauch i = new IterationAvgDieselverbrauch();
 		return berechneAvg(i,i);
 	}
+	
+	/**
+	 * @return Der durchschnittliche Dieselverbrauch aller Diesetraktoren mit Drillmaschinen-Modul
+	 */
 	public double berechneAvgDieselverbrauchSaeen() {
 		IterationAvgDieselverbrauch i = new IterationAvgDieselverbrauch();
 		return berechneAvg(new Filters.ModulDrillmaschine(i),i);
 	}
+	
+	/**
+	 * @return Der durchschnittliche Dieselverbrauch aller Diesetraktoren mit Duengerstreuer-Modul
+	 */
 	public double berechneAvgDieselverbrauchDuengen() {
 		IterationAvgDieselverbrauch i = new IterationAvgDieselverbrauch();
 		return berechneAvg(new Filters.ModulDuengerstreuer(i),i);
 	}
+	
+	/**
+	 * @return Der durchschnittliche Gasverbrauch aller Biogastraktoren
+	 */
+	public double berechneAvgGasverbrauch() {
+		IterationAvgGasverbrauch i = new IterationAvgGasverbrauch();
+		return berechneAvg(i,i);
+	}
+	
+	/**
+	 * @return Der durchschnittliche Gasverbrauch aller Biogastraktoren mit Drillmaschinen-Modul
+	 */
 	public double berechneAvgGasverbrauchSaeen() {
 		IterationAvgGasverbrauch i = new IterationAvgGasverbrauch();
 		return berechneAvg(new Filters.ModulDrillmaschine(i),i);
 	}
+	
+	/**
+	 * @return Der durchschnittliche Gasverbrauch aller Biogastraktoren mit Duengerstreuer-Modul
+	 */
 	public double berechneAvgGasverbrauchDuengen() {
 		IterationAvgGasverbrauch i = new IterationAvgGasverbrauch();
 		return berechneAvg(new Filters.ModulDuengerstreuer(i),i);
 	}
+	
+	/**
+	 * @return Die durchschnittliche Fassungskapazitaet des Duengerbehaelters
+	 */
 	public double berechneAvgFassungskapazitaet() {
 		IterationAvgFassungsvermoegen i = new IterationAvgFassungsvermoegen();
 		return berechneAvg(i, i);
 	}
+	
+	/**
+	 * @return Die durchschnittliche Fassungskapazitaet des Duengerbehaelters aller Dieseltraktoren
+	 */
 	public double berechneAvgFassungskapazitaetDiesel() {
 		IterationAvgFassungsvermoegen i = new IterationAvgFassungsvermoegen();
 		return berechneAvg(new Filters.Diesel(i), i);
 	}
+	
+	/**
+	 * @return Die durchschnittliche Fassungskapazitaet des Duengerbehaelters aller Biogastraktoren
+	 */
 	public double berechneAvgFassungskapazitaetBiogas() {
 		IterationAvgFassungsvermoegen i = new IterationAvgFassungsvermoegen();
 		return berechneAvg(new Filters.Biogas(i), i);
 	}
-	public double berechneMinAnzahlSaescharen() {
+	
+	/**
+	 * @return Die durchschnittliche Fassungskapazitaet des Duengerbehaelters aller Dieseltraktoren
+	 */
+	public int berechneMinAnzahlSaescharen() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(i);
 		return i.getMin();
 	}
-	public double berechneMaxAnzahlSaescharen() {
+	
+	/**
+	 * @return Die maximale Anzahl an Saescharen aller Traktoren
+	 */
+	public int berechneMaxAnzahlSaescharen() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(i);
 		return i.getMax();
 	}
-	public double berechneMinAnzahlDiesel() {
+	
+	/**
+	 * @return Die minimale Anzahl an Saescharen aller Traktoren aller Dieseltraktoren
+	 */
+	public int berechneMinAnzahlDiesel() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Diesel(i));
 		return i.getMin();
 	}
-	public double berechneMaxAnzahlDiesel() {
+	
+	/**
+	 * @return Die maximale Anzahl an Saescharen aller Traktoren aller Dieseltraktoren
+	 */
+	public int berechneMaxAnzahlDiesel() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Diesel(i));
 		return i.getMax();
 	}
-	public double berechneMinAnzahlBiogas() {
+	
+	/**
+	 * @return Die minimale Anzahl an Saescharen aller Traktoren aller Biogastraktoren
+	 */
+	public int berechneMinAnzahlBiogas() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Biogas(i));
 		return i.getMin();
 	}
-	public double berechneMaxAnzahlBiogas() {
+	
+	/**
+	 * @return Die maximale Anzahl an Saescharen aller Traktoren aller Biogastraktoren
+	 */
+	public int berechneMaxAnzahlBiogas() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Biogas(i));
 		return i.getMax();
 	}
 	
+	/**
+	 * Iteration die einen Durchschnittswert berechner
+	 * @author Daniel
+	 */
 	private class IterationAvgCounter extends Iteration {
+		/**
+		 * Summe
+		 */
 		private double sum = 0;
+		/**
+		 * Anzahl der gezaehlten Werte
+		 */
 		private int item_count = 0;
 		
+		/**
+		 * Zaehlt einen Wert
+		 * @param value Wert der gezaehlt werden soll
+		 */
 		protected void count(double value) {
 			sum += value;
 			item_count++;
 		}
 		
+		/**
+		 * Gibt den Durschnitt aller gezaehlten Werte zurueck, 0 falls keine Werte gezaehlt wurden
+		 * @return Durchschnitt, 0 falls keine Werte gezaehlt wurden
+		 */
 		public double getAvg() {
 			if (item_count == 0) {
 				return 0;
@@ -179,6 +283,10 @@ public class Bauernhof implements IteratableObject {
 		}
 	}
 	
+	/**
+	 * Iteration die den Durchschnitt von Traktor-Betriebsstunden erfasst
+	 * @author Daniel
+	 */
 	private class IterationAvgBetriebsstunden extends IterationAvgCounter {
 		@Override
 		public void iterationTraktor(Traktor item) {
@@ -188,6 +296,10 @@ public class Bauernhof implements IteratableObject {
 		}
 	}
 	
+	/**
+	 * Iteration die den Durchschnitt vom Dieselverbrauch erfasst
+	 * @author Daniel
+	 */
 	private class IterationAvgDieselverbrauch extends IterationAvgCounter {
 		@Override
 		public void iterationTraktorDiesel(TraktorDiesel item) {
@@ -197,6 +309,10 @@ public class Bauernhof implements IteratableObject {
 		}
 	}
 	
+	/**
+	 * Iteration die den Durchschnitt vom Biogasverbrauch erfasst
+	 * @author Daniel
+	 */
 	private class IterationAvgGasverbrauch extends IterationAvgCounter {
 		@Override
 		public void iterationTraktorBiogas(TraktorBiogas item) {
@@ -206,6 +322,10 @@ public class Bauernhof implements IteratableObject {
 		}
 	}
 	
+	/**
+	 * Iteration die den Durchschnitt der Fassungskapazitaet aller Traktoren mit Duengerstreuer erfasst
+	 * @author Daniel
+	 */
 	private class IterationAvgFassungsvermoegen extends IterationAvgCounter {
 		@Override
 		public void iterationModulDuengerstreuer(Duengerstreuer modul, Traktor traktor) {
@@ -213,9 +333,22 @@ public class Bauernhof implements IteratableObject {
 		}
 	}
 	
+	/**
+	 * Iteration die die Minimal- und Maximalanzahl der Saescharen aller Traktoren mit Drillmaschine erfasst
+	 * @author Daniel
+	 */
 	private class IterationAnzahlSaescharen extends Iteration {
+		/**
+		 * Minimal Wert
+		 */
 		private int min = Integer.MAX_VALUE;
+		/**
+		 * Maximal Wert
+		 */
 		private int max = Integer.MIN_VALUE;
+		/**
+		 * true wenn mindestens ein Wert gezaehlt wurde, sonst false
+		 */
 		private boolean valid = false;
 		
 		@Override
@@ -226,6 +359,9 @@ public class Bauernhof implements IteratableObject {
 			valid = true;
 		}
 		
+		/**
+ 		 * @return Gibt die Minimalanzahl der Saescharen zurueck, 0 falls keine Saescharen erfasst wurden
+		 */
 		public int getMin() {
 			if (valid) {
 				return min;
@@ -234,6 +370,9 @@ public class Bauernhof implements IteratableObject {
 			}
 		}
 		
+		/**
+ 		 * @return Gibt die Maximalanzahl der Saescharen zurueck, 0 falls keine Saescharen erfasst wurden
+		 */
 		public int getMax() {
 			if (valid) {
 				return max;
