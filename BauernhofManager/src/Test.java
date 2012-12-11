@@ -13,53 +13,48 @@ public class Test {
 		hoefe.insert(new Bauernhof("Frischheu"));
 		
 		hoefe.get("Goldweide").addTraktor(new TraktorBiogas(1));
-		//...
-		
-		
-		
-		
-		
-		
+
 		/**
 		 * Annotationen Test
 		 */
-		MethodAuthorAnnotation methodAnnotation;
-		ClassAuthorAnnotation classAnnotation;
-		
+		printClassInfo(Bauernhof.class);
+		printClassInfo(BauernhofSet.class);
+		printClassInfo(ClassAuthorAnnotation.class);
+		printClassInfo(Drillmaschine.class);
+		printClassInfo(Duengerstreuer.class);
+		printClassInfo(Filters.class);
+		printClassInfo(Filters.Biogas.class);
+	}
+	
+	
+	@SuppressWarnings("rawtypes")
+	private static void printClassInfo(Class c) {
 		//Annotatione einer Klasse ausgeben
-		System.out.println("Annotation der Klasse *Duengerstreuer*:");
-		classAnnotation = Duengerstreuer.class.getAnnotation(ClassAuthorAnnotation.class);
-		System.out.println(classAnnotation.className() + ": " + classAnnotation.author());
-		
-		System.out.println("Annotation der Klasse *Test*:");
-		classAnnotation = Test.class.getAnnotation(ClassAuthorAnnotation.class);
-		System.out.println(classAnnotation.className() + ": " + classAnnotation.author());
-		
+		System.out.println("Annotation der Klasse *"+c.getName()+"*:");
+		ClassAuthorAnnotation classAnnotation = Duengerstreuer.class.getAnnotation(ClassAuthorAnnotation.class);
+		System.out.println("Author: " + classAnnotation.author());
 		
 		//Annotationen der Methoden (und Konstruktoren) einer bestimmten Klasse ausgeben
-		System.out.println("\nAnnotationen der Methoden der Klasse *Duengerstreuer*:");
+		System.out.println("Konstruktoren:");
 		
-		/*
-		//---------------------------------------------
-		//NICHT SEHR GUT, DA KONSTRUKTOREN GENERISCHE GESPEICHERT WERDEN SOLLTEN
-		//leider nicht erlaubt...
-		//alternativen? konstruktoren weglassen?
-		Constructor[] constructors = Duengerstreuer.class.getConstructors();
-		for(Constructor c : constructors) {
-			if(c.isAnnotationPresent(MethodAuthorAnnotation.class)) {
-				methodAnnotation = (MethodAuthorAnnotation) c.getAnnotation(MethodAuthorAnnotation.class);
-				System.out.println(methodAnnotation.methodName() + ": " + methodAnnotation.author());
+		Constructor[] constructors = c.getConstructors();
+		for(Constructor co : constructors) {
+			if(co.isAnnotationPresent(MethodAuthorAnnotation.class)) {
+				@SuppressWarnings("unchecked")
+				MethodAuthorAnnotation methodAnnotation = (MethodAuthorAnnotation)co.getAnnotation(MethodAuthorAnnotation.class);
+				System.out.println("\t"+methodAnnotation.methodName() + ": " + methodAnnotation.author());
 			}
 		}
-		//---------------------------------------------
-		*/
 		
-		Method[] methods = Duengerstreuer.class.getMethods();
+		System.out.println("Methoden:");
+		Method[] methods = c.getMethods();
 		for(Method m : methods) {
 			if(m.isAnnotationPresent(MethodAuthorAnnotation.class)) {
-				methodAnnotation = m.getAnnotation(MethodAuthorAnnotation.class);
-				System.out.println(methodAnnotation.methodName() + ": " + methodAnnotation.author());
+				MethodAuthorAnnotation methodAnnotation = m.getAnnotation(MethodAuthorAnnotation.class);
+				System.out.println("\t"+methodAnnotation.methodName() + ": " + methodAnnotation.author());
 			}
 		}
+		
+		System.out.println("");
 	}
 }
