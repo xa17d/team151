@@ -21,10 +21,12 @@ public abstract class Traktor implements IteratableObject {
 	public abstract void interationTyp(Iteration iteration);
 	
 	/**
-	 * Ruf je nach Modul iteration.iterationModulDrillmaschine oder iteration.iterationModulDuengerstreuer auf
+	 * Ruf je nach Modul iteration.iterationModulDrillmaschine oder iteration.iterationModulDuengerstreuer auf. Ist kein Modul angebracht, wird nichts aufgerufen.
 	 * @param iteration Iteration
 	 */
 	public void interationModul(Iteration iteration) {
-		modul.interationModul(iteration, this);
+		if (modul != null) {
+			modul.interationModul(iteration, this);
+		}
 	}
 }

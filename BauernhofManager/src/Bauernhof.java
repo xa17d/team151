@@ -2,6 +2,7 @@
  * Repraesentiert einen Bauernhof
  * @author Daniel
  */
+@ClassAuthorAnnotation(author="Daniel", className="Bauernhof")
 public class Bauernhof implements IteratableObject {
 
 	/**
@@ -62,13 +63,19 @@ public class Bauernhof implements IteratableObject {
 	}
 
 	/**
-	 * @see IteratableObject#iteration(Iteration)
+	 * ruft iteration.iterationBauernhof auf.
 	 */
 	@Override
 	public void iteration(Iteration iteration) {
 		iteration.iterationBauernhof(this);		
 	}
 	
+	/**
+	 * Fuert eine Iteration ueber alle Traktoren durch mit iteration und gibt den Durchschnittswert von avg zurueck.
+	 * @param iteration Iteration die ueber alle Traktoren durchgefuehrt werden soll
+	 * @param avg Durchschnittswert der zurueckgegeben werden soll
+	 * @return Durchschnittswert von avg
+	 */
 	private double berechneAvg(Iteration iteration, IterationAvgCounter avg) {
 		traktors.iterate(iteration);
 		return avg.getAvg();
