@@ -5,6 +5,7 @@ import java.lang.reflect.*;
 
 @ClassAuthorAnnotation(className="Test-Klasse")
 public class Test {
+	@MethodAuthorAnnotation(methodName="Test-Methode")
 	public static void main(String[] args) {
 		BauernhofSet hoefe = new BauernhofSet();
 		
