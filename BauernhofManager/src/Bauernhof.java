@@ -9,6 +9,7 @@ public class Bauernhof implements IteratableObject {
 	 * Erstellt einen neuen Bauernhof mit bestimmten Namen
 	 * @param name Name (!=null)
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public Bauernhof(String name) {
 		this.name = name;
 	}
@@ -25,6 +26,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Name des Bauernhofs
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public String getName() {
 		return name;
 	}
@@ -33,6 +35,7 @@ public class Bauernhof implements IteratableObject {
 	 * Fuegt einen Traktor dem Bauernhof hinzu
 	 * @param item Neuer Traktor
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public void addTraktor(Traktor item) {
 		traktors.insert(item);
 	}
@@ -41,6 +44,7 @@ public class Bauernhof implements IteratableObject {
 	 * Entfernt einen Traktor vom Bauernhof
 	 * @param item zu entfernender Traktor
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public void removeTraktor(Traktor item) {
 		traktors.remove(item);
 	}
@@ -50,6 +54,7 @@ public class Bauernhof implements IteratableObject {
 	 * @param id Eindeutige Nummer
 	 * @return Traktor mit gesuchter Nummer, null falls sich der Traktor nicht auf diesem Bauernhof befindet 
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public Traktor getTraktor(int id) {
 		return traktors.get(id);
 	}
@@ -57,6 +62,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * Gibt den Bauernhof Informationen zurueck
 	 */
+	@AuthorAnnotation(author="Daniel")
 	@Override
 	public String toString() {
 		StringBuffer s = new StringBuffer();
@@ -93,6 +99,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * ruft iteration.iterationBauernhof auf.
 	 */
+	@AuthorAnnotation(author="Daniel")
 	@Override
 	public void iteration(Iteration iteration) {
 		iteration.iterationBauernhof(this);		
@@ -104,6 +111,7 @@ public class Bauernhof implements IteratableObject {
 	 * @param avg Durchschnittswert der zurueckgegeben werden soll
 	 * @return Durchschnittswert von avg
 	 */
+	@AuthorAnnotation(author="Daniel")
 	private double berechneAvg(Iteration iteration, IterationAvgCounter avg) {
 		traktors.iterate(iteration);
 		return avg.getAvg();
@@ -112,6 +120,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die durchschnittliche Anzahl der Betriebsstunden aller Traktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgBetiebsstunden()  {
 		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
 		return berechneAvg(i,i);
@@ -120,6 +129,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die durchschnittliche Anzahl der Betriebsstunden aller Traktoren mit Drillmaschinen-Modul
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgBetiebsstundenSaeen() {
 		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
 		return berechneAvg(new Filters.ModulDrillmaschine(i),i);
@@ -128,6 +138,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die durchschnittliche Anzahl der Betriebsstunden aller Traktoren mit Duengerstreuer-Modul
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgBetiebsstundenDuengen() {
 		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
 		return berechneAvg(new Filters.ModulDuengerstreuer(i),i);
@@ -136,6 +147,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die durchschnittliche Anzahl der Betriebsstunden aller Diesel-Traktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgBetiebsstundenDiesel() {
 		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
 		return berechneAvg(new Filters.Diesel(i),i);
@@ -144,6 +156,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die durchschnittliche Anzahl der Betriebsstunden aller Biogas-Traktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgBetiebsstundenBiogas() {
 		IterationAvgBetriebsstunden i = new IterationAvgBetriebsstunden();
 		return berechneAvg(new Filters.Biogas(i),i);
@@ -152,6 +165,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Der durchschnittliche Dieselverbrauch aller Diesetraktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgDieselverbrauch() {
 		IterationAvgDieselverbrauch i = new IterationAvgDieselverbrauch();
 		return berechneAvg(i,i);
@@ -160,6 +174,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Der durchschnittliche Dieselverbrauch aller Diesetraktoren mit Drillmaschinen-Modul
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgDieselverbrauchSaeen() {
 		IterationAvgDieselverbrauch i = new IterationAvgDieselverbrauch();
 		return berechneAvg(new Filters.ModulDrillmaschine(i),i);
@@ -168,6 +183,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Der durchschnittliche Dieselverbrauch aller Diesetraktoren mit Duengerstreuer-Modul
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgDieselverbrauchDuengen() {
 		IterationAvgDieselverbrauch i = new IterationAvgDieselverbrauch();
 		return berechneAvg(new Filters.ModulDuengerstreuer(i),i);
@@ -176,6 +192,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Der durchschnittliche Gasverbrauch aller Biogastraktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgGasverbrauch() {
 		IterationAvgGasverbrauch i = new IterationAvgGasverbrauch();
 		return berechneAvg(i,i);
@@ -184,6 +201,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Der durchschnittliche Gasverbrauch aller Biogastraktoren mit Drillmaschinen-Modul
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgGasverbrauchSaeen() {
 		IterationAvgGasverbrauch i = new IterationAvgGasverbrauch();
 		return berechneAvg(new Filters.ModulDrillmaschine(i),i);
@@ -192,6 +210,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Der durchschnittliche Gasverbrauch aller Biogastraktoren mit Duengerstreuer-Modul
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgGasverbrauchDuengen() {
 		IterationAvgGasverbrauch i = new IterationAvgGasverbrauch();
 		return berechneAvg(new Filters.ModulDuengerstreuer(i),i);
@@ -200,6 +219,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die durchschnittliche Fassungskapazitaet des Duengerbehaelters
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgFassungskapazitaet() {
 		IterationAvgFassungsvermoegen i = new IterationAvgFassungsvermoegen();
 		return berechneAvg(i, i);
@@ -208,6 +228,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die durchschnittliche Fassungskapazitaet des Duengerbehaelters aller Dieseltraktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgFassungskapazitaetDiesel() {
 		IterationAvgFassungsvermoegen i = new IterationAvgFassungsvermoegen();
 		return berechneAvg(new Filters.Diesel(i), i);
@@ -216,6 +237,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die durchschnittliche Fassungskapazitaet des Duengerbehaelters aller Biogastraktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public double berechneAvgFassungskapazitaetBiogas() {
 		IterationAvgFassungsvermoegen i = new IterationAvgFassungsvermoegen();
 		return berechneAvg(new Filters.Biogas(i), i);
@@ -224,6 +246,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die durchschnittliche Fassungskapazitaet des Duengerbehaelters aller Dieseltraktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public int berechneMinAnzahlSaescharen() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(i);
@@ -233,6 +256,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die maximale Anzahl an Saescharen aller Traktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public int berechneMaxAnzahlSaescharen() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(i);
@@ -242,6 +266,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die minimale Anzahl an Saescharen aller Traktoren aller Dieseltraktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public int berechneMinAnzahlSaescharenDiesel() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Diesel(i));
@@ -251,6 +276,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die maximale Anzahl an Saescharen aller Traktoren aller Dieseltraktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public int berechneMaxAnzahlSaescharenDiesel() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Diesel(i));
@@ -260,6 +286,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die minimale Anzahl an Saescharen aller Traktoren aller Biogastraktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public int berechneMinAnzahlSaescharenBiogas() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Biogas(i));
@@ -269,6 +296,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die maximale Anzahl an Saescharen aller Traktoren aller Biogastraktoren
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public int berechneMaxAnzahlSaescharenBiogas() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Biogas(i));
@@ -279,6 +307,7 @@ public class Bauernhof implements IteratableObject {
 	 * Iteration die einen Durchschnittswert berechner
 	 * @author Daniel
 	 */
+	@AuthorAnnotation(author="Daniel")
 	private class IterationAvgCounter extends Iteration {
 		/**
 		 * Summe
@@ -293,6 +322,7 @@ public class Bauernhof implements IteratableObject {
 		 * Zaehlt einen Wert
 		 * @param value Wert der gezaehlt werden soll
 		 */
+		@AuthorAnnotation(author="Daniel")
 		protected void count(double value) {
 			sum += value;
 			item_count++;
@@ -302,6 +332,7 @@ public class Bauernhof implements IteratableObject {
 		 * Gibt den Durschnitt aller gezaehlten Werte zurueck, 0 falls keine Werte gezaehlt wurden
 		 * @return Durchschnitt, 0 falls keine Werte gezaehlt wurden
 		 */
+		@AuthorAnnotation(author="Daniel")
 		public double getAvg() {
 			if (item_count == 0) {
 				return 0;
@@ -315,7 +346,9 @@ public class Bauernhof implements IteratableObject {
 	 * Iteration die den Durchschnitt von Traktor-Betriebsstunden erfasst
 	 * @author Daniel
 	 */
+	@AuthorAnnotation(author="Daniel")
 	private class IterationAvgBetriebsstunden extends IterationAvgCounter {
+		@AuthorAnnotation(author="Daniel")
 		@Override
 		public void iterationTraktor(Traktor item) {
 			// TODO:
@@ -328,7 +361,9 @@ public class Bauernhof implements IteratableObject {
 	 * Iteration die den Durchschnitt vom Dieselverbrauch erfasst
 	 * @author Daniel
 	 */
+	@AuthorAnnotation(author="Daniel")
 	private class IterationAvgDieselverbrauch extends IterationAvgCounter {
+		@AuthorAnnotation(author="Daniel")
 		@Override
 		public void iterationTraktorDiesel(TraktorDiesel item) {
 			// TODO:
@@ -341,7 +376,9 @@ public class Bauernhof implements IteratableObject {
 	 * Iteration die den Durchschnitt vom Biogasverbrauch erfasst
 	 * @author Daniel
 	 */
+	@AuthorAnnotation(author="Daniel")
 	private class IterationAvgGasverbrauch extends IterationAvgCounter {
+		@AuthorAnnotation(author="Daniel")
 		@Override
 		public void iterationTraktorBiogas(TraktorBiogas item) {
 			// TODO:
@@ -354,7 +391,9 @@ public class Bauernhof implements IteratableObject {
 	 * Iteration die den Durchschnitt der Fassungskapazitaet aller Traktoren mit Duengerstreuer erfasst
 	 * @author Daniel
 	 */
+	@AuthorAnnotation(author="Daniel")
 	private class IterationAvgFassungsvermoegen extends IterationAvgCounter {
+		@AuthorAnnotation(author="Daniel")
 		@Override
 		public void iterationModulDuengerstreuer(Duengerstreuer modul, Traktor traktor) {
 			count(modul.getFassungskapazitaet());
@@ -365,6 +404,7 @@ public class Bauernhof implements IteratableObject {
 	 * Iteration die die Minimal- und Maximalanzahl der Saescharen aller Traktoren mit Drillmaschine erfasst
 	 * @author Daniel
 	 */
+	@AuthorAnnotation(author="Daniel")
 	private class IterationAnzahlSaescharen extends Iteration {
 		/**
 		 * Minimal Wert
@@ -379,6 +419,7 @@ public class Bauernhof implements IteratableObject {
 		 */
 		private boolean valid = false;
 		
+		@AuthorAnnotation(author="Daniel")
 		@Override
 		public void iterationModulDrillmaschine(Drillmaschine modul, Traktor traktor) {
 			int c = modul.getAnzahlSaehscharen();
@@ -390,6 +431,7 @@ public class Bauernhof implements IteratableObject {
 		/**
  		 * @return Gibt die Minimalanzahl der Saescharen zurueck, 0 falls keine Saescharen erfasst wurden
 		 */
+		@AuthorAnnotation(author="Daniel")
 		public int getMin() {
 			if (valid) {
 				return min;
@@ -401,6 +443,7 @@ public class Bauernhof implements IteratableObject {
 		/**
  		 * @return Gibt die Maximalanzahl der Saescharen zurueck, 0 falls keine Saescharen erfasst wurden
 		 */
+		@AuthorAnnotation(author="Daniel")
 		public int getMax() {
 			if (valid) {
 				return max;
