@@ -319,7 +319,7 @@ public class Bauernhof implements IteratableObject {
 		@Override
 		public void iterationTraktor(Traktor item) {
 			// TODO:
-			//count(item.getBetriebsstunden());
+			count(item.getBetriebsstunden());
 			count(1);
 		}
 	}
@@ -332,7 +332,7 @@ public class Bauernhof implements IteratableObject {
 		@Override
 		public void iterationTraktorDiesel(TraktorDiesel item) {
 			// TODO:
-			//count(item.getDieselverbrauch());
+			count(item.getVerbrauch());
 			count(1);
 		}
 	}
@@ -345,7 +345,7 @@ public class Bauernhof implements IteratableObject {
 		@Override
 		public void iterationTraktorBiogas(TraktorBiogas item) {
 			// TODO:
-			//count(item.getGasverbrauch());
+			count(item.getVerbrauch());
 			count(1);
 		}
 	}
