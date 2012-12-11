@@ -2,6 +2,7 @@
  * fuer Reflections um Annotationen zur Laufzeit auszulesen
  */
 import java.lang.reflect.*;
+import java.util.Random;
 
 @AuthorAnnotation()
 public class Test {
@@ -9,35 +10,55 @@ public class Test {
 	public static void main(String[] args) {
 		BauernhofSet hoefe = new BauernhofSet();
 		
-		hoefe.insert(new Bauernhof("Goldweide"));
-		hoefe.insert(new Bauernhof("Cow-Paradise"));
-		hoefe.insert(new Bauernhof("Frischheu"));
+		int bNr = 0; //Nummer des Bauernhofs
 		
-		//Bauernhof Goldweide
-		//Biogastraktoren
-		hoefe.get("Goldweide").addTraktor(new TraktorBiogas(1, new Duengerstreuer(10.5)));
-		hoefe.get("Goldweide").addTraktor(new TraktorBiogas(2, new Duengerstreuer(20.5)));
-		hoefe.get("Goldweide").addTraktor(new TraktorBiogas(3, new Drillmaschine(3)));
-		hoefe.get("Goldweide").addTraktor(new TraktorBiogas(4, new Drillmaschine(10)));
-		
-		//Dieseltraktoren
-		hoefe.get("Goldweide").addTraktor(new TraktorDiesel(5, new Duengerstreuer(500)));
-		hoefe.get("Goldweide").addTraktor(new TraktorDiesel(6, new Duengerstreuer(200)));
-		hoefe.get("Goldweide").addTraktor(new TraktorDiesel(7, new Drillmaschine(5)));
+		while(bNr < 10){
+			String bauernhof = "Bauernhof " + bNr;
+			
+			//Bauernhof bNr anlegen
+			hoefe.insert(new Bauernhof(bauernhof));
+			
+			int tId = 0; //Traktor Id
+			
+			//Bauernhof bNr Traktoren hinzufuegen
+			//20 Biogastraktoren mit Duengstreuer hinzufuegen
+			while(tId < 25){
+				hoefe.get(bauernhof).addTraktor(new TraktorBiogas(tId, new Duengerstreuer(Math.abs(Math.random()*100+1))));
+				tId++;
+			}
+			
+			//20 Biogastraktoren mit Drillmaschine hinzufuegen
+			while(tId < 50){
+				hoefe.get(bauernhof).addTraktor(new TraktorBiogas(tId, new Drillmaschine((int) Math.abs(Math.random()*10+1))));
+				tId++;
+			}
+			
+			//20 Dieseltraktoren mit Duengstreuer hinzufuegen
+			while(tId < 75){
+				hoefe.get(bauernhof).addTraktor(new TraktorDiesel(tId, new Duengerstreuer(Math.abs(Math.random()*100+1))));
+				tId++;
+			}
+			
+			//20 Dieseltraktoren mit Duengstreuer hinzufuegen
+			while(tId < 100){
+				hoefe.get(bauernhof).addTraktor(new TraktorDiesel(tId, new Drillmaschine((int) Math.abs(Math.random()*10+1))));
+				tId++;
+			}
 
-		//Betriebsstunden des Traktors 1,2,3,7 aendern
-		hoefe.get("Goldweide").getTraktor(1).setBetriebsstunden(1000);
-		hoefe.get("Goldweide").getTraktor(2).setBetriebsstunden(10);
-		hoefe.get("Goldweide").getTraktor(3).setBetriebsstunden(5000);
-		hoefe.get("Goldweide").getTraktor(7).setBetriebsstunden(10000);
+			//Betriebsstunden + Verbrauch der Traktoren aendern
+			tId = 0;
+			while(tId < 100){
+				Traktor t = hoefe.get(bauernhof).getTraktor(tId);
+				t.setBetriebsstunden((int) Math.abs(Math.random()*10000+1));
+				if(t instanceof TraktorBiogas)
+					((TraktorBiogas)t).setVerbrauch(Math.abs(Math.random()*1000+1));
+				else if (t instanceof TraktorDiesel)
+					((TraktorDiesel)t).setVerbrauch((int)Math.abs(Math.random()*1000+1));
+				tId++;
+			}
+			bNr++;
+		}
 		
-		//Verbrauch fuer die Traktoren setzen
-		//Dieseltraktoren
-		((TraktorDiesel)hoefe.get("Goldweide").getTraktor(7)).setVerbrauch(1000);
-		//Biogastraktoren
-		((TraktorBiogas)hoefe.get("Goldweide").getTraktor(1)).setVerbrauch(500.9);
-		((TraktorBiogas)hoefe.get("Goldweide").getTraktor(2)).setVerbrauch(1000.00);
-		((TraktorBiogas)hoefe.get("Goldweide").getTraktor(3)).setVerbrauch(200.27);
 		
 		System.out.print(hoefe);
 		
