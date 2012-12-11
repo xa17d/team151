@@ -32,7 +32,9 @@ public class Test {
 		hoefe.get("Goldweide").getTraktor(7).setBetriebsstunden(10000);
 		
 		//Verbrauch fuer die Traktoren setzen
+		//Dieseltraktoren
 		((TraktorDiesel)hoefe.get("Goldweide").getTraktor(7)).setVerbrauch(1000);
+		//Biogastraktoren
 		((TraktorBiogas)hoefe.get("Goldweide").getTraktor(1)).setVerbrauch(500.9);
 		((TraktorBiogas)hoefe.get("Goldweide").getTraktor(2)).setVerbrauch(1000.00);
 		((TraktorBiogas)hoefe.get("Goldweide").getTraktor(3)).setVerbrauch(200.27);
