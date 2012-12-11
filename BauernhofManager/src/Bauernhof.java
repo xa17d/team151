@@ -351,9 +351,7 @@ public class Bauernhof implements IteratableObject {
 		@AuthorAnnotation(author="Daniel")
 		@Override
 		public void iterationTraktor(Traktor item) {
-			// TODO:
 			count(item.getBetriebsstunden());
-			count(1);
 		}
 	}
 	
@@ -366,9 +364,13 @@ public class Bauernhof implements IteratableObject {
 		@AuthorAnnotation(author="Daniel")
 		@Override
 		public void iterationTraktorDiesel(TraktorDiesel item) {
-			// TODO:
 			count(item.getVerbrauch());
-			count(1);
+		}
+		
+		@AuthorAnnotation(author="Daniel")
+		@Override
+		public void iterationTraktor(Traktor item) {
+			item.interationTyp(this);
 		}
 	}
 	
@@ -381,9 +383,13 @@ public class Bauernhof implements IteratableObject {
 		@AuthorAnnotation(author="Daniel")
 		@Override
 		public void iterationTraktorBiogas(TraktorBiogas item) {
-			// TODO:
 			count(item.getVerbrauch());
-			count(1);
+		}
+		
+		@AuthorAnnotation(author="Daniel")
+		@Override
+		public void iterationTraktor(Traktor item) {
+			item.interationTyp(this);
 		}
 	}
 	
@@ -397,6 +403,12 @@ public class Bauernhof implements IteratableObject {
 		@Override
 		public void iterationModulDuengerstreuer(Duengerstreuer modul, Traktor traktor) {
 			count(modul.getFassungskapazitaet());
+		}
+		
+		@AuthorAnnotation(author="Daniel")
+		@Override
+		public void iterationTraktor(Traktor item) {
+			item.interationModul(this);
 		}
 	}
 	
@@ -426,6 +438,12 @@ public class Bauernhof implements IteratableObject {
 			if (c < min) { min = c; }
 			if (c > max) { max = c; }
 			valid = true;
+		}
+		
+		@AuthorAnnotation(author="Daniel")
+		@Override
+		public void iterationTraktor(Traktor item) {
+			item.interationModul(this);
 		}
 		
 		/**
