@@ -2,7 +2,6 @@
  * fuer Reflections um Annotationen zur Laufzeit auszulesen
  */
 import java.lang.reflect.*;
-import java.util.Random;
 
 @AuthorAnnotation()
 public class Test {
