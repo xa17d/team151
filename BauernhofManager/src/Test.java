@@ -58,6 +58,9 @@ public class Test {
 			bNr++;
 		}
 		
+		//Division durch 0: Bauernhof mit 0 Traktoren
+		hoefe.insert(new Bauernhof("Bauernhof mit 0 Traktoren"));
+		
 		
 		System.out.print(hoefe);
 		
