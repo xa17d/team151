@@ -30,4 +30,10 @@ public class Duengerstreuer extends Modul {
 	public void interationModul(Iteration iteration, Traktor traktor) {
 		iteration.iterationModulDuengerstreuer(this, traktor);
 	}
+	
+	@Override
+	@AuthorAnnotation(author="Lucas")
+	public String toString() {
+		return "Duengstreuer: Fassungskapazitaet " + fassungskapazitaet;
+	}
 }

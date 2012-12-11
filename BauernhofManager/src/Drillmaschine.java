@@ -30,4 +30,10 @@ public class Drillmaschine extends Modul {
 	public void interationModul(Iteration iteration, Traktor traktor) {
 		iteration.iterationModulDrillmaschine(this, traktor);
 	}
+	
+	@Override
+	@AuthorAnnotation(author="Lucas")
+	public String toString() {
+		return "Drillmaschine: AnzahlSaehscharen " + anzahlSaehscharen;
+	}
 }

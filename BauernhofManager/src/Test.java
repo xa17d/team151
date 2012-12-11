@@ -11,7 +11,7 @@ public class Test {
 		
 		int bNr = 0; //Nummer des Bauernhofs
 		
-		while(bNr < 10){
+		while(bNr < 5){
 			String bauernhof = "Bauernhof " + bNr;
 			
 			//Bauernhof bNr anlegen
@@ -21,32 +21,32 @@ public class Test {
 			
 			//Bauernhof bNr Traktoren hinzufuegen
 			//20 Biogastraktoren mit Duengstreuer hinzufuegen
-			while(tId < 25){
+			while(tId < 3){
 				hoefe.get(bauernhof).addTraktor(new TraktorBiogas(tId, new Duengerstreuer(Math.abs(Math.random()*100+1))));
 				tId++;
 			}
 			
 			//20 Biogastraktoren mit Drillmaschine hinzufuegen
-			while(tId < 50){
+			while(tId < 6){
 				hoefe.get(bauernhof).addTraktor(new TraktorBiogas(tId, new Drillmaschine((int) Math.abs(Math.random()*10+1))));
 				tId++;
 			}
 			
 			//20 Dieseltraktoren mit Duengstreuer hinzufuegen
-			while(tId < 75){
+			while(tId < 9){
 				hoefe.get(bauernhof).addTraktor(new TraktorDiesel(tId, new Duengerstreuer(Math.abs(Math.random()*100+1))));
 				tId++;
 			}
 			
 			//20 Dieseltraktoren mit Duengstreuer hinzufuegen
-			while(tId < 100){
+			while(tId < 12){
 				hoefe.get(bauernhof).addTraktor(new TraktorDiesel(tId, new Drillmaschine((int) Math.abs(Math.random()*10+1))));
 				tId++;
 			}
 
 			//Betriebsstunden + Verbrauch der Traktoren aendern
 			tId = 0;
-			while(tId < 100){
+			while(tId < 12){
 				Traktor t = hoefe.get(bauernhof).getTraktor(tId);
 				t.setBetriebsstunden((int) Math.abs(Math.random()*10000+1));
 				if(t instanceof TraktorBiogas)
