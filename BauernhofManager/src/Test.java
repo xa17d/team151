@@ -33,7 +33,7 @@ public class Test {
 		//Annotatione einer Klasse ausgeben
 		System.out.println("Annotation der Klasse *"+c.getName()+"*:");
 		ClassAuthorAnnotation classAnnotation = Duengerstreuer.class.getAnnotation(ClassAuthorAnnotation.class);
-		System.out.println("Author: " + classAnnotation.author());
+		System.out.println(classAnnotation.className()+": " + classAnnotation.author());
 		
 		//Annotationen der Methoden (und Konstruktoren) einer bestimmten Klasse ausgeben
 		System.out.println("Konstruktoren:");
