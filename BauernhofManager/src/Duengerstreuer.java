@@ -2,7 +2,7 @@
  * stellt ein Modul des Typs Duengerstreuer dar
  * @author Lucas
  */
-@ClassAuthorAnnotation(author="Lucas", className="Duengerstreuer")
+@AuthorAnnotation(author="Lucas")
 public class Duengerstreuer extends Modul {
 	private double fassungskapazitaet;
 	
@@ -11,7 +11,7 @@ public class Duengerstreuer extends Modul {
 	 * erzeugt neuen Duengerstreuer
 	 * @param fassungskapazitaet Fassungskapazitaet > 0
 	 */
-	@MethodAuthorAnnotation(author="Lucas", methodName="Duengerstreuer-Konstruktor")
+	@AuthorAnnotation(author="Lucas")
 	public Duengerstreuer(double fassungskapazitaet) {
 		this.fassungskapazitaet = fassungskapazitaet;
 	}
@@ -20,13 +20,13 @@ public class Duengerstreuer extends Modul {
 	 * liefert die Fassungskapazitaet des Duengerstreuers
 	 * @return Fassungskapazitaet > 0
 	 */
-	@MethodAuthorAnnotation(author="Lucas", methodName="getFassungskapazitaet")
+	@AuthorAnnotation(author="Lucas")
 	public double getFassungskapazitaet() {
 		return fassungskapazitaet;
 	}
 	
 	@Override
-	@MethodAuthorAnnotation(author="Lucas", methodName="iterationModul")
+	@AuthorAnnotation(author="Lucas")
 	public void interationModul(Iteration iteration, Traktor traktor) {
 		iteration.iterationModulDuengerstreuer(this, traktor);
 	}

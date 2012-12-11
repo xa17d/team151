@@ -2,7 +2,7 @@
  * Repraesentiert einen Bauernhof
  * @author Daniel
  */
-@ClassAuthorAnnotation(author="Daniel", className="Bauernhof")
+@AuthorAnnotation(author="Daniel")
 public class Bauernhof implements IteratableObject {
 
 	/**

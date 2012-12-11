@@ -1,5 +1,5 @@
 /**
- * enthaelt:
+ * enthaelt u.a.:
  * java.lang.annotation.Retention;
  * java.lang.annotation.Target;
  * java.lang.annotation.RetentionPolicy;
@@ -15,25 +15,22 @@ import java.lang.annotation.*;
 
 /**
  * Meta-Annotation
- * definiert dass Annotation vor Methoden und Konstruktoren stehen kann
+ * definiert dass Annotation vor Klassen (inkl. Interfaces und Enumerationen), Methoden und Konstruktoren stehen kann
  */
-@Target({ElementType.METHOD, ElementType.CONSTRUCTOR})
+@Target({ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR})
 
 /**
  * Annotation zur Bestimmung des Autors einer Methode
  * @author Lucas
  */
-public @interface MethodAuthorAnnotation {
+@AuthorAnnotation(author="Lucas")
+public @interface AuthorAnnotation {
 	
 	/**
 	 * Author der Methode
+	 * wird kein Autor angegeben, wird als Standart-Wert "OOP151" angenommen
 	 * @return Name des Authors
 	 */
+	@AuthorAnnotation(author="Lucas")
 	String author() default "OOP151";
-	
-	/**
-	 * Bezeichnung der Methode
-	 * @return Bezeichnung
-	 */
-	String methodName();
 }

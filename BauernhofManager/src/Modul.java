@@ -1,4 +1,8 @@
-@ClassAuthorAnnotation(author="Lucas", className="Modul")
+/**
+ * stellt ein Modul eines Traktors dar
+ * @author Lucas
+ */
+@AuthorAnnotation(author="Lucas")
 public abstract class Modul {
 	
 	/**
@@ -6,6 +10,6 @@ public abstract class Modul {
 	 * @param iteration Iterator
 	 * @param traktor Traktor zu dem Modul gehoert != null
 	 */
-	@MethodAuthorAnnotation(author="Lucas", methodName="iterationModul")
+	@AuthorAnnotation(author="Lucas")
 	public abstract void interationModul(Iteration iteration, Traktor traktor);
 }

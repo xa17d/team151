@@ -3,9 +3,9 @@
  */
 import java.lang.reflect.*;
 
-@ClassAuthorAnnotation(className="Test-Klasse")
+@AuthorAnnotation()
 public class Test {
-	@MethodAuthorAnnotation(methodName="Test-Methode")
+	@AuthorAnnotation()
 	public static void main(String[] args) {
 		BauernhofSet hoefe = new BauernhofSet();
 		
@@ -20,7 +20,7 @@ public class Test {
 		/**
 		 * Annotationen Test
 		 */
-		/*
+		printClassInfo(Test.class);
 		printClassInfo(Bauernhof.class);
 		printClassInfo(BauernhofSet.class);
 		printClassInfo(Drillmaschine.class);
@@ -36,21 +36,23 @@ public class Test {
 		printClassInfo(IterationFilter.class);
 		printClassInfo(Modul.class);
 		printClassInfo(Set.class);
-		printClassInfo(Test.class);
 		printClassInfo(Traktor.class);
 		printClassInfo(TraktorBiogas.class);
 		printClassInfo(TraktorDiesel.class);
 		printClassInfo(TraktorSet.class);
-		*/
+		printClassInfo(AuthorAnnotation.class);
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static void printClassInfo(Class c) {
+		AuthorAnnotation annotation;
+		int i = 0;
+		
 		//Annotatione einer Klasse ausgeben
-		System.out.println("Annotation der Klasse *"+c.getName()+"*:");
-		if (c.isAnnotationPresent(ClassAuthorAnnotation.class)) {
-			ClassAuthorAnnotation classAnnotation = Duengerstreuer.class.getAnnotation(ClassAuthorAnnotation.class);
-			System.out.println(classAnnotation.className()+": " + classAnnotation.author());
+		System.out.println("Annotation der Klasse *" + c.getName() + "*:");
+		if (c.isAnnotationPresent(AuthorAnnotation.class)) {
+			annotation = (AuthorAnnotation) c.getAnnotation(AuthorAnnotation.class);
+			System.out.println(c.getName() + ": " + annotation.author());
 		}
 			
 		//Annotationen der Methoden (und Konstruktoren) einer bestimmten Klasse ausgeben
@@ -58,18 +60,19 @@ public class Test {
 		
 		Constructor[] constructors = c.getConstructors();
 		for(Constructor co : constructors) {
-			if(co.isAnnotationPresent(MethodAuthorAnnotation.class)) {
-				MethodAuthorAnnotation methodAnnotation = (MethodAuthorAnnotation)co.getAnnotation(MethodAuthorAnnotation.class);
-				System.out.println("\t"+methodAnnotation.methodName() + ": " + methodAnnotation.author());
+			i++;
+			if(co.isAnnotationPresent(AuthorAnnotation.class)) {
+				annotation = (AuthorAnnotation) co.getAnnotation(AuthorAnnotation.class);
+				System.out.println("\t" + co.getName() + "#" + i + ": " + annotation.author());
 			}
 		}
 		
 		System.out.println("Methoden:");
 		Method[] methods = c.getMethods();
 		for(Method m : methods) {
-			if(m.isAnnotationPresent(MethodAuthorAnnotation.class)) {
-				MethodAuthorAnnotation methodAnnotation = m.getAnnotation(MethodAuthorAnnotation.class);
-				System.out.println("\t"+methodAnnotation.methodName() + ": " + methodAnnotation.author());
+			if(m.isAnnotationPresent(AuthorAnnotation.class)) {
+				annotation = m.getAnnotation(AuthorAnnotation.class);
+				System.out.println("\t" + m.getName() + ": " + annotation.author());
 			}
 		}
 		

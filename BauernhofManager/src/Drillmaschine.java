@@ -2,7 +2,7 @@
  * stellt ein Modul des Typs Drillmaschine dar
  * @author Lucas
  */
-@ClassAuthorAnnotation(author="Lucas", className="Drillmaschine")
+@AuthorAnnotation(author="Lucas")
 public class Drillmaschine extends Modul {
 	private int anzahlSaehscharen;
 	
@@ -11,7 +11,7 @@ public class Drillmaschine extends Modul {
 	 * erzeugt neue Drillmaschine
 	 * @param anzahlSaescharen Anzahl der Saescheren > 0
 	 */
-	@MethodAuthorAnnotation(author="Lucas", methodName="Drillmaschine-Konstruktor")
+	@AuthorAnnotation(author="Lucas")
 	public Drillmaschine(int anzahlSaescharen) {
 		this.anzahlSaehscharen = anzahlSaescharen;
 	}
@@ -20,13 +20,13 @@ public class Drillmaschine extends Modul {
 	 * liefert die Anzahl der Saescheren des Duengerstreuers
 	 * @return Anzahl der Saescheren > 0
 	 */
-	@MethodAuthorAnnotation(author="Lucas", methodName="getAnzahlSaehscharen")
+	@AuthorAnnotation(author="Lucas")
 	public int getAnzahlSaehscharen() {
 		return anzahlSaehscharen;
 	}
 	
 	@Override
-	@MethodAuthorAnnotation(author="Lucas", methodName="iterationModul")
+	@AuthorAnnotation(author="Lucas")
 	public void interationModul(Iteration iteration, Traktor traktor) {
 		iteration.iterationModulDrillmaschine(this, traktor);
 	}
