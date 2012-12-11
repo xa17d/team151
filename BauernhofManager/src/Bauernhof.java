@@ -87,7 +87,7 @@ public class Bauernhof implements IteratableObject {
 		s.append("    alle:    "+berechneAvgGasverbrauch()+"\n");
 		s.append("    Saeen:   "+berechneAvgGasverbrauchSaeen()+"\n");
 		s.append("    Duengen: "+berechneAvgGasverbrauchDuengen()+"\n");
-		s.append("  minimale und maximale Anzahl an Säscharen\n");
+		s.append("  minimale und maximale Anzahl an Saescharen\n");
 		s.append("    alle:  \t"+berechneMinAnzahlSaescharen()+"\t"+berechneMaxAnzahlSaescharen()+"\n");
 		s.append("    Diesel:\t"+berechneMinAnzahlSaescharenDiesel()+"\t"+berechneMaxAnzahlSaescharenDiesel()+"\n");
 		s.append("    Biogas:\t"+berechneMinAnzahlSaescharenBiogas()+"\t"+berechneMaxAnzahlSaescharenBiogas()+"\n");
