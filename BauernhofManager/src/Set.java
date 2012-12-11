@@ -1,12 +1,14 @@
 /**
  * Container in dem verschiedene Objects abgelegt werden koennen.
  * Als verkettete Liste implementiert.
- * @author daniel
+ * @author Daniel
  */
+@AuthorAnnotation(author="Daniel")
 public class Set {
 	/**
 	 * Konstruktor. Erstellt ein neues Set
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public Set() {
 		first = new SetNode(null);
 	}
@@ -21,6 +23,7 @@ public class Set {
 	 * @param item neues Element (!=null)
 	 * @return true wenn das Element eingefuegt wurde, false wenn sich das Element bereits im Set befindet
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public boolean insert(IteratableObject item) {
 		SetNode current = first;
 		
@@ -42,6 +45,7 @@ public class Set {
 	 * @param item zu entfernendes Element
 	 * @return true wenn das Element entfernt wurde, false wenn es nicht gefunden wurde
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public boolean remove(IteratableObject item) {
 		SetNode current = first;
 		SetNode previous;
@@ -64,6 +68,7 @@ public class Set {
 	 * Ruft fuer jedes Element im Set die Methode iteration.iteration(...) auf.
 	 * @param iteration Iteration-Instanz dessen iteration(...) Methode aufgerufen werden soll.
 	 */
+	@AuthorAnnotation(author="Daniel")
 	public void iterate(Iteration iteration)
 	{
 		SetNode current = first.getNext();
@@ -78,6 +83,7 @@ public class Set {
 	/**
 	 * innere Klasse SetNode implementiert die Knotenpunkte des Sets
 	 */
+	@AuthorAnnotation(author="Daniel")
 	private class SetNode {
 		private SetNode next;
 		private IteratableObject item;
@@ -86,6 +92,7 @@ public class Set {
 		 * Erstellt ein neues Node
 		 * @param item Element
 		 */
+		@AuthorAnnotation(author="Daniel")
 		public SetNode(IteratableObject item) {
 			next = null;
 			this.item = item;
@@ -95,6 +102,7 @@ public class Set {
 		 * liefert den naechsten Knoten
 		 * @return naechster Knoten
 		 */
+		@AuthorAnnotation(author="Daniel")
 		public SetNode getNext() { 
 			return next;
 		}
@@ -103,6 +111,7 @@ public class Set {
 		 * naechsten Knoten definieren
 		 * @param next naechster Knoten
 		 */
+		@AuthorAnnotation(author="Daniel")
 		public void setNext(SetNode next) {
 			this.next = next; 
 		}
@@ -111,6 +120,7 @@ public class Set {
 		 * leifert Element des Knotens
 		 * @return Element
 		 */
+		@AuthorAnnotation(author="Daniel")
 		public IteratableObject getItem() {
 			return item;
 		}
@@ -120,6 +130,7 @@ public class Set {
 	 * Listet alle Elemente des Sets als String auf
 	 */
 	@Override
+	@AuthorAnnotation(author="Daniel")
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		
