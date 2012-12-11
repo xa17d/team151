@@ -13,8 +13,30 @@ public class Test {
 		hoefe.insert(new Bauernhof("Cow-Paradise"));
 		hoefe.insert(new Bauernhof("Frischheu"));
 		
-		hoefe.get("Goldweide").addTraktor(new TraktorBiogas(1));
+		//Bauernhof Goldweide
+		//Biogastraktoren
+		hoefe.get("Goldweide").addTraktor(new TraktorBiogas(1, new Duengerstreuer(10.5)));
+		hoefe.get("Goldweide").addTraktor(new TraktorBiogas(2, new Duengerstreuer(20.5)));
+		hoefe.get("Goldweide").addTraktor(new TraktorBiogas(3, new Drillmaschine(3)));
+		hoefe.get("Goldweide").addTraktor(new TraktorBiogas(4, new Drillmaschine(10)));
+		
+		//Dieseltraktoren
+		hoefe.get("Goldweide").addTraktor(new TraktorDiesel(5, new Duengerstreuer(500)));
+		hoefe.get("Goldweide").addTraktor(new TraktorDiesel(6, new Duengerstreuer(200)));
+		hoefe.get("Goldweide").addTraktor(new TraktorDiesel(7, new Drillmaschine(5)));
 
+		//Betriebsstunden des Traktors 1,2,3,7 aendern
+		hoefe.get("Goldweide").getTraktor(1).setBetriebsstunden(1000);
+		hoefe.get("Goldweide").getTraktor(2).setBetriebsstunden(10);
+		hoefe.get("Goldweide").getTraktor(3).setBetriebsstunden(5000);
+		hoefe.get("Goldweide").getTraktor(7).setBetriebsstunden(10000);
+		
+		//Verbrauch fuer die Traktoren setzen
+		((TraktorDiesel)hoefe.get("Goldweide").getTraktor(7)).setVerbrauch(1000);
+		((TraktorBiogas)hoefe.get("Goldweide").getTraktor(1)).setVerbrauch(500.9);
+		((TraktorBiogas)hoefe.get("Goldweide").getTraktor(2)).setVerbrauch(1000.00);
+		((TraktorBiogas)hoefe.get("Goldweide").getTraktor(3)).setVerbrauch(200.27);
+		
 		System.out.print(hoefe);
 		
 		/**

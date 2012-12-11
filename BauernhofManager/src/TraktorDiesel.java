@@ -12,7 +12,7 @@ public class TraktorDiesel extends Traktor {
 	 * @param id
 	 */
 	@AuthorAnnotation(author="Raphael")
-	public TraktorDiesel(int id) { super(id); }
+	public TraktorDiesel(int id, Modul modul) { super(id, modul); }
 	
 	@Override
 	@AuthorAnnotation(author="Raphael")
@@ -34,5 +34,11 @@ public class TraktorDiesel extends Traktor {
 	@AuthorAnnotation(author="Raphael")
 	public void setVerbrauch(int verbrauch) {
 		this.verbrauch = verbrauch;
+	}
+	
+	@Override
+	@AuthorAnnotation(author="Raphael")
+	public String toString(){
+		return "Dieseltraktor: " + super.toString();
 	}
 }

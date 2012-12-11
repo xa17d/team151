@@ -12,10 +12,13 @@ public abstract class Traktor implements IteratableObject {
 	
 	/**
 	 * Konstruktor
+	 * Setzt die id des Traktors und das Modul Betriebsstunden werden beim neuen
+	 * Anlegen eines Traktors auf 0 gesetzt.
 	 * @param id
+	 * @param modul
 	 */
 	@AuthorAnnotation(author="Raphael")
-	public Traktor(int id) { this.id = id; }
+	public Traktor(int id, Modul modul) { this.id = id; setModul(modul); this.betriebsstunden = 0; }
 	
 	/**
 	 * @return id des Traktors
@@ -79,5 +82,9 @@ public abstract class Traktor implements IteratableObject {
 		}
 	}
 
-	
+	@Override
+	@AuthorAnnotation(author="Raphael")
+	public String toString(){
+		return "Id: " + id + ", Betriebsstunden: " + betriebsstunden + ", Modul: " + modul.toString();
+	}
 }

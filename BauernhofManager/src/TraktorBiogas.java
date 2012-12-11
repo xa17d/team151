@@ -12,7 +12,7 @@ public class TraktorBiogas extends Traktor {
 	 * @param id
 	 */
 	@AuthorAnnotation(author="Raphael")
-	public TraktorBiogas(int id) { super(id); }
+	public TraktorBiogas(int id, Modul modul) { super(id, modul); }
 	
 	/**
 	 * @return aktuellen Verbrauch an Biogas
@@ -34,5 +34,11 @@ public class TraktorBiogas extends Traktor {
 	@AuthorAnnotation(author="Raphael")
 	public void interationTyp(Iteration iteration) {
 		iteration.iterationTraktorBiogas(this);
+	}
+	
+	@Override
+	@AuthorAnnotation(author="Raphael")
+	public String toString(){
+		return "Biogastraktor: " + super.toString();
 	}
 }
