@@ -2,7 +2,7 @@
 public abstract class Modul {
 	
 	/**
-	 * TODO
+	 * Ruft je nach Untertyp von Modul iteration.iterationModulDrillmaschine oder iteration.iterationModulDuengerstreuer auf
 	 * @param iteration Iterator
 	 * @param traktor Traktor zu dem Modul gehoert != null
 	 */

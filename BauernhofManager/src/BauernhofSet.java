@@ -74,4 +74,12 @@ public class BauernhofSet {
 		 */
 		public Bauernhof getBauernhof() { return bauernhof; }
 	}
+	
+	/**
+	 * Listet alle Elemente des Sets als String auf
+	 */
+	@Override
+	public String toString() {
+		return set.toString();
+	}
 }

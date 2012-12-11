@@ -83,4 +83,12 @@ public class TraktorSet {
 		 */
 		public Traktor getTraktor() { return traktor; }
 	}
+	
+	/**
+	 * Listet alle Elemente des Sets als String auf
+	 */
+	@Override
+	public String toString() {
+		return set.toString();
+	}
 }

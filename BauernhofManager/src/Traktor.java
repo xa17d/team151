@@ -29,4 +29,9 @@ public abstract class Traktor implements IteratableObject {
 			modul.interationModul(iteration, this);
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return "Traktor #"+id;
+	}
 }

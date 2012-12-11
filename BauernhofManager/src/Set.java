@@ -115,4 +115,21 @@ public class Set {
 			return item;
 		}
 	}
+	
+	/**
+	 * Listet alle Elemente des Sets als String auf
+	 */
+	@Override
+	public String toString() {
+		StringBuilder s = new StringBuilder();
+		
+		SetNode current = first.getNext();
+		while(current != null)
+		{
+			s.append(current.getItem() + "\n");
+			current = current.getNext();
+		}
+		
+		return s.toString();
+	}
 }

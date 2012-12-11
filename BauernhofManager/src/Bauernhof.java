@@ -55,11 +55,39 @@ public class Bauernhof implements IteratableObject {
 	}
 	
 	/**
-	 * Gibt den Namen des Bauernhofs zurueck
+	 * Gibt den Bauernhof Informationen zurueck
 	 */
 	@Override
 	public String toString() {
-		return name;
+		StringBuffer s = new StringBuffer();
+		
+		s.append("=== Bauernhof "+getName()+" ===\n");
+		s.append("Name: "+getName()+"\n");
+		s.append("Traktor-Liste:\n-----\n");
+		s.append(traktors.toString());
+		s.append("-----\n");
+		s.append("Statistik:\n");
+		s.append("  durchschnittliche Anzahl der Betriebsstunden\n");
+		s.append("    alle:    "+berechneAvgBetiebsstunden()+"\n");
+		s.append("    Saeen:   "+berechneAvgBetiebsstundenSaeen()+"\n");
+		s.append("    Duengen: "+berechneAvgBetiebsstundenDuengen()+"\n");
+		s.append("    Diesel:  "+berechneAvgBetiebsstundenDiesel()+"\n");
+		s.append("    Biogas:  "+berechneAvgBetiebsstundenBiogas()+"\n");
+		s.append("  durchschnittlicher Dieselverbrauch\n");
+		s.append("    alle:    "+berechneAvgDieselverbrauch()+"\n");
+		s.append("    Saeen:   "+berechneAvgDieselverbrauchSaeen()+"\n");
+		s.append("    Duengen: "+berechneAvgDieselverbrauchDuengen()+"\n");
+		s.append("  durchschnittlicher Gasverbrauch\n");
+		s.append("    alle:    "+berechneAvgGasverbrauch()+"\n");
+		s.append("    Saeen:   "+berechneAvgGasverbrauchSaeen()+"\n");
+		s.append("    Duengen: "+berechneAvgGasverbrauchDuengen()+"\n");
+		s.append("  minimale und maximale Anzahl an Säscharen\n");
+		s.append("    alle:  \t"+berechneMinAnzahlSaescharen()+"\t"+berechneMaxAnzahlSaescharen()+"\n");
+		s.append("    Diesel:\t"+berechneMinAnzahlSaescharenDiesel()+"\t"+berechneMaxAnzahlSaescharenDiesel()+"\n");
+		s.append("    Biogas:\t"+berechneMinAnzahlSaescharenBiogas()+"\t"+berechneMaxAnzahlSaescharenBiogas()+"\n");
+		s.append("\n");
+		
+		return s.toString();
 	}
 
 	/**
@@ -214,7 +242,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die minimale Anzahl an Saescharen aller Traktoren aller Dieseltraktoren
 	 */
-	public int berechneMinAnzahlDiesel() {
+	public int berechneMinAnzahlSaescharenDiesel() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Diesel(i));
 		return i.getMin();
@@ -223,7 +251,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die maximale Anzahl an Saescharen aller Traktoren aller Dieseltraktoren
 	 */
-	public int berechneMaxAnzahlDiesel() {
+	public int berechneMaxAnzahlSaescharenDiesel() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Diesel(i));
 		return i.getMax();
@@ -232,7 +260,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die minimale Anzahl an Saescharen aller Traktoren aller Biogastraktoren
 	 */
-	public int berechneMinAnzahlBiogas() {
+	public int berechneMinAnzahlSaescharenBiogas() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Biogas(i));
 		return i.getMin();
@@ -241,7 +269,7 @@ public class Bauernhof implements IteratableObject {
 	/**
 	 * @return Die maximale Anzahl an Saescharen aller Traktoren aller Biogastraktoren
 	 */
-	public int berechneMaxAnzahlBiogas() {
+	public int berechneMaxAnzahlSaescharenBiogas() {
 		IterationAnzahlSaescharen i = new IterationAnzahlSaescharen();
 		traktors.iterate(new Filters.Biogas(i));
 		return i.getMax();
