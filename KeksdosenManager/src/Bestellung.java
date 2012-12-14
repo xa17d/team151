@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Repraesentiert eine Bestellung.
  * @author daniel
  */
-public class Bestellung {
+public class Bestellung implements Iterable<Position> {
 	/**
 	 * Erzeugt eine neue Bestellung
 	 */
@@ -34,5 +35,10 @@ public class Bestellung {
 			System.out.println(i+".\t"+p);
 			i++;
 		}
+	}
+
+	@Override
+	public Iterator<Position> iterator() {
+		return positionen.iterator();
 	}
 }

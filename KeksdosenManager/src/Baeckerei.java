@@ -11,6 +11,13 @@ public class Baeckerei {
 	public Keksdose backen(Bestellung bestellung) {
 		Keksdose dose = new Keksdose();
 	
+		for (Position p : bestellung) {
+			for (int i = 0; i < p.getAnzahl(); i++) {
+				
+				// backe backe kekse...
+				
+			}
+		}
 		
 		return dose;
 	}

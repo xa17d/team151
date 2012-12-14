@@ -1,8 +1,6 @@
 
 public class Test {
 	public static void main(String[] args) {
-		System.out.println("and finally the last project: KeksdosenManager");
-		
 		//Teig
 		Teig schokoTeig = new Schokoladenteig();
 		Teig muerbTeig = new Muerbteig();
@@ -32,5 +30,17 @@ public class Test {
 		
 		kd.inhalt();
 		
+		// Baeckerei
+		Baeckerei baeckerei = new Baeckerei();
+		Bestellung bestellung = new Bestellung();
+		bestellung.addPosition(new Position(5, weihnachtsmannForm, muerbTeig, null));
+		bestellung.addPosition(new Position(15, rundeForm, zimtsternTeig, null));
+		bestellung.addPosition(new Position(15, mondForm, schokoTeig, null));
+		bestellung.addPosition(new Position(5, weihnachtsmannForm, schokoTeig, marmeladenFuellung));
+		bestellung.drucke();
+		
+		kd = baeckerei.backen(bestellung);
+		
+		kd.inhalt();
 	}
 }
