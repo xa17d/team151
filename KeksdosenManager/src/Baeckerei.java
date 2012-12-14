@@ -14,7 +14,13 @@ public class Baeckerei {
 		for (Position p : bestellung) {
 			for (int i = 0; i < p.getAnzahl(); i++) {
 				
-				// backe backe kekse...
+				if (p.getFuellung() == null) {
+					// Einfacher Keks
+				}
+				else {
+					// Doppel Keks
+					
+				}
 				
 			}
 		}
