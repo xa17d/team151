@@ -22,9 +22,11 @@ public class Baeckerei {
 		for (Position p : bestellung) {
 			for (int i = 0; i < p.getAnzahl(); i++) {
 				if (p.getFuellung() == null) {
+					//Einfacher Keks
 					keks = p.getForm().backeForm(p.getTeig());
 				}
 				else {
+					//Doppelter Keks
 					einfacherKeks = p.getForm().backeForm(p.getTeig());
 					keks = backmaschineDoppel.backeKeks(einfacherKeks, p.getFuellung());	
 					
