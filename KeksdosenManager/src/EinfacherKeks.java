@@ -1,6 +1,6 @@
 /**
  * 
- * @author raphael
+ * @author raphael, lucas
  *
  */
 public class EinfacherKeks extends Keks{
@@ -34,9 +34,6 @@ public class EinfacherKeks extends Keks{
 		return "Einfacher Keks mit Teigart: " + teigart.toString() + " Form: " + form.toString();
 	}
 	
-	/**
-	 * erstellt einen identischen Keks
-	 */
 	@Override
 	protected EinfacherKeks clone() {
 		return new EinfacherKeks(form, teigart);

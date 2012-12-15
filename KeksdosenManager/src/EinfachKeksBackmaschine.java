@@ -1,6 +1,6 @@
 /**
  * Backmaschine die einen einfachen Keks baeckt
- * @author Lucas
+ * @author lucas
  */
 public class EinfachKeksBackmaschine {
 	Form form;

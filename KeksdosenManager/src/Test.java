@@ -15,32 +15,37 @@ public class Test {
 		Fuellung schokoFuellung = new Schokoladenfuellung();
 		Fuellung marmeladenFuellung = new Marmeladenfuellung();
 		
-		//Kekse
-		EinfacherKeks runderKeks = new EinfacherKeks(rundeForm, schokoTeig);
-		EinfacherKeks mondKeks = new EinfacherKeks(mondForm, muerbTeig);
-		EinfacherKeks weihnachtsmannKeks = new EinfacherKeks(weihnachtsmannForm, zimtsternTeig);
-		Keks doppelKeks = new DoppelKeks(runderKeks, runderKeks, schokoFuellung);
-		
-		//Keksdose
+		//neue Baeckerei
+		Baeckerei baeckerei = new Baeckerei();
 		Keksdose kd = new Keksdose();
-		kd.addKeks(runderKeks);
-		kd.addKeks(mondKeks);
-		kd.addKeks(weihnachtsmannKeks);
-		kd.addKeks(doppelKeks);
 		
+		//Bestellung 1
+		Bestellung bestellung1 = new Bestellung();
+		bestellung1.addPosition(new Position(5, weihnachtsmannForm, muerbTeig, null));
+		bestellung1.addPosition(new Position(15, rundeForm, zimtsternTeig, null));
+		bestellung1.addPosition(new Position(15, mondForm, schokoTeig, null));
+		bestellung1.addPosition(new Position(5, weihnachtsmannForm, schokoTeig, marmeladenFuellung));
+		
+		System.out.println("** 1. Bestellung: Bestellliste **");
+		bestellung1.drucke();
+		
+		kd = baeckerei.backen(bestellung1);
+		
+		System.out.println("\n** 1. Bestellung: Keksdose **");
 		kd.inhalt();
 		
-		// Baeckerei
-		Baeckerei baeckerei = new Baeckerei();
-		Bestellung bestellung = new Bestellung();
-		bestellung.addPosition(new Position(5, weihnachtsmannForm, muerbTeig, null));
-		bestellung.addPosition(new Position(15, rundeForm, zimtsternTeig, null));
-		bestellung.addPosition(new Position(15, mondForm, schokoTeig, null));
-		bestellung.addPosition(new Position(5, weihnachtsmannForm, schokoTeig, marmeladenFuellung));
-		bestellung.drucke();
+		//Bestellung 2
+		Bestellung bestellung2 = new Bestellung();
+		bestellung2.addPosition(new Position(2, rundeForm, muerbTeig, schokoFuellung));
+		bestellung2.addPosition(new Position(4, rundeForm, muerbTeig, null));
+		bestellung2.addPosition(new Position(1, weihnachtsmannForm, zimtsternTeig, null));
 		
-		kd = baeckerei.backen(bestellung);
+		System.out.println("\n\n** 2. Bestellung: Bestellliste **");
+		bestellung2.drucke();
 		
+		kd = baeckerei.backen(bestellung2);
+		
+		System.out.println("\n** 2. Bestellung: Keksdose **");
 		kd.inhalt();
 	}
 }
