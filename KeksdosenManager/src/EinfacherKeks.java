@@ -33,4 +33,12 @@ public class EinfacherKeks extends Keks{
 	public String toString(){
 		return "Einfacher Keks mit Teigart: " + teigart.toString() + " Form: " + form.toString();
 	}
+	
+	/**
+	 * erstellt einen identischen Keks
+	 */
+	@Override
+	protected EinfacherKeks clone() {
+		return new EinfacherKeks(form, teigart);
+	}
 }

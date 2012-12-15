@@ -3,6 +3,6 @@
  * @author raphael
  * 
  */
-public abstract class Keks {
+public abstract class Keks implements Cloneable {
 	
 }
