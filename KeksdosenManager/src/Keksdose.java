@@ -11,6 +11,7 @@ public class Keksdose {
 	/**
 	 * Keksdosen Konstruktor
 	 * initialisiert den keksDosenInhalt
+	 * Keksdose ist ab jetzt leer.
 	 */
 	public Keksdose(){
 		keksDosenInhalt = new ArrayList<Keks>();
@@ -26,6 +27,7 @@ public class Keksdose {
 	
 	/**
 	 * Gibt den Inhalt der Keksdose auf der Standardausgabe aus.
+	 * Wenn kein Keks vorhanden - keine Ausgabe
 	 */
 	public void inhalt(){
 		for(Keks k : keksDosenInhalt)

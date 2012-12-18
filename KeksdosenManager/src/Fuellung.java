@@ -3,6 +3,4 @@
  * @author raphael
  *
  */
-public abstract class Fuellung {
-
-}
+public abstract class Fuellung {}

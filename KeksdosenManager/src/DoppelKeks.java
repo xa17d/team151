@@ -1,5 +1,6 @@
 /**
- * 
+ * DoppelKeks besteht aus einem Einfachkeks als Unterseite einer FŸllung und einem Einfachkeks
+ * als Oberseite
  * @author raphael
  *
  */
@@ -10,7 +11,8 @@ public class DoppelKeks extends Keks{
 	
 	/**
 	 * Doppelkeks Konstruktor
-	 * @param einfacherKeks Unterseitenkeks (darf nicht null sein)
+	 * @param keksUnterseite Unterseitenkeks (darf nicht null sein)
+	 * @param keksOberseite Oberseitenkeks (darf nicht null sein)
 	 * @param fuellung verwendete Fuellung (darf nicht null sein)
 	 */
 	public DoppelKeks(EinfacherKeks keksUnterseite, EinfacherKeks keksOberseite, Fuellung fuellung){

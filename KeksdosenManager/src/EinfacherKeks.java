@@ -9,8 +9,8 @@ public class EinfacherKeks extends Keks{
 	
 	/**
 	 * EinfacherKeks Konstruktor
-	 * @param form
-	 * @param teigart
+	 * @param form (darf nicht null sein)
+	 * @param teigart (darf nicht null sein)
 	 */
 	public EinfacherKeks (Form form, Teig teigart){
 		this.form = form;
