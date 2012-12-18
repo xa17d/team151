@@ -3,15 +3,21 @@
  * @author daniel, lucas
  */
 public class Baeckerei {
-	DoppelKeksBackmaschine backmaschineDoppel;
-
+	/**
+	 * Erzeugt eine neue Baeckerei
+	 */
 	public Baeckerei() {
 		backmaschineDoppel = new DoppelKeksBackmaschine();
 	}
 	
 	/**
+	 * Backmaschine fuer Doppelkekse
+	 */
+	private DoppelKeksBackmaschine backmaschineDoppel;
+	
+	/**
 	 * Fuehrt eine Bestellung aus
-	 * @param bestellung Bestellung
+	 * @param bestellung Bestellung (darf nicht null sein)
 	 * @return Keksdose mit den bestellten Keksen.
 	 */
 	public Keksdose backen(Bestellung bestellung) {

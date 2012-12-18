@@ -20,7 +20,7 @@ public class Bestellung implements Iterable<Position> {
 	
 	/**
 	 * Fuegt eine neue Position der Bestellung hinzu
-	 * @param position neue Position
+	 * @param position neue Position (darf nicht null sein)
 	 */
 	public void addPosition(Position position) {
 		positionen.add(position);

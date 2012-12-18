@@ -1,5 +1,5 @@
 /**
- * DoppelKeks besteht aus einem Einfachkeks als Unterseite einer FŸllung und einem Einfachkeks
+ * DoppelKeks besteht aus einem Einfachkeks als Unterseite einer Fuellung und einem Einfachkeks
  * als Oberseite
  * @author raphael
  *
@@ -31,6 +31,13 @@ public class DoppelKeks extends Keks{
 	 */
 	public EinfacherKeks getKeksUnterseite() {
 		return keksUnterseite;
+	}
+	
+	/**
+	 * @return Oberseitenkeks
+	 */
+	public EinfacherKeks getKeksOberseite() {
+		return keksOberseite;
 	}
 	
 	@Override

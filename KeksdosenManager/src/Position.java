@@ -6,9 +6,9 @@
 public class Position {
 	/**
 	 * Erstellt eine neue Position
-	 * @param anzahl Anzahl der Kekse dieser Art
-	 * @param form Form der Kekse
-	 * @param teig Teig der neuen Keks
+	 * @param anzahl Anzahl der Kekse dieser Art (groesser als 0)
+	 * @param form Form der Kekse (darf nicht null sein)
+	 * @param teig Teig des neuen Keks (darf nicht null sein)
 	 * @param fuellung Fuellung wenn es sich um einen Doppelkeks handelt, null fuer einen einfachen Kekes.
 	 */
 	public Position(int anzahl, Form form, Teig teig, Fuellung fuellung) {
